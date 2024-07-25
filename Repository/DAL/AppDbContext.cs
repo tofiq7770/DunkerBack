@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository.DAL
 {
@@ -9,6 +10,10 @@ namespace Repository.DAL
         {
 
         }
+        public DbSet<Setting> Settings { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
 
+        }
     }
 }
