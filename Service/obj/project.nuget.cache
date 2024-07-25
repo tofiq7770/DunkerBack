@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4wvRyWvthXu3Y4F2T9Pth6GYrCut+tRqgw6QK92j5oFy5KkFMXm4K/clcbVdCYtqk8wou9nLaonbn2q93x0xhw==",
+  "dgSpecHash": "C1ZunmgQg9lBbvTWf5l8YKeQ3FuiOeKkiazG9BnOGiHnNsxQb8W1bXp6q80+a/9xbdzJSyKDODg2xHXog3s+Bw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tofiq\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\tofiq\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

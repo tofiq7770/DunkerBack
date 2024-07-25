@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SGzLZDXQjHaftt6WX5XRvYvCude85OYY1ePA0bI5tP/2h5iD75ngLD55/nnBy0b+FO7Z0Z5REURbtVeEaKfZdw==",
+  "dgSpecHash": "6By3v2pJA8BTdbUJ9nTciilDD8FYStieUnyOGKuep2jPOkp5YSBH0ZCduqRHaKQg6j9XlLwsIxamA/mEC/S7PQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\DunkerFinal.csproj",
+  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tofiq\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\tofiq\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

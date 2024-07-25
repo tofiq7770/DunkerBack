@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OUxbRBoB2zYJ7Vb2gLZF9N7H7zj7IiPAycPQmEKwKiM=",
+  "Hash": "wFBmLhAvkVcKO4M4pSpEjowjYQS4bNz5DcFMT3rLkkk=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DunkerFinal\\wwwroot",
       "Source": "DunkerFinal",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DunkerFinal.styles.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DunkerFinal.styles.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "DunkerFinal.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DunkerFinal.styles.css"
+      "OriginalItemSpec": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DunkerFinal.styles.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DunkerFinal.bundle.scp.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DunkerFinal.bundle.scp.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "DunkerFinal.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DunkerFinal.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DunkerFinal.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\css\\style.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\css\\style.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/css/style.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\css\\style.css.map",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\css\\style.css.map",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/css/style.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\css\\style.css.map"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.eot",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.eot",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Bold.eot",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.eot"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.ttf",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.ttf",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Bold.ttf",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.ttf"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Bold.woff",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff2",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff2",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Bold.woff2",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Bold.woff2"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.eot",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.eot",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Light.eot",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.eot"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.ttf",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.ttf",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Light.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.ttf"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Light.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff2",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff2",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Light.woff2",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Light.woff2"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.eot",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.eot",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Medium.eot",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.eot"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.ttf",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.ttf",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Medium.ttf",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.ttf"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Medium.woff",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff2",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff2",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Medium.woff2",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Medium.woff2"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.eot",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.eot",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Regular.eot",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.eot"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.ttf",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.ttf",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Regular.ttf",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.ttf"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Regular.woff",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff2",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff2",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/fonts/Ubuntu/Ubuntu-Regular.woff2",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\fonts\\Ubuntu\\Ubuntu-Regular.woff2"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\circle.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\circle.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/circle.png",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\circle.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\circle.svg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\circle.svg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/circle.svg",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\circle.svg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_1.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_1.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/img_1.jpg",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\img_1.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_2.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_2.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/img_2.jpg",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\img_2.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_3.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_3.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/img_3.jpg",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\img_3.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_4.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\dashboard\\img_4.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/dashboard/img_4.jpg",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\dashboard\\img_4.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face1.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face1.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face1.jpg",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face1.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face10.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face10.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face10.jpg",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face10.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face11.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face11.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face11.jpg",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face11.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face12.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face12.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face12.jpg",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face12.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face13.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face13.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face13.jpg",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face13.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face14.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face14.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face14.jpg",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face14.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face15.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face15.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face15.jpg",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face15.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face16.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face16.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face16.jpg",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face16.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face17.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face17.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face17.jpg",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face17.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face18.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face18.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face18.jpg",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face18.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face19.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face19.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face19.jpg",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face19.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face2.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face2.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face2.jpg",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face2.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face20.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face20.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face20.jpg",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face20.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face21.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face21.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face21.jpg",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face21.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face22.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face22.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face22.jpg",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face22.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face23.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face23.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face23.jpg",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face23.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face24.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face24.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face24.jpg",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face24.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face25.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face25.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face25.jpg",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face25.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face26.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face26.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face26.jpg",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face26.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face27.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face27.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face27.jpg",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face27.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face3.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face3.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face3.jpg",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face3.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face4.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face4.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face4.jpg",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face4.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face5.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face5.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face5.jpg",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face5.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face6.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face6.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face6.jpg",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face6.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face7.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face7.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face7.jpg",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face7.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face8.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face8.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face8.jpg",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face8.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face9.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces\\face9.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces/face9.jpg",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face9.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-1.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-1.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces-clipart/pic-1.png",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces-clipart\\pic-1.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-2.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-2.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces-clipart/pic-2.png",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces-clipart\\pic-2.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-3.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-3.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces-clipart/pic-3.png",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces-clipart\\pic-3.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-4.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\faces-clipart\\pic-4.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/faces-clipart/pic-4.png",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces-clipart\\pic-4.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\favicon.ico",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\favicon.ico",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/favicon.ico",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\favicon.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\favicon.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/favicon.png",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\logo.svg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\logo.svg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/logo.svg",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\logo.svg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\logo-mini.svg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\logo-mini.svg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/logo-mini.svg",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\logo-mini.svg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\blue.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\blue.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/blue.png",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\blue.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\dark.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\dark.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/dark.png",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\dark.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\flag.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\flag.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/flag.png",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\flag.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\green.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\green.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/green.png",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\green.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\jsgrid-icons.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\jsgrid-icons.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/jsgrid-icons.png",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\jsgrid-icons.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\red.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\red.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/red.png",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\red.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\yellow.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\images\\sprites\\yellow.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/images/sprites/yellow.png",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\sprites\\yellow.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\chart.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\chart.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/chart.js",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\chart.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\dashboard.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\dashboard.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/dashboard.js",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\dashboard.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\file-upload.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\file-upload.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/file-upload.js",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\file-upload.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\hoverable-collapse.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\hoverable-collapse.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/hoverable-collapse.js",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\hoverable-collapse.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\jquery.cookie.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\jquery.cookie.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/jquery.cookie.js",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\jquery.cookie.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\misc.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\misc.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/misc.js",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\misc.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\off-canvas.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\off-canvas.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/off-canvas.js",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\off-canvas.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\todo.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\todo.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/todo.js",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\todo.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\js\\todolist.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\todolist.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/js/todolist.js",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\todolist.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_dashboard.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_dashboard.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_dashboard.scss",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_dashboard.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_demo.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_demo.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_demo.scss",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_demo.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_fonts.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_fonts.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_fonts.scss",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_fonts.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_footer.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_footer.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_footer.scss",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_footer.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_functions.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_functions.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_functions.scss",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_functions.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_layouts.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_layouts.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_layouts.scss",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_layouts.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_misc.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_misc.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_misc.scss",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_misc.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_navbar.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_navbar.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_navbar.scss",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_navbar.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_reset.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_reset.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_reset.scss",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_reset.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_sidebar.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_sidebar.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_sidebar.scss",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_sidebar.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_typography.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_typography.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_typography.scss",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_typography.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_utilities.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_utilities.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_utilities.scss",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_utilities.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_variables.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_variables.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_variables.scss",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_variables.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_vertical-wrapper.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_vertical-wrapper.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_vertical-wrapper.scss",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_vertical-wrapper.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_widget-grid.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\_widget-grid.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/_widget-grid.scss",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\_widget-grid.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_badges.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_badges.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_badges.scss",
       "AssetKind": "All",
@@ -1598,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_badges.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_bootstrap-progress.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_bootstrap-progress.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_bootstrap-progress.scss",
       "AssetKind": "All",
@@ -1615,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_bootstrap-progress.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_breadcrumbs.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_breadcrumbs.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_breadcrumbs.scss",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_breadcrumbs.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_buttons.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_buttons.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_buttons.scss",
       "AssetKind": "All",
@@ -1649,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_buttons.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_cards.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_cards.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_cards.scss",
       "AssetKind": "All",
@@ -1666,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_cards.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_checkbox-radio.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_checkbox-radio.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_checkbox-radio.scss",
       "AssetKind": "All",
@@ -1683,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_checkbox-radio.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_dropdown.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_dropdown.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_dropdown.scss",
       "AssetKind": "All",
@@ -1700,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_dropdown.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_forms.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_forms.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_forms.scss",
       "AssetKind": "All",
@@ -1717,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_forms.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_icons.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_icons.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_icons.scss",
       "AssetKind": "All",
@@ -1734,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_icons.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_lists.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_lists.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_lists.scss",
       "AssetKind": "All",
@@ -1751,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_lists.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_preview.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_preview.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_preview.scss",
       "AssetKind": "All",
@@ -1768,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_preview.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_tables.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_tables.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_tables.scss",
       "AssetKind": "All",
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_tables.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_todo-list.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\components\\_todo-list.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/components/_todo-list.scss",
       "AssetKind": "All",
@@ -1802,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\components\\_todo-list.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\landing-screens\\_auth.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\landing-screens\\_auth.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/landing-screens/_auth.scss",
       "AssetKind": "All",
@@ -1819,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\landing-screens\\_auth.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_animation.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_animation.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_animation.scss",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_animation.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_background.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_background.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_background.scss",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_background.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_badges.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_badges.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_badges.scss",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_badges.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_blockqoute.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_blockqoute.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_blockqoute.scss",
       "AssetKind": "All",
@@ -1887,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_blockqoute.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_breadcrumbs.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_breadcrumbs.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_breadcrumbs.scss",
       "AssetKind": "All",
@@ -1904,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_breadcrumbs.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_buttons.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_buttons.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_buttons.scss",
       "AssetKind": "All",
@@ -1921,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_buttons.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_cards.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_cards.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_cards.scss",
       "AssetKind": "All",
@@ -1938,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_cards.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_misc.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_misc.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_misc.scss",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_misc.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_pagination.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_pagination.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_pagination.scss",
       "AssetKind": "All",
@@ -1972,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_pagination.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_popovers.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_popovers.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_popovers.scss",
       "AssetKind": "All",
@@ -1989,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_popovers.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_text.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_text.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_text.scss",
       "AssetKind": "All",
@@ -2006,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_text.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_tooltips.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\mixins\\_tooltips.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/mixins/_tooltips.scss",
       "AssetKind": "All",
@@ -2023,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\mixins\\_tooltips.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\style.scss",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\scss\\style.scss",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/scss/style.scss",
       "AssetKind": "All",
@@ -2040,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\scss\\style.scss"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\chart.js\\Chart.min.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\chart.js\\Chart.min.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/chart.js/Chart.min.js",
       "AssetKind": "All",
@@ -2057,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\chart.js\\Chart.min.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\css\\vendor.bundle.base.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\css\\vendor.bundle.base.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/css/vendor.bundle.base.css",
       "AssetKind": "All",
@@ -2074,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\css\\vendor.bundle.base.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\js\\bootstrap.min.js.map",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2091,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\js\\vendor.bundle.base.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\js\\vendor.bundle.base.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/js/vendor.bundle.base.js",
       "AssetKind": "All",
@@ -2108,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\js\\vendor.bundle.base.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/css/materialdesignicons.min.css",
       "AssetKind": "All",
@@ -2125,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css.map",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css.map",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/css/materialdesignicons.min.css.map",
       "AssetKind": "All",
@@ -2142,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\css\\materialdesignicons.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.eot",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.eot",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/fonts/materialdesignicons-webfont.eot",
       "AssetKind": "All",
@@ -2159,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.eot"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.ttf",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.ttf",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/fonts/materialdesignicons-webfont.ttf",
       "AssetKind": "All",
@@ -2176,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.ttf"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/fonts/materialdesignicons-webfont.woff",
       "AssetKind": "All",
@@ -2193,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "admin/assets/vendors/mdi/fonts/materialdesignicons-webfont.woff2",
       "AssetKind": "All",
@@ -2210,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\assets\\css\\main.css",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\css\\main.css",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "assets/css/main.css",
       "AssetKind": "All",
@@ -2227,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\main.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\assets\\img\\cropped-favicon-32x32.png",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\cropped-favicon-32x32.png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "assets/img/cropped-favicon-32x32.png",
       "AssetKind": "All",
@@ -2244,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\cropped-favicon-32x32.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\assets\\js\\script.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\script.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "assets/js/script.js",
       "AssetKind": "All",
@@ -2261,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\script.js"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\assets\\js\\tab.js",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\tab.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerFinal\\DunkerFinal\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
       "BasePath": "_content/DunkerFinal",
       "RelativePath": "assets/js/tab.js",
       "AssetKind": "All",

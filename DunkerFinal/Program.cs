@@ -6,7 +6,9 @@
 
 
 using Microsoft.EntityFrameworkCore;
+using Repository;
 using Repository.DAL;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
+
+
+builder.Services.AddRepositoryLayer();
+builder.Services.AddServiceLayer();
+
 
 
 var app = builder.Build();
