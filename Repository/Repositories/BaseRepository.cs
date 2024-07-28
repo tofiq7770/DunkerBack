@@ -20,23 +20,19 @@ namespace Repository.Repositories
             await _entities.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
-
         public async Task DeleteAsync(T entity)
         {
             _entities.Remove(entity);
             await _context.SaveChangesAsync();
         }
-
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _entities.ToListAsync();
         }
-
         public async Task<T> GetByIdAsync(int id)
         {
             return await _entities.FindAsync(id);
         }
-
         public async Task UpdateAsync(T entity)
         {
             _entities.Update(entity);

@@ -1,5 +1,4 @@
-﻿using DunkerFinal.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 
 namespace DunkerFinal.ViewComponents
@@ -15,14 +14,7 @@ namespace DunkerFinal.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Dictionary<string, string> settings = await _settingService.GetAll();
-
-            FooterVM model = new()
-            {
-                Settings = settings
-            };
-
-            return await Task.FromResult(View(model));
+            return await Task.FromResult(View(await _settingService.GetAllAsync()));
         }
     }
 }

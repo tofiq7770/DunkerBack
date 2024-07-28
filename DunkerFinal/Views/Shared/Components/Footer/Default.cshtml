@@ -1,5 +1,5 @@
-﻿@using DunkerFinal.ViewModels
-@model FooterVM
+﻿ @using Service.ViewModels.Setting
+@model List<SettingListVM>
 
     <!-- Footer Start -->
     <footer id="footer">
@@ -206,7 +206,7 @@
               <h5>LOS ANGELES</h5>
               <address>
                 <h6 class="footer-heading">
-                  <a href="tel:+738115709479">@Model.Settings["Number"]</a>
+                  <a href="tel:+738115709479">@Model.FirstOrDefault(m=>m.Key=="Number")</a>
                 </h6>
                 <h6 class="footer-heading">
                   <a href="#">

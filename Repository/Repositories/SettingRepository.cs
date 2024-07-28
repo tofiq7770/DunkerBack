@@ -11,6 +11,10 @@ namespace Repository.Repositories
         {
 
         }
+        public async Task<bool> AnyAsync(string key)
+        {
+            return await _context.Settings.AnyAsync(m => m.Key == key);
+        }
         public async Task<Dictionary<string, string>> GetAll()
         {
             return await _context.Settings.ToDictionaryAsync(m => m.Key, m => m.Value);
