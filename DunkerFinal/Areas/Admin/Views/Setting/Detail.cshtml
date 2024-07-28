@@ -1,36 +1,15 @@
 ﻿@using Service.ViewModels.Setting
 @model SettingVM
+ 
+<div class="container mt-5 mx-3">
 
-<div class="table-responsive container mx-5">
-    <div class="col-md-9 col-sm-9 center-margin mt-3" >
-        <table class="table table-striped jambo_table bulk_action">
+    <p><b>Key</b>: @Model.Key</p>
+    <p><b>Value</b>: @Model.Value</p>
 
-            <thead style="background-color:#121212;">
-                <tr class="headings">
-                    <th class="column-title">Key </th>
-                    <th class="column-title">Value </th>
-                </tr>
-            </thead>
+    <div class=mt-4>
 
-            <tbody>
-                    <tr class="even pointer">
-                        <td class=" ">@Model.Key</td>
-                    <td class=" ">@Model.Value</td>
-
-                    </tr>
-            </tbody>
-        </table>
-        <div class="item form-group">
-            <div class="">
-                <a asp-action="Index" asp-area="Admin" asp-controller="Setting">
-                    <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl" style="color:#121212;"></i>
-
-                </a>
-             
-
-            </div>
-        </div>
-
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Setting" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Setting" asp-route-id="@Model.Id" asp-action="Update">Update</a>
+        <a class="btn btn-danger" asp-area="Admin" asp-controller="Setting" asp-route-id="@Model.Id" asp-action="Delete">Delete</a>
     </div>
 </div>
-<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

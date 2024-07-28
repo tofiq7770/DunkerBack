@@ -7,7 +7,7 @@ namespace Service.Services.Interfaces
         Task<IEnumerable<SettingListVM>> GetAllAsync();
         Task<bool> AnyAsync(string key);
         Task<Dictionary<string, string>> GetAll();
-        Task<SettingVM> GetByIdAsync(int id);
+        Task<SettingUpdateVM> GetByIdAsync(int id);
         Task CreateAsync(SettingCreateVM model);
         Task UpdateAsync(int id, SettingUpdateVM model);
         Task DeleteAsync(int id);

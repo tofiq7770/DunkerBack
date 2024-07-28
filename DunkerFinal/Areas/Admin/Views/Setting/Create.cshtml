@@ -1,42 +1,24 @@
 ﻿@using Service.ViewModels.Setting
 @model SettingVM
 
-<div class="x_content container mx-5">
-    <div class="col-md-9 col-sm-9 center-margin mt-3">
-        <a asp-action="Index" asp-area="Admin" asp-controller="Setting">
+<div class="container mt-5">
+    <h3 class="text-center text-dark">Update Setting</h3>
 
-            <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
+     <form class="forms-sample" method="post" enctype="multipart/form-data">
+                
+         
+                <div class="form-group">
+                    <label asp-for="Key">Key</label>
+                    <input asp-for="Key" class="form-control" placeholder="Key">
+                    <span class="text-danger" asp-validation-for="Key"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Value">Value</label>
+                    <input asp-for="Value" class="form-control" placeholder="Value">
+                    <span class="text-danger" asp-validation-for="Value"></span>
+                </div>
 
-        </a>
-
-        <form  method="post" >
-                                       
-            <span class="section mt-3">Create Setting</span>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Key<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                    <input asp-for="Key" class="form-control" placeholder="Add key..." required="required" />
-                    <span class="text-danger mt-2" asp-validation-for="Key"></span>
-
-                                            </div>
-                                        </div>
-                                        <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align">Value</label>
-                                            <div class="col-md-6 col-sm-6">
-                    <input asp-for="Value" class="form-control" placeholder="Add value..." />
-                    <span class="text-danger mt-2" asp-validation-for="Value"></span>
-
-                                        </div>
-                                        </div>
-                                        <div class="ln_solid">
-                                            <div class="form-group">
-                                                <div class="col-md-6 offset-md-3 mt-3">
-                            <button type="submit" style="background-color:#1FDB62; border:none;" class="btn btn-success "><i class="fa fa-save" style=" border:none!important;"></i> Save</button>
-                            </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                  
-    </div>
- </div>
-<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a asp-action="Index" asp-controller="Setting" class="btn btn-light">Cancel</a>
+            </form>
+</div>

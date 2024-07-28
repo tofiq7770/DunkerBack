@@ -21,7 +21,6 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View(await _settingService.GetAllAsync());
         }
 
-
         public async Task<IActionResult> Detail(int id)
         {
 
@@ -74,6 +73,19 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             await _settingService.UpdateAsync((int)id, request);
 
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!ModelState.IsValid) return View();
+
+            if (id == null) return BadRequest();
+            var setting = await _settingService.GetByIdAsync((int)id);
+
+            if (setting == null) return NotFound();
+
+            await _settingService.DeleteAsync((int)id);
             return RedirectToAction(nameof(Index));
         }
     }

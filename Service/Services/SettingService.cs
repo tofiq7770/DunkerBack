@@ -27,9 +27,9 @@ namespace Service.Services
             return _mapper.Map<IEnumerable<SettingListVM>>(await _repository.GetAllAsync());
         }
 
-        public async Task<SettingVM> GetByIdAsync(int id)
+        public async Task<SettingUpdateVM> GetByIdAsync(int id)
         {
-            return _mapper.Map<SettingVM>(await _repository.GetByIdAsync(id));
+            return _mapper.Map<SettingUpdateVM>(await _repository.GetByIdAsync(id));
         }
 
         public async Task CreateAsync(SettingCreateVM model)
@@ -52,9 +52,9 @@ namespace Service.Services
             return await _repository.AnyAsync(key);
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
     }
 }
