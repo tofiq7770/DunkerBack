@@ -1,0 +1,34 @@
+.price-title {
+    color: black;
+    font-size: 12px;
+}
+
+.price-range {
+    width: 10px;
+    height: 0;
+    -webkit-appearance: none; /* Remove default styling */
+    background: black; /* Track color */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Slight transparency */
+}
+
+.price-range::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 12px; /* Thumb width */
+    height: 12px; /* Thumb height */
+    background: black; /* Thumb color */
+    cursor: pointer; /* Cursor style */
+}
+
+.price-range::-moz-range-thumb {
+    width: 12px; /* Thumb width */
+    height: 12px; /* Thumb height */
+    background: black; /* Thumb color */
+    cursor: pointer; /* Cursor style */
+}
+
+.price-output {
+    color: black;
+    font-size: 12px;
+}

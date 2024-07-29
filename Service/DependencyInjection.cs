@@ -12,6 +12,7 @@ namespace Service
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ISliderService, SliderService>();
 
             return services;
         }

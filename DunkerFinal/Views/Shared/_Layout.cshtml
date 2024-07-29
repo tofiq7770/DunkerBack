@@ -1,7 +1,4 @@
-﻿
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -429,14 +426,70 @@
         </div>
       </div>
 
-      @RenderBody();
+      <!-- Hero Slider -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">LIMITED EDITION SPORTSWEAR</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-1.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">LIMITED EDITION SPORTSWEAR</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-2.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">uv protective clothes</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-3.jpg"
+            />
+          </div>
+        </div>
+        <button class="border-0"><div class="swiper-button-next"></div></button>
+        <button class="border-0"><div class="swiper-button-prev"></div></button>
+        <div class="autoplay-progress d-lg-flex d-none">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+    </header>
+    <!-- Header Section End -->
 
-      @await Component.InvokeAsync("Footer");
+    @RenderBody()
+
+    @await Component.InvokeAsync("Footer")
+
 
     <!-- SwiperJS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="~/assets/js/productCardSlider.js"></script>
     <!-- Split Type  -->
     <script src="
     https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js
@@ -455,11 +508,8 @@
 
     <!-- axios cdn  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js"></script>
-
+     
     <!-- generate card js  -->
-    <script src="~/assets/js/basket.js"></script>
-    <script src="~/assets/js/generateCard.js"></script>
-    <script src="~/assets/js/wishlist.js"></script>
     <script src="~/assets/js/script.js"></script>
   </body>
 </html>

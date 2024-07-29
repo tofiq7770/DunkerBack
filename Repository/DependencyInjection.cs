@@ -12,6 +12,7 @@ namespace Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ISliderRepository, SliderRepository>();
 
             return services;
         }
