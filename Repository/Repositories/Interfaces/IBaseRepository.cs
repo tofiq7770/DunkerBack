@@ -1,7 +1,4 @@
-﻿
-
-
-using Domain.Common;
+﻿using Domain.Common;
 
 namespace Repository.Repositories.Interfaces
 {

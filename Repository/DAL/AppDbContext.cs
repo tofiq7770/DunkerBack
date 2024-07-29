@@ -11,6 +11,7 @@ namespace Repository.DAL
 
         }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

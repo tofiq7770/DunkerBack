@@ -1,8 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Common;
+namespace Domain.Entities
 {
-    public class Tag
+    public class Tag:BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public List<ProductTag>? ProductTags { get; set; }
     }
