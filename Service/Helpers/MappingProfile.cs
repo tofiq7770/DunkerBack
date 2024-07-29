@@ -9,6 +9,7 @@ namespace Service.Helpers
         public MappingProfile()
         {
             CreateMap<Setting, SettingUpdateVM>();
+            CreateMap<Setting, SettingVM>();
             CreateMap<SettingUpdateVM, Setting>();
             CreateMap<Setting, SettingListVM>();
             CreateMap<SettingCreateVM, Setting>();
