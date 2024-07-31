@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
-using Service.ViewModels.Banner;
+using Service.ViewModels.Brand;
 
 namespace DunkerFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
 
-    public class BannerController : Controller
+    public class BrandController : Controller
     {
-        private readonly IBannerService _service;
+        private readonly IBrandService _service;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly string _imagePath;
-        public BannerController(IBannerService service, IWebHostEnvironment webHostEnvironment)
+        public BrandController(IBrandService service, IWebHostEnvironment webHostEnvironment)
         {
             _service = service;
             _webHostEnvironment = webHostEnvironment;
@@ -20,9 +20,9 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var Banners = await _service.GetAllAsync();
+            var Brands = await _service.GetAllAsync();
 
-            return View(Banners);
+            return View(Brands);
         }
 
         public async Task<IActionResult> Detail(int id)
@@ -35,12 +35,12 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(BannerCreateVM vm)
+        public async Task<IActionResult> Create(BrandCreateVM vm)
         {
 
-            if (await _service.AnyAsync(vm.Title))
+            if (await _service.AnyAsync(vm.Name))
             {
-                ModelState.AddModelError("Title", $"{vm.Title} is already exist!");
+                ModelState.AddModelError("Name", $"{vm.Name} is already exist!");
                 return View(vm);
             }
             var result = await _service.CreateAsync(vm, ModelState, _imagePath);
@@ -65,7 +65,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var result = await _service.GetUpdatedBannerAsync(id);
+            var result = await _service.GetUpdatedBrandAsync(id);
 
             if (result is null)
                 return NotFound();
@@ -74,7 +74,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(BannerUpdateVM vm)
+        public async Task<IActionResult> Update(BrandUpdateVM vm)
         {
             var result = await _service.UpdateAsync(vm, ModelState, _imagePath);
 

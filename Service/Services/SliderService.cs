@@ -22,7 +22,7 @@ namespace Service.Services
 
         public async Task<bool> AnyAsync(string title)
         {
-            return await _repository.AnyAsync(title);
+            return await _repository.AnyAsync(title.ToLower().Trim());
         }
 
         public async Task<bool> CreateAsync(SliderCreateVM model, ModelStateDictionary ModelState, string imagePath)

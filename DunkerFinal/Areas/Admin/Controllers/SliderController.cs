@@ -37,6 +37,12 @@ namespace DunkerFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SliderCreateVM vm)
         {
+
+            if (await _service.AnyAsync(vm.Title))
+            {
+                ModelState.AddModelError("Title", $"{vm.Title} is already exist!");
+                return View(vm);
+            }
             var result = await _service.CreateAsync(vm, ModelState, _imagePath);
 
             if (!result)
