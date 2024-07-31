@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GM4ff9Vhnbj0JkRt4+NbF9lY3UgpRA2R3q+4Ou/iOAw=",
+  "Hash": "pOufTHoRhAgZXER//1EsDfOnRVO3HnvsGb9NG/G2v6g=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -2293,6 +2293,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\199f7818-bbbf-47d4-a586-c86b7ca32e68.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\1f6fb1c7-a1a5-49ed-a318-f3afc59926c6.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/1f6fb1c7-a1a5-49ed-a318-f3afc59926c6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\1f6fb1c7-a1a5-49ed-a318-f3afc59926c6.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\5d5064ea-d02b-4700-be1c-c37b8cf26065.jpg",

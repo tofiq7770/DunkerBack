@@ -16,6 +16,8 @@ namespace Service
             services.AddScoped<ITagService, TagService>();
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IBrandService, BrandService>();
+            services.AddScoped<IInfoBannerService, InfoBannerService>();
+
 
             return services;
         }

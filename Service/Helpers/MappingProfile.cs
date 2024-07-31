@@ -3,6 +3,7 @@ using Domain.Entities;
 using Service.ViewModels.Banner;
 using Service.ViewModels.Brand;
 using Service.ViewModels.Category;
+using Service.ViewModels.InfoBanner;
 using Service.ViewModels.Setting;
 using Service.ViewModels.Slider;
 using Service.ViewModels.Tag;
@@ -38,11 +39,19 @@ namespace Service.Helpers
             CreateMap<Brand, BrandListVM>();
             CreateMap<BrandCreateVM, Brand>();
 
+
+
             CreateMap<Slider, SliderUpdateVM>();
             CreateMap<Slider, SliderVM>();
             CreateMap<SliderUpdateVM, Slider>();
             CreateMap<Slider, SliderListVM>();
             CreateMap<SliderCreateVM, Slider>();
+
+            CreateMap<InfoBanner, InfoBannerUpdateVM>();
+            CreateMap<InfoBanner, InfoBannerVM>();
+            CreateMap<InfoBannerUpdateVM, InfoBanner>();
+            CreateMap<InfoBanner, InfoBannerListVM>();
+            CreateMap<InfoBannerCreateVM, InfoBanner>();
 
             CreateMap<Setting, SettingUpdateVM>();
             CreateMap<Setting, SettingVM>();
