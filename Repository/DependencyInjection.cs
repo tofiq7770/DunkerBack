@@ -13,6 +13,8 @@ namespace Repository
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ISliderRepository, SliderRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<IBannerRepository, BannerRepository>();
 
             return services;
         }
