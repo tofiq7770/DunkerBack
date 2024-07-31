@@ -15,20 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Banner/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFubmVyXENyZWF0ZS5jc2h0bWw=
+[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Baner/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFuZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Banner/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFubmVyXERldGFpbC5jc2h0bWw=
+[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Baner/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFuZXJcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Banner/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFubmVyXEluZGV4LmNzaHRtbA==
+[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Baner/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFuZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Banner/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFubmVyXFVwZGF0ZS5jc2h0bWw=
+[C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Baner/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFuZXJcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tofiq/Desktop/DunkerBack/DunkerFinal/Areas/Admin/Views/Brand/Create.cshtml]

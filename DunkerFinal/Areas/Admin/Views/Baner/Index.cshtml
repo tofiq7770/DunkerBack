@@ -5,7 +5,7 @@
 <div class="col-lg-9 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <a class="btn btn-success" asp-area="Admin" asp-controller="Banner" asp-action="Create">Create Banner</a>
+            <a class="btn btn-success" asp-area="Admin" asp-controller="Baner" asp-action="Create">Create Banner</a>
 
 
             <table class="table table-striped">
@@ -27,9 +27,9 @@
                             <td> @item.Title </td>
                             <td> @item.Description </td>
                             <td>
-                                <a class="btn btn-info" asp-area="Admin" asp-controller="Banner" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
-                                <a class="btn btn-primary" asp-area="Admin" asp-controller="Banner" asp-route-id="@item.Id" asp-action="Update">Update</a>
-                                <a class="btn btn-danger" asp-area="Admin" asp-controller="Banner" asp-route-id="@item.Id" asp-action="Delete">Delete</a>
+                                <a class="btn btn-info" asp-area="Admin" asp-controller="Baner" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="Baner" asp-route-id="@item.Id" asp-action="Update">Update</a>
+                                <a class="btn btn-danger" asp-area="Admin" asp-controller="Baner" asp-route-id="@item.Id" asp-action="Delete">Delete</a>
                             </td>
                         </tr>
                     }

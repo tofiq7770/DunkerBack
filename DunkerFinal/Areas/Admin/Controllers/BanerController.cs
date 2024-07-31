@@ -6,12 +6,12 @@ namespace DunkerFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
 
-    public class BannerController : Controller
+    public class BanerController : Controller
     {
         private readonly IBannerService _service;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly string _imagePath;
-        public BannerController(IBannerService service, IWebHostEnvironment webHostEnvironment)
+        public BanerController(IBannerService service, IWebHostEnvironment webHostEnvironment)
         {
             _service = service;
             _webHostEnvironment = webHostEnvironment;
