@@ -1,10 +1,11 @@
 ﻿@using Service.ViewModels.Setting
-@model SettingVM
-
-<div class="container mt-5">
-    <h3 class="text-center text-dark">Update Setting</h3>
-
-     <form class="forms-sample" method="post" enctype="multipart/form-data">
+@model SettingCreateVM
+ 
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Setting</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
                 
          
                 <div class="form-group">
@@ -21,4 +22,6 @@
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <a asp-action="Index" asp-controller="Setting" class="btn btn-light">Cancel</a>
             </form>
+        </div>
+    </div>
 </div>

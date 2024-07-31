@@ -26,8 +26,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo" href="index.html"><img src="~/admin/assets/images/logo.svg" alt="logo" /></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/admin/assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo" href="index.html"><img src="~/assets/img/Dunker-logo-dark.png" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/assets/img/cropped-favicon-32x32.png" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -47,7 +47,7 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="nav-profile-img">
-                            <img src="~/admin/assets/images/logorog.png" alt="image">
+                            <img src="~/assets/img/cropped-favicon-32x32.png" alt="image">
                             <span class="availability-status online"></span>
                         </div>
                         <div class="nav-profile-text">
@@ -181,12 +181,15 @@
                 <li class="nav-item nav-profile">
                     <a href="#" class="nav-link">
                         <div class="nav-profile-image">
-                            <img src="~/admin/assets/images/logorog.png" alt="profile">
+                            <img src="~/assets/img/cropped-favicon-32x32.png" alt="profile">
                             <span class="login-status online"></span>
                             <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
-                            <span class="font-weight-bold mb-2">a
+                            <span class="font-weight-bold mb-2">Tofiq Nasibli
+                            </span>
+                            <span class="text-secondary text-small">
+                                    SuperAdmin
                             </span>
 
 @*
@@ -215,24 +218,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Slider" asp-action="Index">
                         <span class="menu-title">Slider</span>
-                        <i class="menu-arrow"></i>
                         <i class="mdi mdi-animation menu-icon"></i>
                     </a>
-                    <div class="collapse" id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-area="Admin" asp-controller="Slider" asp-action="Index">Slider</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-area="Admin" asp-controller="SliderInfo" asp-action="Index">SliderInfo</a></li>
-                        </ul>
-                    </div>
-                </li>
+                </li> @*
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">
                         <span class="menu-title">Product</span>
                         <i class="mdi mdi-flower menu-icon"></i>
                     </a>
-                </li>
+                </li>*@
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
                         <span class="menu-title">Category</span>
@@ -245,25 +241,7 @@
                         <i class="mdi mdi-codepen menu-icon"></i>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="Fresh" asp-action="Index">
-                        <span class="menu-title">Fresh</span>
-                        <i class="mdi   mdi-new-box menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="FactContent" asp-action="Index">
-                        <span class="menu-title">FactContent</span>
-                        <i class="mdi mdi-content-paste menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="ServiceContent" asp-action="Index">
-                        <span class="menu-title">ServiceContent</span>
-                        <i class="mdi mdi-server menu-icon"></i>
-                    </a>
-                </li>
+                 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Home" asp-controller="Home" asp-action="Index">
                         <span class="menu-title">Home</span>

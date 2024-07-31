@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
 using Repository.Repositories.Interfaces;
+using System.Linq.Expressions;
 
 namespace Repository.Repositories
 {
@@ -14,6 +15,15 @@ namespace Repository.Repositories
         {
             _context = context;
             _entities = _context.Set<T>();
+        }
+
+        public void Update(T entity)
+        {
+            _context.Update(entity);
+        }
+        public void Delete(T entity)
+        {
+            _context.Set<T>().Remove(entity);
         }
         public async Task CreateAsync(T entity)
         {
@@ -37,6 +47,46 @@ namespace Repository.Repositories
         {
             _entities.Update(entity);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> SaveAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<T?> GetSingleAsync(Expression<Func<T, bool>> expression, params string[] includes)
+        {
+            var query = _context.Set<T>().AsQueryable<T>();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            T? entity = await query.FirstOrDefaultAsync(expression);
+            return entity;
+        }
+
+
+
+        public IQueryable<T> GetFiltered(Expression<Func<T, bool>> expression, params string[] includes)
+        {
+            var query = _context.Set<T>().Where(expression).AsQueryable();
+            foreach (string include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query;
+        }
+
+        public async Task<bool> IsExistAsync(Expression<Func<T, bool>> expression, params string[] includes)
+        {
+
+            var query = _context.Set<T>().AsQueryable();
+            foreach (string include in includes)
+                query = query.Include(include);
+
+            return await query.AnyAsync(expression);
         }
     }
 }

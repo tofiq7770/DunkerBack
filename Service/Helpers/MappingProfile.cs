@@ -10,11 +10,11 @@ namespace Service.Helpers
     {
         public MappingProfile()
         {
-            CreateMap<Category, CategoryUpdateVM>();
-            CreateMap<Category, CategoryVM>();
             CreateMap<CategoryUpdateVM, Category>();
-            CreateMap<Category, CategoryListVM>();
             CreateMap<CategoryCreateVM, Category>();
+            CreateMap<Category, CategoryVM>();
+            CreateMap<Category, CategoryUpdateVM>();
+            CreateMap<Category, CategoryListVM>();
 
             CreateMap<Slider, SliderUpdateVM>();
             CreateMap<Slider, SliderVM>();

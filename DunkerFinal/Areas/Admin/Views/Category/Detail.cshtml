@@ -1,8 +1,10 @@
 ﻿@using Service.ViewModels.Category
 @model CategoryUpdateVM
- 
-<div class="container mt-5 mx-3">
-
+  
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            
     <p><b>Name</b>: @Model.Name</p>
 
     <div class=mt-4>
@@ -11,4 +13,5 @@
         <a class="btn btn-primary" asp-area="Admin" asp-controller="Category" asp-route-id="@Model.Id" asp-action="Update">Update</a>
         <a class="btn btn-danger" asp-area="Admin" asp-controller="Category" asp-route-id="@Model.Id" asp-action="Delete">Delete</a>
     </div>
+</div>
 </div>

@@ -4,53 +4,41 @@ namespace Service.Helpers.Extentions
 {
     public static class FileExtentions
     {
-        public static bool CheckFileSize(this IFormFile file, int size)
+        public static bool ValidateSize(this IFormFile file, int mb)
         {
-            return file.Length / 1024 < size;
-        }
-        public static bool CheckFileType(this IFormFile file, string pattern)
-        {
-            return file.ContentType.Contains(pattern);
-        }
-        public static async Task<string> CreateFileAsync(this IFormFile file, string root, params string[] folders)
-        {
-            string fileName = Guid.NewGuid().ToString() + file.FileName;
-            string path = root;
-            for (int i = 0; i < folders.Length; i++)
-            {
-                path = Path.Combine(path, folders[i]);
-            }
 
-            path = Path.Combine(path, fileName);
-            using (FileStream stream = new FileStream(path, FileMode.Create))
+            return file.Length < mb * 1028 * 1028;
+        }
+
+        public static bool ValidateType(this IFormFile file, string type = "image")
+        {
+            return file.ContentType.Contains(type);
+
+        }
+
+        public static bool CheckImage(this IFormFile file)
+        {
+            return file.ValidateType() && file.ValidateSize(2);
+
+        }
+        public static async Task<string> CreateImageAsync(this IFormFile file, string path)
+        {
+            string filename = Guid.NewGuid().ToString() + file.FileName.Substring(file.FileName.LastIndexOf('.'));
+
+            path = Path.Combine(path, filename);
+
+            using (FileStream stream = new(path, FileMode.CreateNew))
             {
                 await file.CopyToAsync(stream);
             }
 
-            return fileName;
+            return filename;
+        }
 
-        }
-        public static async void DeleteFile(this string fileName, string root, params string[] folders)
+        public static void DeleteImage(this string imagePath, string path)
         {
-            string path = root;
-            for (int i = 0; i < folders.Length; i++)
-            {
-                path = Path.Combine(path, folders[i]);
-            }
-            path = Path.Combine(path, fileName);
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-        }
-        public async static Task SaveFileToLocalAsync(this IFormFile file, string path)
-        {
-            using FileStream stream = new(path, FileMode.Create);
-            await file.CopyToAsync(stream);
+            path = Path.Combine(path, imagePath);
 
-        }
-        public static void DeleteFileFromLocal(this string path)
-        {
             if (File.Exists(path))
             {
                 File.Delete(path);
@@ -63,6 +51,5 @@ namespace Service.Helpers.Extentions
                 File.Delete(Path.Combine(path, image));
             }
         }
-
     }
 }

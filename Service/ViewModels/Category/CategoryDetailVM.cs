@@ -2,7 +2,7 @@
 
 namespace Service.ViewModels.Category
 {
-    public class CategoryCreateVM
+    public class CategoryDetailVM
     {
         public int? Id { get; set; }
         [Required]

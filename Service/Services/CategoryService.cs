@@ -13,7 +13,7 @@ namespace Service.Services
 
         public async Task<bool> AnyAsync(string name)
         {
-            return await _repository.AnyAsync(name);
+            return await _repository.AnyAsync(name.ToLower().Trim());
         }
         public CategoryService(ICategoryRepository CategoryRepository, IMapper mapper)
         {

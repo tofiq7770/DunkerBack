@@ -2,7 +2,7 @@
 
 @model List<SliderListVM>
 
-<div class="col-lg-12 grid-margin stretch-card">
+<div class="col-lg-9 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <a class="btn btn-success" asp-area="Admin" asp-controller="Slider" asp-action="Create">Create Slider</a>
@@ -12,7 +12,8 @@
                 <thead>
                     <tr>
                         <th> Image </th>
-                        <th> Name </th>
+                        <th> Title </th>
+                        <th> Description </th>
                         <th> Settings </th>
                     </tr>
                 </thead>
@@ -22,7 +23,7 @@
                     {
                         <tr>
 
-                            <td> <img src="~/img/@item.Image"> </td>
+                            <td> <img src="~/assets/img/@item.Image"> </td>
                             <td> @item.Title </td>
                             <td> @item.Description </td>
                             <td>
