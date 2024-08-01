@@ -3,6 +3,7 @@ using Domain.Entities;
 using Service.ViewModels.Banner;
 using Service.ViewModels.Brand;
 using Service.ViewModels.Category;
+using Service.ViewModels.Color;
 using Service.ViewModels.InfoBanner;
 using Service.ViewModels.Setting;
 using Service.ViewModels.Slider;
@@ -20,6 +21,13 @@ namespace Service.Helpers
             CreateMap<Category, CategoryVM>();
             CreateMap<Category, CategoryUpdateVM>();
             CreateMap<Category, CategoryListVM>();
+
+            CreateMap<ColorUpdateVM, Color>();
+            CreateMap<ColorCreateVM, Color>();
+            CreateMap<Color, ColorVM>();
+            CreateMap<Color, ColorUpdateVM>();
+            CreateMap<Color, ColorListVM>();
+
 
             CreateMap<TagUpdateVM, Tag>();
             CreateMap<TagCreateVM, Tag>();

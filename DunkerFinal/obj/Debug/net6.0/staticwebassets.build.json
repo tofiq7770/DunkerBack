@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pOufTHoRhAgZXER//1EsDfOnRVO3HnvsGb9NG/G2v6g=",
+  "Hash": "3FUgRosMzGrOjv7bu3aCXkfSl10rOvPB3uQ+M38H4FA=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -2312,6 +2312,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\1f6fb1c7-a1a5-49ed-a318-f3afc59926c6.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\24cc6379-0c65-4ba9-b633-38b5e07efef1.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/24cc6379-0c65-4ba9-b633-38b5e07efef1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\24cc6379-0c65-4ba9-b633-38b5e07efef1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\5d5064ea-d02b-4700-be1c-c37b8cf26065.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -2344,23 +2361,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\bb4d8619-e96e-4012-b002-e97a59ccf267.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\cc64f3eb-1133-4ec5-b058-38020795fdf0.jpg",
-      "SourceId": "DunkerFinal",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
-      "BasePath": "_content/DunkerFinal",
-      "RelativePath": "assets/img/cc64f3eb-1133-4ec5-b058-38020795fdf0.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\cc64f3eb-1133-4ec5-b058-38020795fdf0.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\cropped-favicon-32x32.png",

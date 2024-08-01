@@ -1,9 +1,13 @@
-﻿using Service.ViewModels.Tag;
+﻿using Domain.Entities;
+using Service.ViewModels.Tag;
+using System.Linq.Expressions;
 
 namespace Service.Services.Interfaces
 {
     public interface ITagService
     {
+
+        public Task<bool> IsExistAsync(Expression<Func<Tag, bool>> expression);
         Task<IEnumerable<TagListVM>> GetAllAsync();
         Task<bool> AnyAsync(string name);
         Task<TagUpdateVM> GetByIdAsync(int id);

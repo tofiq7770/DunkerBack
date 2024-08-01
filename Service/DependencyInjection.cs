@@ -14,6 +14,7 @@ namespace Service
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ISliderService, SliderService>();
             services.AddScoped<ITagService, TagService>();
+            services.AddScoped<IColorService, ColorService>();
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IInfoBannerService, InfoBannerService>();

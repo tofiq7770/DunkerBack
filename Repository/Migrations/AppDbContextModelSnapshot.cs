@@ -102,6 +102,29 @@ namespace Repository.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SoftDelete")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
+                });
+
             modelBuilder.Entity("Domain.Entities.InfoBanner", b =>
                 {
                     b.Property<int>("Id")
@@ -165,6 +188,9 @@ namespace Repository.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
@@ -187,6 +213,35 @@ namespace Repository.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Domain.Entities.ProductColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("SoftDelete")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductColors");
+                });
+
             modelBuilder.Entity("Domain.Entities.ProductImage", b =>
                 {
                     b.Property<int>("Id")
@@ -202,8 +257,15 @@ namespace Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsHover")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -347,6 +409,25 @@ namespace Repository.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Domain.Entities.ProductColor", b =>
+                {
+                    b.HasOne("Domain.Entities.Color", "Color")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Product", "Product")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Domain.Entities.ProductImage", b =>
                 {
                     b.HasOne("Domain.Entities.Product", "Product")
@@ -387,8 +468,15 @@ namespace Repository.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Color", b =>
+                {
+                    b.Navigation("ProductColors");
+                });
+
             modelBuilder.Entity("Domain.Entities.Product", b =>
                 {
+                    b.Navigation("ProductColors");
+
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductTags");

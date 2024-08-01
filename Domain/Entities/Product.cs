@@ -13,8 +13,10 @@ namespace Domain.Entities
         public decimal Price { get; set; }
         public decimal Weight { get; set; }
         public string SKU { get; set; }
-        public List<ProductTag>? ProductTags { get; set; }
+        public int Quantity { get; set; }
         public int? Rating { get; set; } = 0;
+        public List<ProductColor>? ProductColors { get; set; }
+        public List<ProductTag>? ProductTags { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
     }
 }
