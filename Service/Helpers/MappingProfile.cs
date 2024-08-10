@@ -5,6 +5,8 @@ using Service.ViewModels.Brand;
 using Service.ViewModels.Category;
 using Service.ViewModels.Color;
 using Service.ViewModels.InfoBanner;
+using Service.ViewModels.Product;
+using Service.ViewModels.ProductColorVms;
 using Service.ViewModels.Setting;
 using Service.ViewModels.Slider;
 using Service.ViewModels.Tag;
@@ -15,6 +17,9 @@ namespace Service.Helpers
     {
         public MappingProfile()
         {
+
+            CreateMap<ProductCreateVM, Product>();
+            CreateMap<ProductColorCreateVM, ProductColor>();
 
             CreateMap<CategoryUpdateVM, Category>();
             CreateMap<CategoryCreateVM, Category>();

@@ -25,10 +25,12 @@ namespace Repository.Repositories
         {
             _context.Set<T>().Remove(entity);
         }
-        public async Task CreateAsync(T entity)
+        public async Task<int> CreateAsync(T entity)
         {
             await _entities.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            return entity.Id;
         }
         public async Task DeleteAsync(T entity)
         {
@@ -88,5 +90,18 @@ namespace Repository.Repositories
 
             return await query.AnyAsync(expression);
         }
+
+        public IQueryable<T> GetAll(params string[] includes)
+        {
+            var query = _context.Set<T>().AsQueryable();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query;
+        }
+
     }
 }

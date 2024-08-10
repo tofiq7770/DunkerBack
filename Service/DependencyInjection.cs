@@ -12,6 +12,8 @@ namespace Service
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductColorService, ProductColorService>();
             services.AddScoped<ISliderService, SliderService>();
             services.AddScoped<ITagService, TagService>();
             services.AddScoped<IColorService, ColorService>();

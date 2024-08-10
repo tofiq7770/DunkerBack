@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.Category;
+using System.Linq.Expressions;
 
 namespace Service.Services
 {
@@ -48,6 +50,16 @@ namespace Service.Services
         public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
+        }
+
+        public async Task<bool> IsExistAsync(Expression<Func<Category, bool>> expression)
+        {
+            return await _repository.IsExistAsync(expression, "Products");
+        }
+
+        public async Task<SelectList> GetAllSelectListAsync()
+        {
+            return new SelectList(await _repository.GetAllAsync(), "Id", "Name");
         }
     }
 }

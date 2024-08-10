@@ -1,0 +1,43 @@
+﻿@using Domain.Entities
+@using Service.ViewModels.Product
+
+@model List<Product>
+
+<div class="col-lg-9 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <a class="btn btn-success" asp-area="Admin" asp-controller="Product" asp-action="Create">Create Product</a>
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Image </th>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Price </th>
+                        <th> Settings </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td> <img src="~/assets/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image"> </td>
+                            <td> @item.Name </td>
+                            <td> @item.Description </td>
+                            <td> @item.Price </td>
+                            <td>
+                                <a class="btn btn-info" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
+                                <a class="btn btn-primary" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id" asp-action="Update">Update</a>
+                                <a class="btn btn-danger" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id" asp-action="Delete">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.Tag;
-
+using System.Linq.Expressions;
 namespace Service.Services
 {
     public class TagService : ITagService
@@ -50,5 +51,14 @@ namespace Service.Services
             await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
 
+        public async Task<bool> IsExistAsync(Expression<Func<Tag, bool>> expression)
+        {
+            return await _repository.IsExistAsync(expression, "Products");
+        }
+
+        public async Task<SelectList> GetAllSelectListAsync()
+        {
+            return new SelectList(await _repository.GetAllAsync(), "Id", "Name");
+        }
     }
 }

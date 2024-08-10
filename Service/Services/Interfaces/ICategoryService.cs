@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.ViewModels.Category;
 using System.Linq.Expressions;
 
@@ -14,6 +15,6 @@ namespace Service.Services.Interfaces
         Task<bool> AnyAsync(string name);
         Task UpdateAsync(int id, CategoryUpdateVM model);
         Task DeleteAsync(int id);
-
+        Task<SelectList> GetAllSelectListAsync();
     }
 }

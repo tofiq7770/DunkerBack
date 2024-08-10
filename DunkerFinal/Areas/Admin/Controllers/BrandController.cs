@@ -43,7 +43,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("Name", $"{vm.Name} is already exist!");
                 return View(vm);
             }
-            var result = await _service.CreateAsync(vm, ModelState, _imagePath);
+            var result = await _service.CreateAsync(vm, _imagePath);
 
             if (!result)
                 return View(vm);
@@ -76,7 +76,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(BrandUpdateVM vm)
         {
-            var result = await _service.UpdateAsync(vm, ModelState, _imagePath);
+            var result = await _service.UpdateAsync(vm, _imagePath);
 
             if (result is null)
                 return NotFound();

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Helpers.Extentions;
 using Service.Services.Interfaces;
@@ -25,16 +25,16 @@ namespace Service.Services
             return await _repository.AnyAsync(name.ToLower().Trim());
         }
 
-        public async Task<bool> CreateAsync(BrandCreateVM model, ModelStateDictionary ModelState, string imagePath)
+        public async Task<bool> CreateAsync(BrandCreateVM model, string imagePath)
         {
-            if (!ModelState.IsValid)
-                return false;
+            //if (!ModelState.IsValid)
+            //    return false;
 
-            if (!model.Image.CheckImage())
-            {
-                ModelState.AddModelError("Image", "Please Enter valid format");
-                return false;
-            }
+            //if (!model.Image.CheckImage())
+            //{
+            //    ModelState.AddModelError("Image", "Please Enter valid format");
+            //    return false;
+            //}
             string filename = await model.Image.CreateImageAsync(imagePath);
 
             Brand brand = new()
@@ -95,21 +95,21 @@ namespace Service.Services
         }
 
 
-        public async Task<bool?> UpdateAsync(BrandUpdateVM vm, ModelStateDictionary ModelState, string imagePath)
+        public async Task<bool?> UpdateAsync(BrandUpdateVM vm, string imagePath)
         {
-            if (!ModelState.IsValid)
-                return false;
+            //if (!ModelState.IsValid)
+            //    return false;
 
             var existBrand = await _repository.GetSingleAsync(x => x.Id == vm.Id);
             var oldImage = existBrand?.Image;
             if (existBrand is null)
                 return null;
 
-            if (vm.Photo is not null && !vm.Photo.CheckImage())
-            {
-                ModelState.AddModelError("Photo", "Please Enter valid input");
-                return false;
-            }
+            //if (vm.Photo is not null && !vm.Photo.CheckImage())
+            //{
+            //    ModelState.AddModelError("Photo", "Please Enter valid input");
+            //    return false;
+            //}
 
             existBrand.Name = vm.Name;
             if (vm.Photo is not null)
@@ -127,6 +127,11 @@ namespace Service.Services
 
             return true;
 
+        }
+
+        public async Task<SelectList> GetAllSelectListAsync()
+        {
+            return new SelectList(await _repository.GetAllAsync(), "Id", "Name");
         }
     }
 

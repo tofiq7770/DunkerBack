@@ -1,24 +1,27 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.Color;
+using System.Linq.Expressions;
 
 namespace Service.Services
 {
     public class ColorService : IColorService
     {
         private readonly IColorRepository _repository;
-        public readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public async Task<bool> AnyAsync(string name)
-        {
-            return await _repository.AnyAsync(name.ToLower().Trim());
-        }
         public ColorService(IColorRepository ColorRepository, IMapper mapper)
         {
             _repository = ColorRepository;
             _mapper = mapper;
+        }
+
+        public async Task<bool> AnyAsync(string name)
+        {
+            return await _repository.AnyAsync(name.ToLower().Trim());
         }
 
         public async Task<IEnumerable<ColorListVM>> GetAllAsync()
@@ -50,5 +53,14 @@ namespace Service.Services
             await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
 
+        public Task<bool> IsExistAsync(Expression<Func<Color, bool>> expression)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<SelectList> GetAllSelectListAsync()
+        {
+            return new SelectList(await _repository.GetAllAsync(), "Id", "Name");
+        }
     }
 }

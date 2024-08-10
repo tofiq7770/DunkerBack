@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.ViewModels.Color;
 using System.Linq.Expressions;
 
@@ -9,6 +10,7 @@ namespace Service.Services.Interfaces
         public Task<bool> IsExistAsync(Expression<Func<Color, bool>> expression);
 
         Task<IEnumerable<ColorListVM>> GetAllAsync();
+        Task<SelectList> GetAllSelectListAsync();
         Task<bool> AnyAsync(string name);
         Task<ColorUpdateVM> GetByIdAsync(int id);
         Task CreateAsync(ColorCreateVM model);

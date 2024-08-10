@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.ViewModels.Tag;
 using System.Linq.Expressions;
-
 namespace Service.Services.Interfaces
 {
     public interface ITagService
@@ -14,5 +14,6 @@ namespace Service.Services.Interfaces
         Task CreateAsync(TagCreateVM model);
         Task UpdateAsync(int id, TagUpdateVM model);
         Task DeleteAsync(int id);
+        Task<SelectList> GetAllSelectListAsync();
     }
 }
