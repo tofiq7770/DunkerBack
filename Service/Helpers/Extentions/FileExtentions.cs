@@ -51,5 +51,35 @@ namespace Service.Helpers.Extentions
                 File.Delete(Path.Combine(path, image));
             }
         }
+        public static bool CheckFileSize(this IFormFile file, int size)
+        {
+            return file.Length / 1024 < size;
+        }
+
+        public static bool CheckFileFormat(this IFormFile file, string pattern)
+        {
+            return file.ContentType.Contains(pattern);
+        }
+
+        public async static Task SaveFileToLocalAsync(this IFormFile file, string path)
+        {
+            using FileStream stream = new(path, FileMode.Create);
+
+            await file.CopyToAsync(stream);
+        }
+
+        public static async void DeleteFile(this string fileName, string root, params string[] folders)
+        {
+            string path = root;
+            for (int i = 0; i < folders.Length; i++)
+            {
+                path = Path.Combine(path, folders[i]);
+            }
+            path = Path.Combine(path, fileName);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
     }
 }

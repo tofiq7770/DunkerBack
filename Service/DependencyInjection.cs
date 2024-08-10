@@ -13,8 +13,10 @@ namespace Service
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductImageService, ProductImageService>();
             services.AddScoped<IProductColorService, ProductColorService>();
             services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<IProductTagService, ProductTagService>();
             services.AddScoped<ITagService, TagService>();
             services.AddScoped<IColorService, ColorService>();
             services.AddScoped<IBannerService, BannerService>();

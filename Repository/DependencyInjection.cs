@@ -13,7 +13,9 @@ namespace Repository
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductImageRepository, ProductImageRepository>();
             services.AddScoped<IProductColorRepository, ProductColorRepository>();
+            services.AddScoped<IProductTagRepository, ProductTagRepository>();
             services.AddScoped<ISliderRepository, SliderRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<IColorRepository, ColorRepository>();

@@ -7,6 +7,8 @@ using Service.ViewModels.Color;
 using Service.ViewModels.InfoBanner;
 using Service.ViewModels.Product;
 using Service.ViewModels.ProductColorVms;
+using Service.ViewModels.ProductImageVMs;
+using Service.ViewModels.ProductTagVMs;
 using Service.ViewModels.Setting;
 using Service.ViewModels.Slider;
 using Service.ViewModels.Tag;
@@ -20,6 +22,8 @@ namespace Service.Helpers
 
             CreateMap<ProductCreateVM, Product>();
             CreateMap<ProductColorCreateVM, ProductColor>();
+            CreateMap<ProductTagCreateVM, ProductTag>();
+            CreateMap<ProductImageCreateVM, ProductImage>();
 
             CreateMap<CategoryUpdateVM, Category>();
             CreateMap<CategoryCreateVM, Category>();
