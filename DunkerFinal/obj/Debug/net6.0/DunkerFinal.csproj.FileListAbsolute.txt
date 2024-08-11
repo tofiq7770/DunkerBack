@@ -783,8 +783,6 @@ C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.As
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -873,8 +871,6 @@ C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Ex
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -932,7 +928,6 @@ C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Drawing.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Drawing.Primitives.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Dynamic.Runtime.dll
-C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Formats.Asn1.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Globalization.Calendars.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Globalization.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\System.Globalization.Extensions.dll
@@ -1056,3 +1051,12 @@ C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\refs\WindowsBase.
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\MailKit.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\MimeKit.dll
+C:\Users\tofiq\Desktop\DunkerBack\DunkerFinal\bin\Debug\net6.0\System.Formats.Asn1.dll

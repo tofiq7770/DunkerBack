@@ -1,5 +1,7 @@
 
 
+using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repository;
 using Repository.DAL;
@@ -12,6 +14,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(opt =>
   opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
+
+
 
 builder.Services.AddRepositoryLayer();
 builder.Services.AddServiceLayer();

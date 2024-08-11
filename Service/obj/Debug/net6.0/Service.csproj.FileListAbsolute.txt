@@ -65,8 +65,6 @@ C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNet
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -155,8 +153,6 @@ C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extens
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\tofiq\Desktop\DunkerBack\Service\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Abstractions.dll

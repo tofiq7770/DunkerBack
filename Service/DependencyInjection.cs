@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using Repository.DAL;
 using Service.Helpers;
 using Service.Services;
 using Service.Services.Interfaces;
@@ -23,6 +26,19 @@ namespace Service
             services.AddScoped<IBrandService, BrandService>();
             services.AddScoped<IInfoBannerService, InfoBannerService>();
 
+
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequiredUniqueChars = 1;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.User.RequireUniqueEmail = true;
+                opt.SignIn.RequireConfirmedEmail = true;
+            });
 
             return services;
         }

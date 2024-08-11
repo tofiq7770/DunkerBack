@@ -1,5 +1,8 @@
 ﻿
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Repository.DAL;
 using Service.Helpers.Extentions;
 using Service.Services.Interfaces;
 using Service.ViewModels.Product;
@@ -14,6 +17,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
     public class ProductController : Controller
     {
 
+        private readonly AppDbContext _context;
         private readonly IProductService _service;
         private readonly IProductImageService _imageService;
         private readonly IColorService _colorService;
@@ -32,6 +36,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ICategoryService categoryService,
             IBrandService brandService,
             ITagService tagService,
+            AppDbContext context,
             IProductTagService productTagService, IProductImageService imageService)
         {
             _productTagService = productTagService;
@@ -42,6 +47,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _colorService = colorService;
             _categoryService = categoryService;
             _brandService = brandService;
+            _context = context;
             _tagService = tagService;
             _imageService = imageService;
         }
@@ -91,13 +97,17 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             int productId = await _service.CreateAsync(request);
 
-            foreach (var item in request.Images)
+            for (int i = 0; i < request.Images.Length; i++)
             {
-                string fileName = Guid.NewGuid().ToString() + "-" + item.FileName;
-                string path = Path.Combine(_environment.WebRootPath, "assets/img", fileName);
-                await item.SaveFileToLocalAsync(path);
+                bool isMain = false;
 
-                await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = productId, IsMain = false }); ;
+                if (i == 0) isMain = true;
+
+                string fileName = Guid.NewGuid().ToString() + "-" + request.Images[i].FileName;
+                string path = Path.Combine(_environment.WebRootPath, "assets/img", fileName);
+                await request.Images[i].SaveFileToLocalAsync(path);
+
+                await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = productId, IsMain = isMain });
             }
 
             foreach (var colorId in request.ColorIds)
@@ -140,23 +150,71 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _service.DeleteAsync(id, _imagePath);
+            //if (id <= 0) return BadRequest();
 
-            if (result is false)
-                return NotFound();
+            //var product = await _service.GetByIdAsync(id);
 
-            return RedirectToAction("Index");
+            //if (product is null) return NotFound();
+
+
+            //foreach (var image in product.ProductImages)
+            //{
+            //    image.Image.DeleteFile(_imagePath);
+            //}
+
+            //await _service.DeleteAsync(id, _imagePath);
+            if (id <= 0) return BadRequest();
+
+            Product product = await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product is null) return NotFound();
+
+
+            foreach (ProductImage image in product.ProductImages)
+            {
+                image.Image.DeleteFile(_environment.WebRootPath, "assets/img");
+            }
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> Detail(int? id)
         {
-            var result = await _service.GetByIdAsync(id);
+            ViewBag.Colors = await _colorService.GetByIdAsync((int)id);
+            ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
+            ViewBag.Brands = await _brandService.GetAllSelectListAsync();
+            ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
-            if (result is null)
-                return NotFound();
+            if (id == null) return BadRequest();
+            Product product = await _context.Products.Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null) return NotFound();
+            List<ProductImageVM> productImages = new();
+            foreach (var item in product.ProductImages)
+            {
+                productImages.Add(new ProductImageVM
+                {
+                    Image = item.Image,
+                    IsMain = item.IsMain
+                });
 
+            }
+            Product model = new()
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                Category = product.Category,
+                ProductImages = product.ProductImages.ToList(),
+                Brand = product.Brand,
+                ProductColors = product.ProductColors,
+                ProductTags = product.ProductTags.ToList(),
+                Weight = product.Weight
 
-            return View(result);
+            };
+            return View(model);
 
         }
     }

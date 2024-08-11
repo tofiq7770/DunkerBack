@@ -23,6 +23,9 @@ namespace Repository
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IInfoBannerRepository, InfoBannerRepository>();
 
+
+
+
             return services;
         }
     }

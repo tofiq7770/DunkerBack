@@ -25,6 +25,6 @@ namespace Service.ViewModels.Product
         public List<int> TagIds { get; set; } = null!;
         public List<int> ColorIds { get; set; } = null!;
 
-        public List<IFormFile> Images { get; set; } = null!;
+        public IFormFile[] Images { get; set; } = null!;
     }
 }
