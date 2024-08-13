@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
@@ -64,9 +63,9 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Task<Product?> GetByIdAsync(int id)
+        public async Task<ProductDetailVM?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<ProductDetailVM>(await _repository.GetByIdAsync(id));
         }
 
         public async Task<List<Product>> GetNewProducts()
@@ -99,9 +98,9 @@ namespace Service.Services
             ViewBag.Tags = tags;
         }
 
-        public Task<bool?> UpdateAsync(ProductUpdateVM vm, ModelStateDictionary ModelState, dynamic ViewBag, string imagePath)
+        public async Task UpdateAsync(ProductUpdateVM model)
         {
-            throw new NotImplementedException();
+            await _repository.UpdateAsync(_mapper.Map<Product>(model));
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Domain.Entities;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Service.ViewModels.Product;
 
 
@@ -13,8 +12,8 @@ namespace Service.Services.Interfaces
 
         public Task<bool> DeleteAsync(int id, string ImagePath);
         public Task<ProductUpdateVM?> GetUpdatedProductAsync(int id, dynamic ViewBag);
-        public Task<bool?> UpdateAsync(ProductUpdateVM vm, ModelStateDictionary ModelState, dynamic ViewBag, string imagePath);
-        public Task<Product?> GetByIdAsync(int id);
+        public Task UpdateAsync(ProductUpdateVM model);
+        public Task<ProductDetailVM?> GetByIdAsync(int id);
 
         public Task<List<Product>> GetBestProducts();
         public Task<List<Product>> GetProductsByCategoryId(int categoryId);

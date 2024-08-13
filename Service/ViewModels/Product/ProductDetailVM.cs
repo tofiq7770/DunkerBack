@@ -21,8 +21,8 @@ namespace Service.ViewModels.Product
         public string Brand { get; set; }
 
 
-        public List<string> TagIds { get; set; }
-        public List<string> ColorIds { get; set; }
+        public List<ProductTag> Tags { get; set; }
+        public List<ProductColor> Colors { get; set; }
 
         public List<ProductImage> Images { get; set; }
     }

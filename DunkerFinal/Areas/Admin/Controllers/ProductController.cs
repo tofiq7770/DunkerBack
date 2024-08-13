@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
     {
 
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
         private readonly IProductService _service;
         private readonly IProductImageService _imageService;
         private readonly IColorService _colorService;
@@ -37,7 +39,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             IBrandService brandService,
             ITagService tagService,
             AppDbContext context,
-            IProductTagService productTagService, IProductImageService imageService)
+            IProductTagService productTagService, IProductImageService imageService, IMapper mapper)
         {
             _productTagService = productTagService;
             _service = service;
@@ -50,6 +52,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _context = context;
             _tagService = tagService;
             _imageService = imageService;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -61,9 +64,9 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Create()
         {
-            ViewBag.Colors = await _colorService.GetAllSelectListAsync();
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
+            ViewBag.Colors = await _colorService.GetAllSelectListAsync();
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             return View();
@@ -127,23 +130,27 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var result = await _service.GetUpdatedProductAsync(id, ViewBag);
+            ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
+            ViewBag.Brands = await _brandService.GetAllSelectListAsync();
+            ViewBag.Colors = await _colorService.GetAllSelectListAsync();
+            ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
-            if (result is null)
-                return NotFound();
+            var result = await _service.GetByIdAsync(id);
 
-            return View(result);
+            var model = _mapper.Map<ProductUpdateVM>(result);
+
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(ProductUpdateVM vm)
+        public async Task<IActionResult> Update(int id, ProductUpdateVM request)
         {
-            var result = await _service.UpdateAsync(vm, ModelState, ViewBag, _imagePath);
+            ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
+            ViewBag.Brands = await _brandService.GetAllSelectListAsync();
+            ViewBag.Colors = await _colorService.GetAllSelectListAsync();
+            ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
-            if (result is null)
-                return BadRequest();
-            else if (result is false)
-                return View(vm);
+            await _service.UpdateAsync(request);
 
             return RedirectToAction("Index");
         }

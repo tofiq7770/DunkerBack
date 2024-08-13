@@ -6,8 +6,8 @@ namespace Service.ViewModels.Product
     public class ProductUpdateVM
     {
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string Name { get; set; }
+        public string Description { get; set; }
         public decimal Price { get; set; }
         public string SKU { get; set; }
 
@@ -21,15 +21,8 @@ namespace Service.ViewModels.Product
 
         public int BrandId { get; set; }
 
-        public List<int> TagIds { get; set; } = null!;
-        public List<int> ColorIds { get; set; } = null!;
-        public IFormFile? MainImage { get; set; }
-        public string? MainImagePath { get; set; }
-        public IFormFile? HoverImage { get; set; }
-        public string? HoverImagePath { get; set; }
-
-        public List<string>? ImagePaths { get; set; } = new();
-        public List<int>? ImageIds { get; set; } = new();
-        public List<IFormFile> Images { get; set; } = new();
+        public List<int> TagIds { get; set; }
+        public List<int> ColorIds { get; set; }
+        public IEnumerable<IFormFile> Images { get; set; }
     }
 }

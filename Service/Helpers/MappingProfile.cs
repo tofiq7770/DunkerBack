@@ -19,8 +19,10 @@ namespace Service.Helpers
     {
         public MappingProfile()
         {
-
             CreateMap<ProductCreateVM, Product>();
+            CreateMap<Product, ProductDetailVM>();
+            CreateMap<ProductDetailVM, ProductUpdateVM>();
+            CreateMap<ProductUpdateVM, Product>();
             CreateMap<ProductColorCreateVM, ProductColor>();
             CreateMap<ProductTagCreateVM, ProductTag>();
             CreateMap<ProductImageCreateVM, ProductImage>();
