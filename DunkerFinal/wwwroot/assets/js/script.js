@@ -1,6 +1,3 @@
-
-
-
 //Burger Menu Toggle and Close Discount Message
 const menuBtn = document.querySelector('.menu-btn')
 const mobileNavMenu = document.getElementById('mobile-nav')
@@ -157,3 +154,49 @@ basketClose.addEventListener('click', e => {
   basketMenu.classList.remove('active')
 })
 
+//Product Set Video and Close Events
+const videoLink = document.getElementById('video-link')
+const videoContainer = document.getElementById('video-container')
+const closeVideo = document.querySelector('.remove-video')
+const videoFrame = document.getElementById('video-frame')
+
+videoLink.addEventListener('click', e => {
+  e.preventDefault()
+  videoContainer.style.display = 'flex'
+  document.body.style.overflow = 'hidden'
+  videoFrame.src = 'https://player.vimeo.com/video/529300981?h=1154554dda'
+})
+
+closeVideo.addEventListener('click', () => {
+  videoContainer.style.display = 'none'
+  document.body.style.overflow = 'visible'
+
+  videoFrame.src = ''
+})
+
+
+
+ // search
+function openSearch() {
+  document.getElementById("searchOverlay").style.display = "block";
+  document.body.classList.add("no-scroll"); // Prevent scrolling
+}
+
+function closeSearch() {
+  document.getElementById("searchOverlay").style.display = "none";
+  document.body.classList.remove("no-scroll"); // Allow scrolling again
+}
+
+function checkEnter(event) {
+  if (event.key === "Enter") {
+    performSearch();
+  }
+}
+
+function performSearch() {
+  var searchQuery = document.getElementById("searchInput").value;
+  alert("Search performed for: " + searchQuery); 
+  closeSearch(); // Optionally close the search after performing it
+} 
+
+ 

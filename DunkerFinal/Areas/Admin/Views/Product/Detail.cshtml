@@ -2,22 +2,23 @@
 @using Service.ViewModels.Product
 
 @model Product
- 
+
 
 <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
 
             <h4><img style="width:200px;height:auto" src="~/assets/img/@Model.ProductImages.FirstOrDefault(m=>m.IsMain).Image" /></h4>
-             
+
             <h4> Name: @Model.Name </h4>
             <h4> Description: @Model.Description </h4>
             <h4> Category: @Model.Category.Name </h4>
             <h4> Weight: @Model.Weight </h4>
-            <h4> Color: @string.Join(", ", Model.ProductColors.Select(m=>m.Color.Name)) 
+            <h4>
+                Color: @string.Join(", ", Model.ProductColors.Select(m=>m.Color.Name))
                 @foreach (var item in Model.ProductColors)
                 {
-                         <i class="mdi mdi mdi mdi-invert-colors menu-icon" style=" font-size:10px; color:@item.Color.Name"></i> 
+                    <i class="mdi mdi mdi mdi-invert-colors menu-icon" style=" font-size:10px; color:@item.Color.Name"></i>
                 }
             </h4>
             <h4> Tag: @string.Join(", ", Model.ProductTags.Select(m=>m.Tag.Name)) </h4>

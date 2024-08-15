@@ -1,6 +1,3 @@
-
-
-
 const tabItems = document.querySelectorAll('.tab-link')
 const tabs = document.querySelectorAll('.tab')
 

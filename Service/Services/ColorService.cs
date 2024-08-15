@@ -48,6 +48,7 @@ namespace Service.Services
 
             await _repository.UpdateAsync(mapColor);
         }
+
         public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(await _repository.GetByIdAsync(id));

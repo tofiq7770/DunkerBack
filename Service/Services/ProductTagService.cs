@@ -8,7 +8,6 @@ namespace Service.Services
 {
     public class ProductTagService : IProductTagService
     {
-
         private readonly IProductTagRepository _repository;
         public readonly IMapper _mapper;
 

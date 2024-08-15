@@ -24,6 +24,7 @@ namespace Service.Helpers
             CreateMap<ProductDetailVM, ProductUpdateVM>();
             CreateMap<ProductUpdateVM, Product>();
             CreateMap<ProductColorCreateVM, ProductColor>();
+            CreateMap<ProductColor, ProductColorListVM>();
             CreateMap<ProductTagCreateVM, ProductTag>();
             CreateMap<ProductImageCreateVM, ProductImage>();
 

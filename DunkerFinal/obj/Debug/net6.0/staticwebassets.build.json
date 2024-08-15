@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qw+fJFNLkiT8MlWQF65A1td1J2xHpbnWAeIjsAbI5G0=",
+  "Hash": "zIOGO7cQiPdwIrVopdKEzUPgv9Q55cVAERTvJ42IGjA=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -1290,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\jquery.cookie.js"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\main.js",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "admin/assets/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\assets\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\admin\\assets\\js\\misc.js",

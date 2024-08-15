@@ -95,7 +95,6 @@ namespace DunkerFinal.Areas.Admin.Controllers
                     ModelState.AddModelError("Images", "Max File capacity must be 200KB");
                     return View(request);
                 }
-
             }
 
             int productId = await _service.CreateAsync(request);
@@ -123,7 +122,6 @@ namespace DunkerFinal.Areas.Admin.Controllers
                 await _productTagService.CreateAsync(new ProductTagCreateVM() { ProductId = productId, TagId = tagId });
             }
 
-
             return RedirectToAction(nameof(Index));
         }
 
@@ -133,26 +131,47 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
             ViewBag.Colors = await _colorService.GetAllSelectListAsync();
+            ViewBag.ColorsByProductId = await _productColorService.GetAllSelectListByProductIdAsync(id);
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             var result = await _service.GetByIdAsync(id);
 
             var model = _mapper.Map<ProductUpdateVM>(result);
+            model.Colors = await _productColorService.GetAllByProductIdAsync(id);
 
             return View(model);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, ProductUpdateVM request)
         {
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
-            ViewBag.Colors = await _colorService.GetAllSelectListAsync();
+            ViewBag.ColorsByProductId = await _productColorService.GetAllSelectListByProductIdAsync(id);
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             await _service.UpdateAsync(request);
 
+            foreach (var colorId in request.ColorIds)
+            {
+                await _productColorService.CreateAsync(new ProductColorCreateVM() { ProductId = id, ColorId = colorId });
+            }
+
+            foreach (var tagId in request.TagIds)
+            {
+                await _productTagService.CreateAsync(new ProductTagCreateVM() { ProductId = id, TagId = tagId });
+            }
+
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteColor(int id)
+        {
+            var a = await _productColorService.GetByIdAsync(id);
+            await _productColorService.Delete(a);
+            return Ok();
         }
 
         public async Task<IActionResult> Delete(int id)
@@ -170,18 +189,20 @@ namespace DunkerFinal.Areas.Admin.Controllers
             //}
 
             //await _service.DeleteAsync(id, _imagePath);
+
             if (id <= 0) return BadRequest();
 
             Product product = await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
 
             if (product is null) return NotFound();
 
-
             foreach (ProductImage image in product.ProductImages)
             {
                 image.Image.DeleteFile(_environment.WebRootPath, "assets/img");
             }
+
             _context.Products.Remove(product);
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

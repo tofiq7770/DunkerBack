@@ -35,6 +35,147 @@ ol {
   color: #fff;
 }
 
+
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(187, 187, 187, 0.9);  
+  overflow-x: hidden;  
+  overflow-y: hidden; 
+  transition: 0.5s;  
+  display: none;  
+  z-index: 9999;  
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay input[type="text"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  width: 80%;
+  background: white;
+}
+
+.overlay button[type="button"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.overlay button[type="button"]:hover {
+  background: #2d2d2d;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.closebtn:hover {
+  color:  #2d2d2d;;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+.overlay-content {
+top: 15%; /* Adjust vertical position */
+width: 90%; /* Increase width for smaller screens */
+}
+
+.closebtn {
+font-size: 30px; /* Further reduce close button size */
+}
+
+.overlay input[type="text"], 
+.overlay button[type="button"] {
+padding: 12px; /* Reduce padding */
+font-size: 16px; /* Adjust font size */
+}
+}
+
+@media screen and (max-width: 480px) {
+.overlay-content {
+top: 10%; /* Further adjust vertical position */
+}
+
+.overlay input[type="text"], 
+.overlay button[type="button"] {
+padding: 10px; /* Reduce padding */
+font-size: 14px; /* Further adjust font size */
+}}
+.account-container {
+position: relative;
+display: inline-block;
+}
+
+.account-dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+width: 200px;
+background-color: white;
+border: 1px solid #ddd;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+padding: 10px;
+z-index: 1000;
+}
+
+.account-container:hover .account-dropdown {
+display: block;
+}
+
+.account-dropdown p {
+margin: 0;
+padding: 5px 0;
+}
+
+.account-dropdown .name {
+font-weight: bold;
+}
+
+.account-dropdown .position {
+font-size: 0.9em;
+color: gray;
+}
+
+.account-dropdown .btn {
+margin-top: 10px;
+padding: 5px 10px;
+background-color: #000000;
+color: white;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+.account-dropdown .btn:hover {
+background-color: #3c3d3d;
+}
+
+
+
 #featured .featured-container .row .product-card span {
   font-size: 48px;
   font-family: "Gochi Hand", cursive;
@@ -369,7 +510,39 @@ ol {
   justify-content: center;
   padding: 25px 30px;
 }
-
+#footer .top-footer {
+  border-bottom: 1px solid #ccc;
+}
+#footer .top-footer .footer-items {
+  padding: 66px 0;
+  color: #000;
+  font-weight: 700;
+}
+#footer .top-footer .footer-items .footer-item {
+  font-size: 12px;
+  padding: 8px 0;
+}
+#footer .top-footer .footer-items .footer-item .footer-link {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+#footer .top-footer .footer-items .footer-item .footer-link::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+#footer .top-footer .footer-items .footer-item .footer-link:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
 #footer .middle-footer {
   padding: 66px 0 69px;
 }
@@ -1053,6 +1226,54 @@ ol {
   opacity: 1;
 }
 
+#product-video {
+  background-image: url("https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h1-video-img-1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
+#product-video a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#product-video a svg {
+  background: #000;
+  width: 100px;
+  height: 100px;
+  padding: 25px;
+  border-radius: 50%;
+  fill: #fff;
+}
+#product-video #video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 15;
+}
+#product-video #video-container .remove-video {
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 25px;
+  cursor: pointer;
+}
+#product-video #video-frame {
+  width: 80%;
+  height: 80%;
+}
 
 #new-collection {
   padding: 40px 0;

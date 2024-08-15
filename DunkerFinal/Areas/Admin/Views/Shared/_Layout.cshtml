@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Fruitables Admin</title>
     <!-- plugins:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/admin/assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
@@ -186,25 +187,26 @@
                             <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
-                            <span class="font-weight-bold mb-2">Tofiq Nasibli
+                            <span class="font-weight-bold mb-2">
+                                Tofiq Nasibli
                             </span>
                             <span class="text-secondary text-small">
-                                    SuperAdmin
+                                SuperAdmin
                             </span>
 
-@*
-                            @if (User.IsInRole("SuperAdmin"))
-                            {
+                            @*
+                                @if (User.IsInRole("SuperAdmin"))
+                                {
                                 <span class="text-secondary text-small">
-                                    SuperAdmin
+                                SuperAdmin
                                 </span>
-                            }
-                            else
-                            {
+                                }
+                                else
+                                {
                                 <span class="text-secondary text-small">
-                                    Admin
+                                Admin
                                 </span>
-                            }*@
+                                }*@
 
 
                         </div>
@@ -217,13 +219,13 @@
                         <i class="mdi mdi-home menu-icon"></i>
                     </a>
                 </li>
-                 
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">
                         <span class="menu-title">Product</span>
                         <i class="mdi mdi mdi-tshirt-crew menu-icon"></i>
                     </a>
-                </li> 
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
@@ -231,42 +233,42 @@
                         <i class="mdi mdi-view-grid menu-icon"></i>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Slider" asp-action="Index">
                         <span class="menu-title">Slider</span>
                         <i class="mdi mdi-animation menu-icon"></i>
                     </a>
-                </li> 
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Tag" asp-action="Index">
                         <span class="menu-title">Tag</span>
                         <i class="mdi mdi mdi-tag menu-icon"></i>
                     </a>
-                </li> 
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Color" asp-action="Index">
                         <span class="menu-title">Color</span>
                         <i class="mdi mdi mdi mdi-invert-colors menu-icon"></i>
                     </a>
-                </li> 
-                
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Setting" asp-action="Index">
                         <span class="menu-title">Setting</span>
                         <i class="mdi mdi-codepen menu-icon"></i>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="InfoBanner" asp-action="Index">
                         <span class="menu-title">Info's</span>
                         <i class="mdi mdi mdi mdi-information menu-icon"></i>
                     </a>
                 </li>
-                 
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Brand" asp-action="Index">
                         <span class="menu-title">Brand</span>
@@ -281,7 +283,7 @@
                     </a>
                 </li>
 
-                 
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Home" asp-controller="Home" asp-action="Index">
                         <span class="menu-title">Home</span>
@@ -298,6 +300,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/admin/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -312,6 +315,7 @@
     <!-- Custom js for this page -->
     <script src="~/admin/assets/js/dashboard.js"></script>
     <script src="~/admin/assets/js/todolist.js"></script>
+    <script src="~/admin/assets/js/main.js"></script>
     <!-- End custom js for this page -->
 </body>
 </html>

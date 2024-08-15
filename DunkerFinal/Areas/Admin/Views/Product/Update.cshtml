@@ -9,6 +9,15 @@
             <h4 class="card-title">Update Slider</h4>
             <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="mt-3 form-group">
+                    @foreach (var item in Model.Colors)
+                    {
+                        <div>
+                            <i class="mdi mdi mdi mdi-invert-colors menu-icon" style=" font-size:30px; color:@item.ColorName"></i>
+                            <a class="btn btn-danger delete-color" color-id="@item.Id">X</a>
+                        </div>
+                    }
+                </div>
+                <div class="mt-3 form-group">
                     <label asp-for="TagIds">Tags</label>
                     <select class="form-control text-black " asp-for="TagIds" asp-items="@ViewBag.Tags">
                     </select>
@@ -16,7 +25,7 @@
                 </div>
                 <div class="mt-3 form-group">
                     <label asp-for="ColorIds">Colors</label>
-                    <select class="form-control text-black " asp-for="ColorIds" asp-items="@ViewBag.Colors">
+                    <select class="form-control text-black " asp-for="ColorIds" asp-items="@ViewBag.ColorsByProductId">
                     </select>
                     <span class="text-danger mt-2" asp-validation-for="ColorIds"></span>
                 </div>

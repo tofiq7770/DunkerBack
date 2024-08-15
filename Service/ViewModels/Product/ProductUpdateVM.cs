@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Service.ViewModels.ProductColorVms;
 using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.Product
@@ -23,6 +24,8 @@ namespace Service.ViewModels.Product
 
         public List<int> TagIds { get; set; }
         public List<int> ColorIds { get; set; }
+
+        public IEnumerable<ProductColorListVM> Colors { get; set; }
         public IEnumerable<IFormFile> Images { get; set; }
     }
 }

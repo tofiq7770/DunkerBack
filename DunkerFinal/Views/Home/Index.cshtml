@@ -1,4 +1,641 @@
 ﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dunker – Fashion and Clothing Shop Theme</title>
+    <link
+      rel="shortcut icon"
+      href="~/assets/img/cropped-favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="~/assets/img/cropped-favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/9.3.0/mmenu.min.css"
+      integrity="sha512-nNatP1G6CEh43irXY/GN4cDcLRX/R0jAYAV/ulFZcotSXcuIQE5Do4TuDOYNAD2SCIpmIbaYSllyjTysSCkpEw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+    <style>
+        
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(187, 187, 187, 0.9);  
+  overflow-x: hidden;  
+  overflow-y: hidden; 
+  transition: 0.5s;  
+  display: none;  
+  z-index: 9999;  
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay input[type="text"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  width: 80%;
+  background: white;
+}
+
+.overlay button[type="button"] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.overlay button[type="button"]:hover {
+  background: #2d2d2d;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.closebtn:hover {
+  color:  #2d2d2d;;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+@@media screen and (max-width: 768px) {
+.overlay-content {
+top: 15%; /* Adjust vertical position */
+width: 90%; /* Increase width for smaller screens */
+}
+
+.closebtn {
+font-size: 30px; /* Further reduce close button size */
+}
+
+.overlay input[type="text"], 
+.overlay button[type="button"] {
+padding: 12px; /* Reduce padding */
+font-size: 16px; /* Adjust font size */
+}
+}
+
+@@media screen and (max-width: 480px) {
+.overlay-content {
+top: 10%; /* Further adjust vertical position */
+}
+
+.overlay input[type="text"], 
+.overlay button[type="button"] {
+padding: 10px; /* Reduce padding */
+font-size: 14px; /* Further adjust font size */
+}}
+.account-container {
+position: relative;
+display: inline-block;
+}
+
+.account-dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+width: 200px;
+background-color: white;
+border: 1px solid #ddd;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+padding: 10px;
+z-index: 1000;
+}
+
+.account-container:hover .account-dropdown {
+display: block;
+}
+
+.account-dropdown p {
+margin: 0;
+padding: 5px 0;
+}
+
+.account-dropdown .name {
+font-weight: bold;
+}
+
+.account-dropdown .position {
+font-size: 0.9em;
+color: gray;
+}
+
+.account-dropdown .btn {
+margin-top: 10px;
+padding: 5px 10px;
+background-color: #000000;
+color: white;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+.account-dropdown .btn:hover {
+background-color: #3c3d3d;
+}
+
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section Start -->
+    <header id="header">
+      <div class="discount-message d-lg-block d-none">
+        <a href="#" class="message">
+          10% DISCOUNT FOR REGISTERED USERS & FREE SHIPPING FOR ORDERS OVER $70
+          PLUS FREE RETURNS
+        </a>
+        <button class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Navbar Start -->
+      <nav id="nav" class="d-lg-block d-none">
+        <div class="navbar-container">
+          <div class="leftside-nav">
+            <div class="logo">
+              <img
+                src=" https://dunker.qodeinteractive.com/wp-content/uploads/2023/02/Dunker-logo-dark.png"
+                alt="Dark Dunker"
+              />
+            </div>
+          </div>
+          <div class="middle-nav">
+            <ul class="navbar-items">
+              <li class="navbar-item active">
+                <a href="#" class="navbar-link">HOME</a>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">SHOP</a>
+                <div class="multiple">
+                  <ul class="multiple-subMenu text-uppercase">
+                    <li class="multiple-subMenu-items">
+                      <span href="#" class="multiple-subMenu-heading">
+                        Product Types
+                      </span>
+                      <ul class="multiple-subMenu-item text-uppercase">
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">STANDARD</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">NEW PRODUCT</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">SALE PRODUCT</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">SOLD PRODUCT</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">FIXED INFO</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">VIRTUAL</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="multiple-subMenu-items">
+                      <span href="#" class="multiple-subMenu-heading">
+                        Contact Us
+                      </span>
+                      <ul class="multiple-subMenu-item text-uppercase">
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">Contact Us</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">Our Brands</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">
+                            Terms & Conditions
+                          </a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">About Us</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">OUR TEAM</a>
+                <ul class="subMenu text-uppercase">
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">Contact Us</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">Our Brands</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">Terms & Conditions</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">About Us</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">BLOG</a>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="rightside-nav">
+            <div class="action-icons">
+              <span
+                style="cursor: pointer"
+                class="search"
+                onclick="openSearch()"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+
+              <div id="searchOverlay" class="overlay">
+                <span class="closebtn" onclick="closeSearch()"
+                  ><i class="fa-solid fa-xmark"></i
+                ></span>
+                <div class="overlay-content">
+                  <h1>What are you looking for?</h1>
+                  <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search..."
+                    onkeydown="checkEnter(event)"
+                  />
+                  <button type="button" onclick="performSearch()">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div class="account-container">
+                <span style="cursor: pointer" class="account">
+                  <i class="fa-regular fa-user"></i>
+                </span>
+                <div class="account-dropdown">
+                  <p class="name">John Doe</p>
+                  <p class="position">Software Engineer</p>
+                  <button class="btn">View Profile</button>
+                </div>
+              </div>
+              
+              <a href="./wishlist.html">
+                <span class="wish"><i class="fa-regular fa-heart"></i></span>
+              </a>
+            </div>
+            <div class="basket basket-btn">
+              <span
+                class="basket-icon d-flex justify-content-center align-items-center gap-1"
+              >
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="count-basket">0</span>
+              </span>
+              <div class="basket-container"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar End -->
+
+      <!-- Mobile Nav Start-->
+      <div class="mobile-header d-block d-lg-none">
+        <div class="mobile-header-top">
+          <div class="mobile-nav-container">
+            <div class="mobile-nav-left">
+              <a href="./index.html">
+                <div class="dark-logo">
+                  <img
+                    src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/Mobile-logo.png"
+                    alt="DunkerDark"
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="mobile-nav-right">
+              <div class="mobile-nav-actions">
+                <div class="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="mobile-nav-basket">
+                  <a
+                    href="#"
+                    class="basket-btn basket-icon d-flex justify-content-center align-items-center gap-1"
+                  >
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="count-basket">0</span>
+                  </a>
+                  <div class="basket-container"></div>
+                </div>
+                <div class="menu-btn">
+                  <div class="menu-btn__burger"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav id="mobile-nav" class="mobile-navbar">
+          <ul class="mobile-navbar-items">
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Home
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Shop
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+              <ul class="mobile-subMenu-items">
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" id="sup" class="mobile-subMenu-link">
+                    Product Types
+                  </a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Contact Us</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Terms & Conditions</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Our Team
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+              <ul class="mobile-subMenu-items">
+                <li class="mobile-subMenu-item">
+                  <a href="#" class="mobile-subMenu-link">Contact Us</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Our Brands</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Terms & Conditions</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Blog
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Faq
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Mobile Nav End-->
+
+      <!-- Basket Sidebar -->
+      <div class="basket-sidebar">
+        <div class="basket-sidebar-content">
+          <div class="basket-sidebar-header">
+            <h4>Shopping Cart</h4>
+            <a href="#" class="button-close mb-2">
+              <i class="fa-solid fa-x"></i>
+            </a>
+          </div>
+          <div class="basket-products">
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+          </div>
+          <div class="basket-total">
+            <span>Subtotal:</span>
+            <span class="amount">0</span>
+          </div>
+          <div class="basket-buttons">
+            <a href="#" class="custom-button">View Cart & Checkout</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Slider -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">LIMITED EDITION SPORTSWEAR</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-1.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">LIMITED EDITION SPORTSWEAR</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-2.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-title">
+              <h1 class="slider-heading">uv protective clothes</h1>
+              <p class="pb-4">
+                Search the Dunker and find the ideal pieces for you
+              </p>
+              <a href="#" class="custom-button">SHOP NOW</a>
+            </div>
+            <div class="overlay"></div>
+            <img
+              src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/h1-rev-img-3.jpg"
+            />
+          </div>
+        </div>
+        <button class="border-0"><div class="swiper-button-next"></div></button>
+        <button class="border-0"><div class="swiper-button-prev"></div></button>
+        <div class="autoplay-progress d-lg-flex d-none">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+    </header>
+    <!-- Header Section End -->
+
     <!-- Main Start -->
     <main id="main">
       <!-- featured section start  -->
@@ -1243,7 +1880,6 @@
         </div>
       </section>
       <!-- featured-products end -->
-       
 
       <!-- New Collections Section Start -->
       <section id="new-collection">
@@ -1646,3 +2282,192 @@
       <!-- Categories Slider Section End -->
     </main>
     <!-- Main End -->
+
+    <!-- Footer Start -->
+    <footer id="footer">
+      <div class="content">
+        <div class="content-bottom">
+          <div class="row align-items-center">
+            <div class="content-logo col-lg-3 col-md-6 col-12">
+              <img
+                src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/02/Dunker-logo-dark.png"
+                alt=""
+              />
+            </div>
+            <div class="services col-lg-3 col-md-6 col-12">
+              <div>
+                <svg
+                  height="52.759"
+                  width="61.39"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M61.38 9.621a1.192 1.192 0 0 0-.038-.224 1.2 1.2 0 0 0-.027-.085 1.264 1.264 0 0 0-.1-.222c-.008-.013-.011-.028-.018-.04L55.708.568a1.239 1.239 0 0 0-1.042-.567H6.735a1.24 1.24 0 0 0-1.042.568L.205 9.05c-.008.014-.012.03-.02.044a1.187 1.187 0 0 0-.1.216.765.765 0 0 0-.028.091 1.15 1.15 0 0 0-.037.214.749.749 0 0 0-.008.083v41.825a1.242 1.242 0 0 0 1.241 1.24h58.909a1.241 1.241 0 0 0 1.24-1.24V9.695c0-.01-.02-.05-.022-.074Zm-58.9 1.342h16.461v9.633a1.242 1.242 0 0 0 1.241 1.241h21.023a1.242 1.242 0 0 0 1.241-1.241v-9.633h16.462v39.315H2.479Zm18.943 0h18.543v8.392H21.423Zm17.47-2.481h-16.4l3.984-6h8.429Zm2.978 0-3.985-6h16.1l3.884 6Zm-22.356 0h-16l3.885-6h16.1Z"
+                  ></path>
+                </svg>
+              </div>
+              <span>FREE SHIPPING & RETURN POLICY</span>
+            </div>
+            <div class="services col-lg-3 col-md-6 col-12">
+              <div>
+                <svg
+                  height="60.333"
+                  width="69.29"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M66.153 21.784h-7.676a23.929 23.929 0 0 0-47.665 0H3.137a3.141 3.141 0 0 0-3.138 3.138V40.03a3.141 3.141 0 0 0 3.138 3.138h7.739a19.587 19.587 0 0 0 2.547 7.3 13.91 13.91 0 0 0 5.1 4.865c3.661 2.041 8.116 2.475 11.838 2.539a3.131 3.131 0 0 0 3.055 2.462h5.365a3.13 3.13 0 0 0 3.126-3.126v-1.127a3.13 3.13 0 0 0-3.126-3.127h-5.365a3.132 3.132 0 0 0-3.05 2.442c-3.414-.062-7.453-.45-10.637-2.226-3.728-2.078-5.867-5.781-6.541-11.318V23.93a21.456 21.456 0 0 1 42.911 0v18a1.237 1.237 0 0 0 1.237 1.237h8.816a3.141 3.141 0 0 0 3.137-3.138V24.921a3.141 3.141 0 0 0-3.136-3.137ZM10.716 35.151v5.543H3.138a.673.673 0 0 1-.664-.664V24.921a.672.672 0 0 1 .664-.663h7.578Zm22.049 20.93a.661.661 0 0 1 .652-.652h5.365a.66.66 0 0 1 .652.652v1.125a.66.66 0 0 1-.652.652h-5.365a.661.661 0 0 1-.652-.652ZM66.816 40.03a.673.673 0 0 1-.663.664h-7.579V24.258h7.579a.672.672 0 0 1 .663.663Z"
+                  ></path>
+                </svg>
+              </div>
+              <span>90-DAY WARRANTY</span>
+            </div>
+            <div class="services col-lg-3 col-md-6 col-12">
+              <div>
+                <svg
+                  height="45.97"
+                  width="65.588"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.367 24.223h16.482a1.237 1.237 0 0 0 0-2.475H10.367a1.237 1.237 0 0 0 0 2.475Z"
+                  ></path>
+                  <path
+                    d="M61.853 0H3.734A3.739 3.739 0 0 0-.001 3.735v38.5a3.739 3.739 0 0 0 3.735 3.735h58.119a3.739 3.739 0 0 0 3.735-3.735v-38.5A3.739 3.739 0 0 0 61.853 0Zm1.261 42.236a1.262 1.262 0 0 1-1.261 1.261H3.734a1.262 1.262 0 0 1-1.26-1.261V15.942H63.11Zm0-28.767H2.475V3.735a1.262 1.262 0 0 1 1.26-1.261h58.119a1.262 1.262 0 0 1 1.261 1.261Z"
+                  ></path>
+                </svg>
+              </div>
+              <span>NEW PRODUCT OFFERINGS & DEALS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-container">
+        <div class="middle-footer">
+          <div class="row">
+            <div class="col-lg-6 col-12 p-lg-0 pb-5">
+              <div class="footer-form">
+                <h5>NEWSLETTER</h5>
+                <p>
+                  Dunker has all of the best products from all of the top
+                  brands.
+                </p>
+                <div class="form-email">
+                  <input
+                    type="email"
+                    class="send-email"
+                    placeholder="YOUR EMAIL"
+                  />
+                  <span class="arrow-right">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="location col-lg-3 col-md-6 col-12">
+              <h5>LOS ANGELES</h5>
+              <address>
+                <h6 class="footer-heading">
+                  <a href="tel:+738115709479">7(382)157-09-474</a>
+                </h6>
+                <h6 class="footer-heading">
+                  <a href="#">
+                    90A TOLBUHINA LOREM ORIGINAL LOS ANGELES, CA 200153
+                  </a>
+                </h6>
+                <h6 class="footer-heading">
+                  <a href="#">MON-SAT: 09:00-19:00</a>
+                </h6>
+              </address>
+            </div>
+            <div class="location col-lg-3 col-md-6 col-12">
+              <h5>LOS ANGELES</h5>
+              <address>
+                <h6 class="footer-heading">
+                  <a href="tel:+738115709479">7(382)157-09-474</a>
+                </h6>
+                <h6 class="footer-heading">
+                  <a href="#">
+                    90A TOLBUHINA LOREM ORIGINAL LOS ANGELES, CA 200153
+                  </a>
+                </h6>
+                <h6 class="footer-heading">
+                  <a href="#">MON-SAT: 09:00-19:00</a>
+                </h6>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-footer">
+        <div class="container">
+          <div class="copyright">
+            <span>
+              © 2023
+              <a href="#">Qode Interactive</a>
+              , All Rights Reserved
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script>
+
+ // search
+function openSearch() {
+  document.getElementById("searchOverlay").style.display = "block";
+  document.body.classList.add("no-scroll"); // Prevent scrolling
+}
+
+function closeSearch() {
+  document.getElementById("searchOverlay").style.display = "none";
+  document.body.classList.remove("no-scroll"); // Allow scrolling again
+}
+
+function checkEnter(event) {
+  if (event.key === "Enter") {
+    performSearch();
+  }
+}
+
+function performSearch() {
+  var searchQuery = document.getElementById("searchInput").value;
+  alert("Search performed for: " + searchQuery); 
+  closeSearch(); // Optionally close the search after performing it
+} 
+
+</script>
+  
+
+    <!-- SwiperJS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="~/assets/js/productCardSlider.js"></script>
+    <!-- Split Type  -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js
+    "></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- GSAP JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- axios cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js"></script>
+
+    <!-- generate card js  -->
+    <script src="~/assets/js/basket.js"></script>
+    <script src="~/assets/js/generateCard.js"></script>
+    <script src="~/assets/js/wishlist.js"></script>
+    <script src="~/assets/js/script.js"></script>
+  </body>
+</html>
