@@ -37,7 +37,7 @@ namespace Service.Services
 
         public async Task<ProductColor> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _repository.GetByIdAsync(id, "Color");
         }
 
         public async Task<SelectList> GetAllSelectListByProductIdAsync(int productId)
@@ -45,7 +45,19 @@ namespace Service.Services
             var productColors = await _repository.GetAllAsync();
             var mapProductColors = _mapper.Map<IEnumerable<ProductColorListVM>>(productColors.Where(m => m.ProductId != productId));
 
-            return new SelectList(mapProductColors, "Id", "ColorName");
+            return new SelectList(mapProductColors, "ColorId", "ColorName");
+        }
+
+        public async Task<IEnumerable<int>> GetAllColorIdsByProductId(int productId)
+        {
+            var productColors = await _repository.GetAllAsync();
+
+            var assignedColorIds = productColors
+                .Where(pc => pc.ProductId == productId)
+                .Select(pc => pc.ColorId)
+                .ToList();
+
+            return assignedColorIds;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Service.ViewModels.ProductColorVms;
 using System.ComponentModel.DataAnnotations;
 
@@ -27,5 +28,6 @@ namespace Service.ViewModels.Product
 
         public IEnumerable<ProductColorListVM> Colors { get; set; }
         public IEnumerable<IFormFile> Images { get; set; }
+        public IEnumerable<ProductImage>? ProductImages { get; set; }
     }
 }

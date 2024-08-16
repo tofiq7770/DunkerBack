@@ -65,7 +65,7 @@ namespace Service.Services
 
         public async Task<ProductDetailVM?> GetByIdAsync(int id)
         {
-            return _mapper.Map<ProductDetailVM>(await _repository.GetByIdAsync(id));
+            return _mapper.Map<ProductDetailVM>(await _repository.GetByIdAsync(id, "ProductImages"));
         }
 
         public async Task<List<Product>> GetNewProducts()

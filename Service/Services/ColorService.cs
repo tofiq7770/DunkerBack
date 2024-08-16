@@ -63,5 +63,13 @@ namespace Service.Services
         {
             return new SelectList(await _repository.GetAllAsync(), "Id", "Name");
         }
+
+        public async Task<SelectList> GetAllSelectListAsync(IEnumerable<int> colorIds)
+        {
+            var colors = await _repository.GetAllAsync();
+            colors = colors.Where(m => !colorIds.Contains(m.Id)).ToList();
+
+            return new SelectList(colors, "Id", "Name");
+        }
     }
 }

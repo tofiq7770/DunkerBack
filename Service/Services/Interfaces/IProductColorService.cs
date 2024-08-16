@@ -11,5 +11,6 @@ namespace Service.Services.Interfaces
         Task<SelectList> GetAllSelectListByProductIdAsync(int productId);
         Task Delete(ProductColor model);
         Task<ProductColor> GetByIdAsync(int id);
+        Task<IEnumerable<int>> GetAllColorIdsByProductId(int productId);
     }
 }

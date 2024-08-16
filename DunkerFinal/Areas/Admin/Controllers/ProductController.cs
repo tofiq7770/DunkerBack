@@ -131,7 +131,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
             ViewBag.Colors = await _colorService.GetAllSelectListAsync();
-            ViewBag.ColorsByProductId = await _productColorService.GetAllSelectListByProductIdAsync(id);
+            ViewBag.Colors = await _colorService.GetAllSelectListAsync(await _productColorService.GetAllColorIdsByProductId(id));
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             var result = await _service.GetByIdAsync(id);
@@ -148,19 +148,25 @@ namespace DunkerFinal.Areas.Admin.Controllers
         {
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
-            ViewBag.ColorsByProductId = await _productColorService.GetAllSelectListByProductIdAsync(id);
+            ViewBag.Colors = await _colorService.GetAllSelectListAsync(await _productColorService.GetAllColorIdsByProductId(id));
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             await _service.UpdateAsync(request);
 
-            foreach (var colorId in request.ColorIds)
-            {
-                await _productColorService.CreateAsync(new ProductColorCreateVM() { ProductId = id, ColorId = colorId });
-            }
 
-            foreach (var tagId in request.TagIds)
+            if (request.ColorIds != null)
             {
-                await _productTagService.CreateAsync(new ProductTagCreateVM() { ProductId = id, TagId = tagId });
+                foreach (var colorId in request.ColorIds)
+                {
+                    await _productColorService.CreateAsync(new ProductColorCreateVM() { ProductId = id, ColorId = colorId });
+                }
+            }
+            if (request.TagIds != null)
+            {
+                foreach (var tagId in request.TagIds)
+                {
+                    await _productTagService.CreateAsync(new ProductTagCreateVM() { ProductId = id, TagId = tagId });
+                }
             }
 
             return RedirectToAction("Index");
@@ -169,8 +175,42 @@ namespace DunkerFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteColor(int id)
         {
-            var a = await _productColorService.GetByIdAsync(id);
-            await _productColorService.Delete(a);
+            var existColor = await _productColorService.GetByIdAsync(id);
+            await _productColorService.Delete(existColor);
+            return PartialView("_ColorOptionPartial", existColor);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteImgByProductId(int imgId, int productId)
+        {
+            var existImg = await _imageService.GetByIdAsync(imgId);
+            var product = await _service.GetByIdAsync(productId);
+
+            if (existImg.IsMain) return Content("IsMainError");
+
+            if (product?.ProductImages.Count() == 1) return Content("CountError");
+
+            await _imageService.Delete(existImg);
+
+            return Content("Success");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MakeMain(int imgId)
+        {
+            var imgs = await _imageService.GetAllAsync();
+
+            foreach (var item in imgs)
+            {
+                item.IsMain = false;
+                await _imageService.UpdateAsync(item);
+            }
+
+            var existImg = await _imageService.GetByIdAsync(imgId);
+            existImg.IsMain = true;
+
+            await _imageService.UpdateAsync(existImg);
+
             return Ok();
         }
 

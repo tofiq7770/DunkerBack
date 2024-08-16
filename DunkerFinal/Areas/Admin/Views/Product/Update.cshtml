@@ -9,6 +9,18 @@
             <h4 class="card-title">Update Slider</h4>
             <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="mt-3 form-group">
+                    @foreach (var item in Model.ProductImages)
+                    {
+                        <div style="display: flex;">
+                            <img class="images" src="~/assets/img/@item.Image" style="width:200px;border: @(item.IsMain ? "5" : "0")px solid red" />
+                            <div>
+                                <a class="btn btn-danger delete-img" img-id="@item.Id" product-id="@Model.Id">X</a>
+                                <a class="btn btn-primary main-img" img-id="@item.Id" product-id="@Model.Id">Main</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="mt-3 form-group">
                     @foreach (var item in Model.Colors)
                     {
                         <div>
@@ -25,7 +37,7 @@
                 </div>
                 <div class="mt-3 form-group">
                     <label asp-for="ColorIds">Colors</label>
-                    <select class="form-control text-black " asp-for="ColorIds" asp-items="@ViewBag.ColorsByProductId">
+                    <select class="form-control text-black colors" asp-for="ColorIds" asp-items="@ViewBag.Colors">
                     </select>
                     <span class="text-danger mt-2" asp-validation-for="ColorIds"></span>
                 </div>

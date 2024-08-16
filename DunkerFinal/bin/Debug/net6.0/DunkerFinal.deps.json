@@ -34,6 +34,7 @@
     ".NETCoreApp,Version=v6.0": {
       "DunkerFinal/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "MailKit": "4.7.1.1",
           "Microsoft.EntityFrameworkCore": "6.0.32",
           "Microsoft.EntityFrameworkCore.Design": "6.0.32",

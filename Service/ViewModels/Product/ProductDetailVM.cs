@@ -24,6 +24,6 @@ namespace Service.ViewModels.Product
         public List<ProductTag> Tags { get; set; }
         public List<ProductColor> Colors { get; set; }
 
-        public List<ProductImage> Images { get; set; }
+        public IEnumerable<ProductImage> ProductImages { get; set; }
     }
 }

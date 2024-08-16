@@ -41,9 +41,17 @@ namespace Repository.Repositories
         {
             return await _entities.ToListAsync();
         }
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id, params string[] includes)
         {
-            return await _entities.FindAsync(id);
+            var query = _context.Set<T>().AsQueryable();
+
+            // Apply includes
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.FirstOrDefaultAsync(e => e.Id == id);
         }
         public async Task UpdateAsync(T entity)
         {

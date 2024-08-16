@@ -1,6 +1,6 @@
-﻿const dltBtns = document.querySelectorAll(".delete-color");
+﻿const dltColorBtns = document.querySelectorAll(".delete-color");
 
-dltBtns.forEach(dltBtn => {
+dltColorBtns.forEach(dltBtn => {
     dltBtn.addEventListener("click", function () {
         Swal.fire({
             title: "Are you sure?",
@@ -12,12 +12,6 @@ dltBtns.forEach(dltBtn => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-
                 const btn = this;
                 const id = btn.getAttribute("color-id");
                 $.ajax({
@@ -25,8 +19,75 @@ dltBtns.forEach(dltBtn => {
                     url: `/Admin/Product/DeleteColor/${id}`,
                     success: function (result) {
                         btn.parentNode.remove();
+
+                        const colors = document.querySelector(".colors");
+                        colors.innerHTML += result;
                     }
                 });
+            }
+        });
+    });
+});
+
+const dltImgBtns = document.querySelectorAll(".delete-img");
+
+dltImgBtns.forEach(dltBtn => {
+    dltBtn.addEventListener("click", function () {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const btn = this;
+                const imgId = btn.getAttribute("img-id");
+                const productId = btn.getAttribute("product-id");
+
+                $.ajax({
+                    type: "POST",
+                    url: `/Admin/Product/DeleteImgByProductId?imgId=${imgId}&productId=${productId}`,
+                    success: function (result) {
+                        if (result == "CountError") {
+                            alert("Image min 1!");
+                            return;
+                        }
+
+                        if (result == "IsMainError") {
+                            alert("Main image min 1!");
+                            return;
+                        }
+
+                        btn.parentNode.remove();
+                    }
+                });
+            }
+        });
+    });
+});
+
+const dltMainBtns = document.querySelectorAll(".main-img");
+
+dltMainBtns.forEach(dltBtn => {
+    dltBtn.addEventListener("click", function () {
+
+        const btn = this;
+        const imgId = btn.getAttribute("img-id");
+
+        $.ajax({
+            type: "POST",
+            url: `/Admin/Product/MakeMain?imgId=${imgId}`,
+            success: function () {
+                const images = document.querySelectorAll(".images");
+
+                images.forEach(image => {
+                    image.style.border = "none";
+                })
+
+                btn.parentNode.previousElementSibling.style.border = "5px solid red";
             }
         });
     });

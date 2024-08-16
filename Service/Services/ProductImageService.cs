@@ -21,5 +21,25 @@ namespace Service.Services
         {
             await _repository.CreateAsync(_mapper.Map<ProductImage>(model));
         }
+
+        public async Task Delete(ProductImage model)
+        {
+            await _repository.DeleteAsync(model);
+        }
+
+        public async Task<IEnumerable<ProductImage>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public async Task<ProductImage> GetByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+        }
+
+        public async Task UpdateAsync(ProductImage model)
+        {
+            await _repository.UpdateAsync(model);
+        }
     }
 }
