@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4hZcPD+mdvcsECR3UGoX6EbnxY7Rt+1bclNkJL8ueEw=",
+  "Hash": "3LnplTO+C+fZarlgLsZFW66hCfhuVJsBTW8Nvo/IGFU=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -2397,6 +2397,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\31a63bc4-177b-47d5-9694-e4cfd4c56f76-avatar.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\3a0a4835-1795-4992-aa23-90b258e59ba7-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/3a0a4835-1795-4992-aa23-90b258e59ba7-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\3a0a4835-1795-4992-aa23-90b258e59ba7-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\3cb123a4-5021-4e7b-a2ce-592ffe1a37a7-36892600-9ff8-4fe4-85ad-2ea551fb995c-fruite-item-2.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -2412,6 +2429,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\3cb123a4-5021-4e7b-a2ce-592ffe1a37a7-36892600-9ff8-4fe4-85ad-2ea551fb995c-fruite-item-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\3d06d116-75cb-439c-a1cb-b356c62cc18c-81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3 - Copy.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/3d06d116-75cb-439c-a1cb-b356c62cc18c-81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3 - Copy.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\3d06d116-75cb-439c-a1cb-b356c62cc18c-81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3 - Copy.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\3d8c73ee-5314-4b18-adca-5fd7167be719-25706631-b04e-4ad1-8a06-a2cab8344bf0-fruite-item-1.jpg",
@@ -2990,6 +3024,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\e8e6b2d0-986c-45de-9ecd-95d926c5f3fb-4b4a248c-7a09-479b-bb83-d3c117e71383-featur-3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\ea485602-53d7-476b-b4b5-d499324d5454-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2 - Copy.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/ea485602-53d7-476b-b4b5-d499324d5454-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2 - Copy.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\ea485602-53d7-476b-b4b5-d499324d5454-81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2 - Copy.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\ebe627b7-49b3-4a78-89b2-7ea222ff005b-93d410ae-eb05-469a-9bc7-e4a03931aa62-vegetable-item-1.jpg",

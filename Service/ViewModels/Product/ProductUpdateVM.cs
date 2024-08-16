@@ -27,7 +27,7 @@ namespace Service.ViewModels.Product
         public List<int> ColorIds { get; set; }
 
         public IEnumerable<ProductColorListVM> Colors { get; set; }
-        public IEnumerable<IFormFile> Images { get; set; }
+        public IFormFile[] Images { get; set; }
         public IEnumerable<ProductImage>? ProductImages { get; set; }
     }
 }

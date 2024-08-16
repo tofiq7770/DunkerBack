@@ -151,8 +151,31 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Colors = await _colorService.GetAllSelectListAsync(await _productColorService.GetAllColorIdsByProductId(id));
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
-            await _service.UpdateAsync(request);
+            foreach (var item in request.Images)
+            {
+                if (!item.CheckFileFormat("image/"))
+                {
+                    ModelState.AddModelError("Images", "File must be Image Format");
+                    return View(request);
+                }
 
+                if (!item.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("Images", "Max File capacity must be 200KB");
+                    return View(request);
+                }
+            }
+
+            for (int i = 0; i < request.Images.Length; i++)
+            {
+                string fileName = Guid.NewGuid().ToString() + "-" + request.Images[i].FileName;
+                string path = Path.Combine(_environment.WebRootPath, "assets/img", fileName);
+                await request.Images[i].SaveFileToLocalAsync(path);
+
+                await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = id, IsMain = false });
+            }
+
+            await _service.UpdateAsync(request);
 
             if (request.ColorIds != null)
             {
@@ -196,20 +219,20 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MakeMain(int imgId)
+        public async Task<IActionResult> MakeMain(int imgId, int productId)
         {
-            var imgs = await _imageService.GetAllAsync();
+            var product = await _service.GetByIdAsync(productId);
 
-            foreach (var item in imgs)
+            foreach (var item in product.ProductImages)
             {
                 item.IsMain = false;
                 await _imageService.UpdateAsync(item);
             }
-
             var existImg = await _imageService.GetByIdAsync(imgId);
-            existImg.IsMain = true;
 
+            existImg.IsMain = true;
             await _imageService.UpdateAsync(existImg);
+
 
             return Ok();
         }

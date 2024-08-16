@@ -61,7 +61,7 @@ dltImgBtns.forEach(dltBtn => {
                             return;
                         }
 
-                        btn.parentNode.remove();
+                        btn.parentNode.parentNode.remove();
                     }
                 });
             }
@@ -76,10 +76,11 @@ dltMainBtns.forEach(dltBtn => {
 
         const btn = this;
         const imgId = btn.getAttribute("img-id");
+        const productId = btn.getAttribute("product-id");
 
         $.ajax({
             type: "POST",
-            url: `/Admin/Product/MakeMain?imgId=${imgId}`,
+            url: `/Admin/Product/MakeMain?imgId=${imgId}&productId=${productId}`,
             success: function () {
                 const images = document.querySelectorAll(".images");
 
