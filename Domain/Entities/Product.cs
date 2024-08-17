@@ -16,6 +16,7 @@ namespace Domain.Entities
         public int Quantity { get; set; }
         public int? Rating { get; set; } = 0;
         public List<ProductColor>? ProductColors { get; set; }
+        public ICollection<BasketProduct> BasketProducts { get; set; }
         public List<ProductTag>? ProductTags { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
     }

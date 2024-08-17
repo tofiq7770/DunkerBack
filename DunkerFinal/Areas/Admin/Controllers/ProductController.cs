@@ -151,30 +151,34 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Colors = await _colorService.GetAllSelectListAsync(await _productColorService.GetAllColorIdsByProductId(id));
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
-            foreach (var item in request.Images)
+
+
+            if (request.Images != null)
             {
-                if (!item.CheckFileFormat("image/"))
+                foreach (var item in request.Images)
                 {
-                    ModelState.AddModelError("Images", "File must be Image Format");
-                    return View(request);
+                    if (!item.CheckFileFormat("image/"))
+                    {
+                        ModelState.AddModelError("Images", "File must be Image Format");
+                        return View(request);
+                    }
+
+                    if (!item.CheckFileSize(200))
+                    {
+                        ModelState.AddModelError("Images", "Max File capacity must be 200KB");
+                        return View(request);
+                    }
                 }
 
-                if (!item.CheckFileSize(200))
+                for (int i = 0; i < request.Images.Length; i++)
                 {
-                    ModelState.AddModelError("Images", "Max File capacity must be 200KB");
-                    return View(request);
+                    string fileName = Guid.NewGuid().ToString() + "-" + request.Images[i].FileName;
+                    string path = Path.Combine(_environment.WebRootPath, "assets/img", fileName);
+                    await request.Images[i].SaveFileToLocalAsync(path);
+
+                    await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = id, IsMain = false });
                 }
             }
-
-            for (int i = 0; i < request.Images.Length; i++)
-            {
-                string fileName = Guid.NewGuid().ToString() + "-" + request.Images[i].FileName;
-                string path = Path.Combine(_environment.WebRootPath, "assets/img", fileName);
-                await request.Images[i].SaveFileToLocalAsync(path);
-
-                await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = id, IsMain = false });
-            }
-
             await _service.UpdateAsync(request);
 
             if (request.ColorIds != null)

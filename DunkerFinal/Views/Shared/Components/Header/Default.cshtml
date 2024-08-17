@@ -1,0 +1,389 @@
+﻿ @using Service.ViewModels.Setting
+@model List<SettingListVM>
+
+    <!-- Header Section Start -->
+    <header id="header">
+      <div class="discount-message d-lg-block d-none">
+        <a href="#" class="message">
+          10% DISCOUNT FOR REGISTERED USERS & FREE SHIPPING FOR ORDERS OVER $70
+          PLUS FREE RETURNS
+        </a>
+        <button class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Navbar Start -->
+      <nav id="nav" class="d-lg-block d-none position-relative">
+        <div class="navbar-container">
+          <div class="leftside-nav">
+            <a asp-action="Index" asp-controller="Home">
+              <div class="logo">
+                <img
+                  src=" https://dunker.qodeinteractive.com/wp-content/uploads/2023/02/Dunker-logo-dark.png"
+                  alt="Dark Dunker"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="middle-nav">
+            <ul class="navbar-items">
+              <li class="navbar-item active">
+                <a asp-action="Index" asp-controller="Home" class="navbar-link">HOME</a>
+              </li>
+              <li class="navbar-item">
+                <a asp-action="Index" asp-controller="Shop" class="navbar-link">SHOP</a>
+                <div class="multiple">
+                  <ul class="multiple-subMenu text-uppercase">
+                    <li class="multiple-subMenu-items">
+                      <span href="#" class="multiple-subMenu-heading">
+                        Product Types
+                      </span>
+                      <ul class="multiple-subMenu-item text-uppercase">
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">STANDARD</a>
+                        </li> 
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">Men</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">Women</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">SALE PRODUCT</a>
+                        </li> 
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">FIXED INFO</a>
+                        </li> 
+                      </ul>
+                    </li>
+                    <li class="multiple-subMenu-items">
+                      <span href="#" class="multiple-subMenu-heading">
+                        Contact Us
+                      </span>
+                      <ul class="multiple-subMenu-item text-uppercase">
+                        <li class="multiple-item">
+                          <a asp-action="index" asp-controller="Contact" class="multiple-link">Contact Us</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">Our Brands</a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">
+                            Terms & Conditions
+                          </a>
+                        </li>
+                        <li class="multiple-item">
+                          <a href="#" class="multiple-link">About Us</a>
+                        </li>
+                      </ul>
+                    </li> 
+                  </ul>
+                </div>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">OUR TEAM</a>
+                <ul class="subMenu text-uppercase">
+                  <li class="subMenu-item">
+                    <a asp-action="index" asp-controller="Contact" class="subMenu-link">Contact Us</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">Our Brands</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">Terms & Conditions</a>
+                  </li>
+                  <li class="subMenu-item">
+                    <a href="#" class="subMenu-link">About Us</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">BLOG</a>
+              </li>
+              <li class="navbar-item">
+                <a href="#" class="navbar-link">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="rightside-nav">
+            <div class="action-icons">
+              <span
+                style="cursor: pointer"
+                class="search"
+                onclick="openSearch()"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+
+              <div id="searchOverlay" class="overlay">
+                <span class="closebtn" onclick="closeSearch()"
+                  ><i class="fa-solid fa-xmark"></i
+                ></span>
+                <div class="overlay-content">
+                  <h1>What are you looking for?</h1>
+                  <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search..."
+                    onkeydown="checkEnter(event)"
+                  />
+                  <button type="button" onclick="performSearch()">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div class="account-container">
+                <span style="cursor: pointer" class="account">
+                  <i class="fa-regular fa-user"></i>
+                </span>
+                <div class="account-dropdown">
+                  <p class="name">John Doe</p>
+                  <p class="position">Software Engineer</p>
+                  <button class="btn">View Profile</button>
+                </div>
+              </div>
+
+              <a href="./wishlist.html">
+                <span class="wish"><i class="fa-regular fa-heart"></i></span>
+              </a>
+            </div>
+            <div class="basket basket-btn">
+              <span
+                class="basket-icon d-flex justify-content-center align-items-center gap-1"
+              >
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="count-basket">0</span>
+              </span>
+              <div class="basket-container"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar End -->
+
+      <!-- Mobile Nav Start-->
+      <div class="mobile-header d-block d-lg-none">
+        <div class="mobile-header-top">
+          <div class="mobile-nav-container">
+            <div class="mobile-nav-left">
+              <a href="./index.html">
+                <div class="dark-logo">
+                  <img
+                    src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/Mobile-logo.png"
+                    alt="DunkerDark"
+                  />
+                </div>
+              </a>
+            </div>
+            <div class="mobile-nav-right">
+              <div class="mobile-nav-actions">
+                <div class="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="mobile-nav-basket">
+                  <a
+                    href="#"
+                    class="basket-btn basket-icon d-flex justify-content-center align-items-center gap-1"
+                  >
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="count-basket">0</span>
+                  </a>
+                  <div class="basket-container"></div>
+                </div>
+                <div class="menu-btn">
+                  <div class="menu-btn__burger"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav id="mobile-nav" class="mobile-navbar">
+          <ul class="mobile-navbar-items">
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Home
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Shop
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+              <ul class="mobile-subMenu-items">
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" id="sup" class="mobile-subMenu-link">
+                    Product Types
+                  </a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Contact Us</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Terms & Conditions</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Our Team
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+              <ul class="mobile-subMenu-items">
+                <li class="mobile-subMenu-item">
+                  <a href="#" class="mobile-subMenu-link">Contact Us</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Our Brands</a>
+                </li>
+                <li class="mobile-subMenu-item text-uppercase">
+                  <a href="#" class="mobile-subMenu-link">Terms & Conditions</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Blog
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+            <li class="mobile-navbar-item text-uppercase">
+              <a href="#" class="mobile-navbar-link">
+                Faq
+                <span class="right-chevron">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Mobile Nav End-->
+
+      <!-- Basket Sidebar -->
+      <div class="basket-sidebar">
+        <div class="basket-sidebar-content">
+          <div class="basket-sidebar-header">
+            <h4>Shopping Cart</h4>
+            <a href="#" class="button-close mb-2">
+              <i class="fa-solid fa-x"></i>
+            </a>
+          </div>
+          <div class="basket-products">
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+            <div class="basket-product">
+              <a class="basket-img" href="#">
+                <img
+                  src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/shop-list-filter-1-600x750.jpg"
+                  alt="Product"
+                />
+              </a>
+              <div class="basket-product-content">
+                <a href="#" class="product-category">Fitness</a>
+                <a href="#" class="product-item">WHITE SHIRT</a>
+                <span class="product-cost">$45</span>
+              </div>
+              <a href="#" class="remove-basket">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+          </div>
+          <div class="basket-total">
+            <span>Subtotal:</span>
+            <span class="amount">0</span>
+          </div>
+          <div class="basket-buttons">
+            <a href="#" class="custom-button">View Cart & Checkout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header Section End -->
