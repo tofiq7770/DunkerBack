@@ -481,19 +481,19 @@
                     @foreach (var item in Model.Baskets)
                     {
                         <div class="basket-product">
-                        <a class="basket-img" href="#">
-                            <img src="~/assets/img/@item.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image"
+                            <a class="basket-img" href="#">
+                                <img src="~/assets/img/@item.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image"
                                  alt="Product" />
-                        </a>
-                        <div class="basket-product-content">
-                            <a href="#" class="product-category">@item.Product.Category.Name</a>
-                            <a href="#" class="product-item">@item.Product.Name</a>
-                            <span class="product-cost">$@item.Product.Price</span>
+                            </a>
+                            <div class="basket-product-content">
+                                <a href="#" class="product-category">@item.Product.Category.Name</a>
+                                <a href="#" class="product-item">@item.Product.Name</a>
+                                <span class="product-cost">$@item.Product.Price</span>
+                            </div>
+                            <a href="#" class="remove-basket">
+                                <i class="fa-solid fa-x"></i>
+                            </a>
                         </div>
-                        <a href="#" class="remove-basket">
-                            <i class="fa-solid fa-x"></i>
-                        </a>
-                    </div>
                     }
                 </div>
                 <div class="basket-total">
@@ -501,7 +501,7 @@
                     <span class="amount">0</span>
                 </div>
                 <div class="basket-buttons">
-                    <a  asp-action="Index" asp-controller="Basket" class="custom-button">View Cart & Checkout</a>
+                    <a asp-action="Index" asp-controller="Basket" class="custom-button">View Cart & Checkout</a>
                 </div>
             </div>
         </div>
@@ -913,7 +913,7 @@
                         <div class="sale-title">
                             <p class="sale-text">Sale</p>
                             <p class="discount">20% Off all Hoodies</p>
-                            <a  class="custom-button">SHOP NOW</a>
+                            <a class="custom-button">SHOP NOW</a>
                         </div>
                     </div>
                 </div>
@@ -1170,78 +1170,81 @@
     <!-- Footer End -->
 
     <script>
-       
-        document.querySelectorAll('.add-to-basket-button').forEach(button => {
-    button.addEventListener('click', async function () {
-        const productId = this.getAttribute('data-product-id');
 
-        try {
-            const response = await fetch('/Basket/Add', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'  
-                },
-                body: JSON.stringify(productId)
+                document.querySelectorAll('.add-to-basket-button').forEach(button => {
+            button.addEventListener('click', async function () {
+                const productId = this.getAttribute('data-product-id');
+
+                try {
+                    const response = await fetch('/Basket/Add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(productId)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: result.message,
+                            icon: 'success',
+                            timer: 1200,
+                            showConfirmButton: false
+                        });
+
+                        updateBasketUI();
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to add product to basket. ' + result.message,
+                            icon: 'error',
+                            timer: 1200,
+                            showConfirmButton: false
+                        });
+                    }
+                } catch (error) {
+                    console.error('Network error:', error);
+                    Swal.fire({
+                        title: 'Network Error!',
+                        text: 'An error occurred. Please try again.',
+                        icon: 'error',
+                         timer: 1200,
+                            showConfirmButton: false
+                    });
+                }
             });
+        });
 
-            const result = await response.json();
-
-            if (response.ok) {
-                Swal.fire({
-                    title: 'Success!',
-                    text: result.message,
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-
-                updateBasketUI();   
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Failed to add product to basket. ' + result.message,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
-        } catch (error) {
-            console.error('Network error:', error);
-            Swal.fire({
-                title: 'Network Error!',
-                text: 'An error occurred. Please try again.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
+        function updateBasketUI() {
+            // Implement this function to refresh the basket display, count items, etc.
         }
-    });
-});
 
-function updateBasketUI() {
-    // Implement this function to refresh the basket display, count items, etc.
-}
+                         // search
+                        function openSearch() {
+                          document.getElementById("searchOverlay").style.display = "block";
+                          document.body.classList.add("no-scroll"); // Prevent scrolling
+                        }
 
-                 // search
-                function openSearch() {
-                  document.getElementById("searchOverlay").style.display = "block";
-                  document.body.classList.add("no-scroll"); // Prevent scrolling
-                }
+                        function closeSearch() {
+                          document.getElementById("searchOverlay").style.display = "none";
+                          document.body.classList.remove("no-scroll"); // Allow scrolling again
+                        }
 
-                function closeSearch() {
-                  document.getElementById("searchOverlay").style.display = "none";
-                  document.body.classList.remove("no-scroll"); // Allow scrolling again
-                }
+                        function checkEnter(event) {
+                          if (event.key === "Enter") {
+                            performSearch();
+                          }
+                        }
 
-                function checkEnter(event) {
-                  if (event.key === "Enter") {
-                    performSearch();
-                  }
-                }
-
-                function performSearch() {
-                  var searchQuery = document.getElementById("searchInput").value;
-                  alert("Search performed for: " + searchQuery);
-                  closeSearch(); // Optionally close the search after performing it
-                }
+                        function performSearch() {
+                          var searchQuery = document.getElementById("searchInput").value;
+                          alert("Search performed for: " + searchQuery);
+                          closeSearch(); // Optionally close the search after performing it
+                        }
 
 
     </script>
@@ -1256,7 +1259,7 @@ function updateBasketUI() {
     https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js
     "></script>
 
-    <!-- SweetAlert2 --> 
+    <!-- SweetAlert2 -->
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 

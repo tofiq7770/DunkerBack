@@ -120,26 +120,44 @@ namespace DunkerFinal.Controllers
             return Json(new { success = true, message = "Product added to cart." });
         }
 
-
+        [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-                return RedirectToAction("NotFound", "Error");
+                return Json(new { success = false, message = "Product ID is missing." });
 
             if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("SignIn", "Account");
+                return Json(new { success = false, message = "User not authenticated." });
 
-            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            var existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (existUser == null)
+                return Json(new { success = false, message = "User not found." });
 
-            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+            var basketProduct = await _context.BasketProducts
+                .Include(m => m.Product)
+                .FirstOrDefaultAsync(m => m.Id == id && m.Basket.AppUserId == existUser.Id);
 
             if (basketProduct == null)
-                return RedirectToAction("NotFound", "Error");
+                return Json(new { success = false, message = "Product not found in basket." });
 
             _context.BasketProducts.Remove(basketProduct);
             await _context.SaveChangesAsync();
-            var data = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Product.Price * m.Quantity);
-            return Ok(data);
+
+            var totalPrice = await _context.BasketProducts
+                .Where(m => m.Basket.AppUserId == existUser.Id)
+                .SumAsync(m => m.Product.Price * m.Quantity);
+
+            var totalQuantity = await _context.BasketProducts
+                .Where(m => m.Basket.AppUserId == existUser.Id)
+                .SumAsync(m => m.Quantity);
+
+            return Json(new
+            {
+                success = true,
+                totalPrice,
+                totalQuantity,
+                isEmpty = totalQuantity == 0
+            });
         }
 
         public class IncreaseRequest
@@ -178,51 +196,11 @@ namespace DunkerFinal.Controllers
 
             return Ok(new { totalPrice, total });
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Decrease([FromBody] int id)
-        //{
-        //    if (id <= 0)
-        //        return BadRequest("Invalid product ID.");
-
-        //    var userName = User.Identity?.Name;
-        //    if (string.IsNullOrEmpty(userName))
-        //        return Unauthorized("User is not authenticated.");
-
-        //    var user = await _userManager.FindByNameAsync(userName);
-        //    if (user == null)
-        //        return Unauthorized("User not found.");
-
-        //    var basketProduct = await _context.BasketProducts
-        //        .Include(bp => bp.Product)
-        //        .FirstOrDefaultAsync(bp => bp.Id == id && bp.Basket.AppUserId == user.Id);
-
-        //    if (basketProduct == null)
-        //        return NotFound("Product not found in basket.");
-
-        //    if (basketProduct.Quantity > 1)
-        //    {
-        //        basketProduct.Quantity--;
-        //    }
-        //    else
-        //    {
-        //        _context.BasketProducts.Remove(basketProduct);
-        //    }
-
-        //    await _context.SaveChangesAsync();
-
-        //    var totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
-        //    var totalQuantity = await _context.BasketProducts
-        //        .Where(bp => bp.Basket.AppUserId == user.Id)
-        //        .SumAsync(bp => bp.Quantity);
-
-        //    return Ok(new { totalPrice, totalQuantity });
-        //}
         [HttpPost]
-        public async Task<IActionResult> Decrease([FromBody] int id)
+        public async Task<IActionResult> Decrease([FromBody] ProductRequest request)
         {
             // Validate the product ID
-            if (id <= 0)
+            if (request == null || request.Id <= 0)
             {
                 return BadRequest(new { success = false, message = "Invalid product ID." });
             }
@@ -244,7 +222,7 @@ namespace DunkerFinal.Controllers
             // Find the basket product
             var basketProduct = await _context.BasketProducts
                 .Include(bp => bp.Product)
-                .FirstOrDefaultAsync(bp => bp.Id == id && bp.Basket.AppUserId == user.Id);
+                .FirstOrDefaultAsync(bp => bp.Id == request.Id && bp.Basket.AppUserId == user.Id);
 
             if (basketProduct == null)
             {
@@ -264,12 +242,20 @@ namespace DunkerFinal.Controllers
             await _context.SaveChangesAsync();
 
             // Calculate the updated total price and quantity
-            var totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
+            var totalPrice = await _context.BasketProducts
+                .Where(bp => bp.Basket.AppUserId == user.Id)
+                .SumAsync(bp => bp.Product.Price * bp.Quantity);
+
             var totalQuantity = await _context.BasketProducts
                 .Where(bp => bp.Basket.AppUserId == user.Id)
                 .SumAsync(bp => bp.Quantity);
 
             return Ok(new { success = true, totalPrice, totalQuantity });
+        }
+
+        public class ProductRequest
+        {
+            public int Id { get; set; }
         }
 
 
