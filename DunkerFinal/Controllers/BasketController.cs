@@ -56,7 +56,7 @@ namespace DunkerFinal.Controllers
 
             return View(basketListVMs);
         }
-        [HttpPost]
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] int? productId)
         {
@@ -142,42 +142,116 @@ namespace DunkerFinal.Controllers
             return Ok(data);
         }
 
+        public class IncreaseRequest
+        {
+            public int Id { get; set; }
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Increase(int id)
+        public async Task<IActionResult> Increase([FromBody] IncreaseRequest request)
         {
-            if (id == null)
-                return RedirectToAction("NotFound", "Error");
+            if (request.Id <= 0)
+                return BadRequest("Invalid product ID.");
 
-            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            var userName = User.Identity?.Name;
+            if (string.IsNullOrEmpty(userName))
+                return Unauthorized("User is not authenticated.");
 
-            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+            AppUser existUser = await _userManager.FindByNameAsync(userName);
+            if (existUser == null)
+                return Unauthorized("User not found.");
+
+            BasketProduct basketProduct = await _context.BasketProducts
+                .Include(m => m.Product)
+                .FirstOrDefaultAsync(m => m.Id == request.Id && m.Basket.AppUserId == existUser.Id);
 
             if (basketProduct == null)
-                return RedirectToAction("NotFound", "Error");
+                return NotFound("Product not found in basket.");
 
             basketProduct.Quantity++;
             await _context.SaveChangesAsync();
 
             decimal totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
-            decimal total = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Quantity);
+            decimal total = await _context.BasketProducts
+                .Where(m => m.Basket.AppUserId == existUser.Id)
+                .SumAsync(m => m.Quantity);
 
             return Ok(new { totalPrice, total });
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> Decrease([FromBody] int id)
+        //{
+        //    if (id <= 0)
+        //        return BadRequest("Invalid product ID.");
+
+        //    var userName = User.Identity?.Name;
+        //    if (string.IsNullOrEmpty(userName))
+        //        return Unauthorized("User is not authenticated.");
+
+        //    var user = await _userManager.FindByNameAsync(userName);
+        //    if (user == null)
+        //        return Unauthorized("User not found.");
+
+        //    var basketProduct = await _context.BasketProducts
+        //        .Include(bp => bp.Product)
+        //        .FirstOrDefaultAsync(bp => bp.Id == id && bp.Basket.AppUserId == user.Id);
+
+        //    if (basketProduct == null)
+        //        return NotFound("Product not found in basket.");
+
+        //    if (basketProduct.Quantity > 1)
+        //    {
+        //        basketProduct.Quantity--;
+        //    }
+        //    else
+        //    {
+        //        _context.BasketProducts.Remove(basketProduct);
+        //    }
+
+        //    await _context.SaveChangesAsync();
+
+        //    var totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
+        //    var totalQuantity = await _context.BasketProducts
+        //        .Where(bp => bp.Basket.AppUserId == user.Id)
+        //        .SumAsync(bp => bp.Quantity);
+
+        //    return Ok(new { totalPrice, totalQuantity });
+        //}
         [HttpPost]
-        public async Task<IActionResult> Decrease(int id)
+        public async Task<IActionResult> Decrease([FromBody] int id)
         {
-            if (id == null)
-                return RedirectToAction("NotFound", "Error");
+            // Validate the product ID
+            if (id <= 0)
+            {
+                return BadRequest(new { success = false, message = "Invalid product ID." });
+            }
 
-            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            // Ensure the user is authenticated
+            var userName = User.Identity?.Name;
+            if (string.IsNullOrEmpty(userName))
+            {
+                return Unauthorized(new { success = false, message = "User is not authenticated." });
+            }
 
-            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+            // Find the user
+            var user = await _userManager.FindByNameAsync(userName);
+            if (user == null)
+            {
+                return Unauthorized(new { success = false, message = "User not found." });
+            }
+
+            // Find the basket product
+            var basketProduct = await _context.BasketProducts
+                .Include(bp => bp.Product)
+                .FirstOrDefaultAsync(bp => bp.Id == id && bp.Basket.AppUserId == user.Id);
 
             if (basketProduct == null)
-                return RedirectToAction("NotFound", "Error");
+            {
+                return NotFound(new { success = false, message = "Product not found in basket." });
+            }
 
+            // Decrease quantity or remove product
             if (basketProduct.Quantity > 1)
             {
                 basketProduct.Quantity--;
@@ -185,15 +259,17 @@ namespace DunkerFinal.Controllers
             else
             {
                 _context.BasketProducts.Remove(basketProduct);
-                await _context.SaveChangesAsync();
             }
 
             await _context.SaveChangesAsync();
 
-            decimal totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
-            decimal total = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Quantity);
+            // Calculate the updated total price and quantity
+            var totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
+            var totalQuantity = await _context.BasketProducts
+                .Where(bp => bp.Basket.AppUserId == user.Id)
+                .SumAsync(bp => bp.Quantity);
 
-            return Ok(new { totalPrice, total });
+            return Ok(new { success = true, totalPrice, totalQuantity });
         }
 
 

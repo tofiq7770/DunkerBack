@@ -8,6 +8,8 @@
         padding: 10px;
         padding-left: 20px;
         padding-right: 20px;
+        min-width: 120px; /* Ensure consistent width */
+        justify-content: center;
     }
 
     .plus-btn {
@@ -26,19 +28,43 @@
     #value {
         font-size: 20px;
         font-weight: 500;
+        width: 40px; /* Set a fixed width */
+        text-align: center;
     }
 
-    #wishlist .wishlist-items .wishlist-item .right-side-wishlist {
-        gap: 70px !important;
-    }
-
-    #wishlist .wishlist-items .wishlist-item {
-        justify-content: space-around !important;
-    }
-
-    .cart-header {
+    .wishlist-item {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .left-side-wishlist {
+        display: flex;
+        align-items: center;
+        width: 60%; /* Adjust width as necessary */
+    }
+
+    .wishlist-img img {
+        width: 80px; /* Fixed width for images */
+        height: auto;
+    }
+
+    .wishlist-info a {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .right-side-wishlist {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-price {
+        width: 100px; /* Fixed width for price */
+        text-align: right;
     }
 
     .cart-totals {
@@ -46,6 +72,7 @@
         padding: 20px;
         border-radius: 8px;
         max-width: 400px;
+        margin-left: auto;
     }
 
         .cart-totals h2 {
@@ -106,6 +133,150 @@
             .cart-totals .btn-checkout:hover {
                 background-color: #f0f0f0;
             }
+
+    .counter-container {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        min-width: 120px; /* Ensure consistent width */
+        justify-content: center;
+    }
+
+    .plus-btn {
+        font-size: 15px;
+        padding: 10px;
+        margin: 0 15px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+        .plus-btn:hover {
+            color: rgb(34, 34, 34);
+        }
+
+    #value {
+        font-size: 20px;
+        font-weight: 500;
+        width: 40px; /* Set a fixed width */
+        text-align: center;
+    }
+
+    .wishlist-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .left-side-wishlist {
+        display: flex;
+        align-items: center;
+        width: 60%; /* Adjust width as necessary */
+    }
+
+    .wishlist-img img {
+        width: 80px; /* Fixed width for images */
+        height: auto;
+    }
+
+    .wishlist-info a {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .right-side-wishlist {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-price {
+        width: 100px; /* Fixed width for price */
+        text-align: right;
+    }
+
+    .cart-totals {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        margin-left: auto;
+    }
+
+        .cart-totals h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .cart-totals .totals-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+            .cart-totals .totals-item:last-child {
+                border-bottom: none;
+            }
+
+            .cart-totals .totals-item strong {
+                font-weight: bold;
+            }
+
+            .cart-totals .totals-item .label {
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+            .cart-totals .totals-item .value {
+                font-size: 16px;
+            }
+
+        .cart-totals .shipping-options {
+            margin-top: 20px;
+        }
+
+            .cart-totals .shipping-options label {
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+        .cart-totals .btn-checkout {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .cart-totals .btn-checkout:hover {
+                background-color: #f0f0f0;
+            }
+
+    .wishlist-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 15px 20px;
+        background-color: #f7f7f7;
+        border-bottom: 2px solid #ddd;
+        border-radius: 10px 10px 0 0;
+    }
 </style>
 <!-- Main Start -->
 <main id="main">
@@ -124,93 +295,234 @@
 
         <div class="wishlist-items" id="wishlist-container">
 
-            @if (Model.Count !=0)
-            {   
-            @foreach (var item in Model)
+            @if (Model.Count != 0)
+
             {
-
-                <div class=" wishlist-item">
-                    <div class="left-side-wishlist">
-                        <button href="#">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                        <div class="wishlist-img">
-                            <img src="~/assets/img/@item.Image"
-                             alt="Product" />
-                        </div>
-                        <div class="wishlist-info">
-                            <a href="#">@item.Name</a>
-                            <a href="#"><span>@item.Name</span></a>
-                        </div>
-                    </div>
-                    <div class="right-side-wishlist">
-                        <div class="product-price">
-                            <span>$@item.Price</span>
-                        </div>
-
-                        <div class="counter-container">
-                            <button class="plus-btn" id="decrement">
-                                <i class="fa-solid fa-minus"></i>
+                @foreach (var item in Model)
+                {
+                    <div class=" wishlist-item">
+                        <div class="left-side-wishlist">
+                            <button href="#">
+                                <i class="fa-solid fa-xmark"></i>
                             </button>
-                            <span id="value">@item.Quantity</span>
-                            <button class="plus-btn" id="increment"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-
-                        <div class="right-side-wishlist">
-                            <div class="mx-5 product-price">
-                                <span>$@item.TotalPrice</span>
+                            <div class="wishlist-img">
+                                <img src="~/assets/img/@item.Image"
+                             alt="Product" />
+                            </div>
+                            <div class="wishlist-info">
+                                <a href="#">@item.Name</a>
+                                <a href="#"><span>@item.Name</span></a>
                             </div>
                         </div>
+                        <div class="right-side-wishlist">
+                            <div class="product-price">
+                                <span>$@item.Price</span>
+                            </div>
+                            <div class="counter-container">
+                                <button class="plus-btn minus-btn" id="decrement" data-id="@item.Id">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+
+                                <span id="value">@item.Quantity</span>
+
+                                <button class="plus-btn increment-button" data-id="@item.Id">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+
+                            <div class="right-side-wishlist">
+                                <div class="mx-5 product-price total-price">
+                                    <span>$@item.TotalPrice</span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
 
-            }
-            
-            <div class="container my-5">
-                <div class="cart-totals">
-                    <h2>Cart Totals</h2>
+                }
 
-                    <!-- Subtotal -->
+                <div class="container my-5">
+                    <div class="cart-totals">
+                        <h2>Cart Totals</h2>
+
+                        <!-- Subtotal -->
                     <div class="totals-item">
-                        <span class="label">Subtotal</span>
-                        <span class="value">$140</span>
-                    </div>
+                            <span class="label">Subtotal</span>
+                            <span class="value">$140</span>
+                        </div>
 
-                    <!-- Subtotal -->
+                        <!-- Subtotal -->
                     <div class="totals-item">
-                        <span class="label">Discount</span>
-                        <span class="value">$0</span>
-                    </div>
+                            <span class="label">Discount</span>
+                            <span class="value">$0</span>
+                        </div>
 
-                    <!-- Total -->
+                        <!-- Total -->
                     <div class="totals-item">
-                        <span class="label">Total</span>
-                        <span class="value"><strong>$140</strong></span>
+                            <span class="label">Total</span>
+                            <span class="value"><strong>$140</strong></span>
+                        </div>
+                        <button class="btn-checkout">Proceed to Checkout</button>
                     </div>
-                    <button class="btn-checkout">Proceed to Checkout</button>
-                </div>
                 </div>
 
             }
             else
             {
-            
+
                 <div class="wishlist-title text-center py-4 border border-top-1 border-bottom-1">
-                <p class="m-0 fw-bold">NO PRODUCTS ADDED TO THE CART</p>
-            </div>
-                
+                    <p class="m-0 fw-bold">NO PRODUCTS ADDED TO THE CART</p>
+                </div>
+
             }
 
-            
-            
+
+
         </div>
     </section>
     <!-- Wishlist Section End -->
 </main>
 <!-- Main End -->
-<!--   if there is no any product   -->
-@* <div class="wishlist-title text-center py-4 border border-top-1 border-bottom-1">
-    <p class="m-0 fw-bold">NO PRODUCTS ADDED TO THE CART</p>
-    </div>*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- <><><><><><> -->
+<script>
+
+   $(document).ready(function() {
+    $('.increment-button').on('click', function() {
+        const button = $(this);
+        const id = parseInt(button.data('id')); // Ensure id is an integer
+
+        $.ajax({
+            url: '/Basket/Increase',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id }), // Send as an object with 'id' key
+            dataType: 'json',
+            success: function(result) {
+                console.log('Response JSON:', result);
+
+                // Use the button's closest parent to find the correct elements
+                const container = button.closest('.counter-container');
+                const quantityElement = container.find('#value');
+                const totalPriceElement = button.closest('.wishlist-item').find('.total-price span');
+
+                // Update quantity and total price
+                const newQuantity = parseInt(quantityElement.text()) + 1;
+                quantityElement.text(newQuantity);
+                totalPriceElement.text('$' + result.totalPrice.toFixed(2));
+
+                // Update the overall cart total if necessary
+                updateCartTotal(result.total);
+
+                // SweetAlert for success
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Quantity Increased',
+                    text: `The quantity has been increased to ${newQuantity}.`,
+                    confirmButtonText: 'OK'
+                });
+            },
+            error: function(xhr) {
+                console.log('Response Status:', xhr.status);
+                console.log('Response Headers:', xhr.getAllResponseHeaders());
+
+                // SweetAlert for failure
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Increase Quantity',
+                    text: `Server responded with status ${xhr.status}. ${xhr.responseText}`,
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+
+    function updateCartTotal(total) {
+        // Implement this function to update the total items in the cart, e.g.:
+        const cartTotalElement = $('#cart-total'); // Ensure this ID matches your HTML
+        if (cartTotalElement.length) {
+            cartTotalElement.text('Total Items: ' + total);
+        }
+    }
+});
+
+
+
+</script>
+<script>
+  $(document).ready(function() {
+    $(document).on('click', '.minus-btn', function() {
+        const button = $(this);
+        const productId = button.data('id');
+
+        console.log('Product ID:', productId); 
+
+        $.ajax({
+            url: '/Basket/Decrease',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(productId), 
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    console.log('Response JSON:', response);
+                    
+                    const container = button.closest('.counter-container');
+                    const quantityElement = container.find('#value');
+                    const totalPriceElement = button.closest('.wishlist-item').find('.total-price span');
+
+                    const newQuantity = parseInt(quantityElement.text()) - 1;
+                    
+                    if (newQuantity > 0) {
+                        // Update the quantity and total price if the quantity is greater than 0
+                        quantityElement.text(newQuantity);
+                        totalPriceElement.text('$' + response.totalPrice.toFixed(2));
+                    } else {
+                        // Remove the product's container if the quantity is 0
+                        button.closest('.wishlist-item').remove();
+                    }
+
+                    updateCartTotal(response.totalQuantity);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Quantity Decreased',
+                        text: newQuantity > 0 
+                            ? `The quantity has been decreased to ${newQuantity}.`
+                            : 'The item has been removed from your cart.',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed to Decrease Quantity',
+                        text: response.message,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function(xhr) {
+                console.log('Response Status:', xhr.status);
+                console.log('Response Headers:', xhr.getAllResponseHeaders());
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Decrease Quantity',
+                    text: `Server responded with status ${xhr.status}. ${xhr.responseText}`,
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+
+    function updateCartTotal(total) {
+        const cartTotalElement = $('#cart-total');
+        if (cartTotalElement.length) {
+            cartTotalElement.text('Total Items: ' + total);
+        }
+    }
+});
+
+
+        
+</script>
