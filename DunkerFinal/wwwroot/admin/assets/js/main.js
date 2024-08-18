@@ -18,7 +18,7 @@ dltColorBtns.forEach(dltBtn => {
                     type: "POST",
                     url: `/Admin/Product/DeleteColor/${id}`,
                     success: function (result) {
-                        btn.parentNode.remove();
+                        btn.parentNode.parentNode.remove();
 
                         const colors = document.querySelector(".colors");
                         colors.innerHTML += result;

@@ -132,17 +132,39 @@
                   </button>
                 </div>
               </div>
+                @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="account-container">
+                                <span style="cursor: pointer" class="account">
+                                    <i class="fa-regular fa-user"></i>
+                                </span>
+                                <div class="account-dropdown">
+                                    <p class="name">Welcome To Dunker</p>
+                                    <p class="position">@User.Identity.Name</p>
 
-              <div class="account-container">
-                <span style="cursor: pointer" class="account">
-                  <i class="fa-regular fa-user"></i>
-                </span>
-                <div class="account-dropdown">
-                  <p class="name">John Doe</p>
-                  <p class="position">Software Engineer</p>
-                  <button class="btn">View Profile</button>
-                </div>
-              </div>
+                                    @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                                    {
+
+                                        <a asp-action="Index" asp-area="Admin" asp-controller="Home" class="btn">Dashboard</a>
+                                    }
+                                    <a asp-action="Logout" asp-controller="Account" class="btn">Logout</a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="account-container">
+                                <span style="cursor: pointer" class="account">
+                                    <i class="fa-regular fa-user"></i>
+                                </span>
+                                <div class="account-dropdown">
+                                    <p class="name">@User.Identity.Name</p>
+
+                                    <p class="name">Welcome To Dunker</p>
+                                    <a asp-action="Login" asp-controller="Account" class="btn">Login</a>
+                                </div>
+                            </div>
+                        }
 
               <a href="./wishlist.html">
                 <span class="wish"><i class="fa-regular fa-heart"></i></span>

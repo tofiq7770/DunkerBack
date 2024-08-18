@@ -301,6 +301,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
+                SKU = product.SKU,
                 Category = product.Category,
                 ProductImages = product.ProductImages.ToList(),
                 Brand = product.Brand,

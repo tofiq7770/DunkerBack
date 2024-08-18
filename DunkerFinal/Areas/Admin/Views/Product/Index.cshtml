@@ -13,8 +13,8 @@
                 <thead>
                     <tr>
                         <th> Image </th>
-                        <th> Name </th>
-                        <th> Description </th>
+                        <th> Name </th> 
+                        <th> SKU </th> 
                         <th> Price </th>
                         <th> Settings </th>
                     </tr>
@@ -26,8 +26,8 @@
                         <tr>
 
                             <td> <img src="~/assets/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image"> </td>
-                            <td> @item.Name </td>
-                            <td> @item.Description </td>
+                            <td> @item.Name </td> 
+                            <td> @item.SKU </td> 
                             <td> @item.Price </td>
                             <td>
                                 <a class="btn btn-info" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id" asp-action="Detail">Detail</a>

@@ -56,9 +56,9 @@ namespace DunkerFinal.Controllers
 
             return View(basketListVMs);
         }
-
         [HttpPost]
-        public async Task<IActionResult> Add(int? productId)
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] int? productId)
         {
             if (productId is null)
                 return BadRequest();
@@ -73,8 +73,11 @@ namespace DunkerFinal.Controllers
             if (existProduct is null)
                 return NotFound();
 
-            BasketProduct basketProduct = await _context.BasketProducts.FirstOrDefaultAsync(m => m.ProductId == productId && m.Basket.AppUserId == existUser.Id);
-            Basket basket = await _context.Baskets.Include(m => m.BasketProducts).FirstOrDefaultAsync(m => m.AppUserId == existUser.Id);
+            BasketProduct basketProduct = await _context.BasketProducts
+                .FirstOrDefaultAsync(m => m.ProductId == productId && m.Basket.AppUserId == existUser.Id);
+            Basket basket = await _context.Baskets
+                .Include(m => m.BasketProducts)
+                .FirstOrDefaultAsync(m => m.AppUserId == existUser.Id);
 
             if (basketProduct != null)
             {
@@ -116,6 +119,8 @@ namespace DunkerFinal.Controllers
 
             return Json(new { success = true, message = "Product added to cart." });
         }
+
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
