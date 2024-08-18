@@ -476,7 +476,6 @@
 });
 
  
-
 $(document).ready(function() {
     $(document).on('click', '.minus-btn', function() {
         const button = $(this);
@@ -489,9 +488,8 @@ $(document).ready(function() {
                 icon: 'error',
                 title: 'Invalid Request',
                 text: 'The product ID is not valid.',
-                
-                            timer: 1200,
-                            showConfirmButton: false
+                timer: 1200,
+                showConfirmButton: false
             });
             return;
         }
@@ -522,7 +520,10 @@ $(document).ready(function() {
                     }
 
                     // Update the cart totals
-                    updateCartTotals(response.total);
+                    updateCartTotals(response.totalQuantity);
+
+                    // Update the basket count
+                    $('.count-basket').text(response.basketCount);
 
                     Swal.fire({
                         icon: 'success',
@@ -530,18 +531,16 @@ $(document).ready(function() {
                         text: newQuantity > 0
                             ? `The quantity has been decreased to ${newQuantity}.`
                             : 'The item has been removed from your cart.',
-                        
-                            timer: 1200,
-                            showConfirmButton: false
+                        timer: 1200,
+                        showConfirmButton: false
                     });
                 } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Failed to Decrease Quantity',
                         text: response.message,
-                        
-                            timer: 1200,
-                            showConfirmButton: false
+                        timer: 1200,
+                        showConfirmButton: false
                     });
                 }
             },
@@ -553,15 +552,14 @@ $(document).ready(function() {
                     icon: 'error',
                     title: 'Failed to Decrease Quantity',
                     text: `Server responded with status ${xhr.status}. ${xhr.responseText}`,
-                    
-                            timer: 1200,
-                            showConfirmButton: false
+                    timer: 1200,
+                    showConfirmButton: false
                 });
             }
         });
     });
 
-    function updateCartTotals(total) {
+    function updateCartTotals(totalQuantity) {
         let subtotal = 0;
         let hasItems = false;
 
@@ -580,7 +578,7 @@ $(document).ready(function() {
             // Update the total items count
             const cartTotalElement = $('#cart-total');
             if (cartTotalElement.length) {
-                cartTotalElement.text('Total Items: ' + total);
+                cartTotalElement.text('Total Items: ' + totalQuantity);
             }
 
             // Show the cart totals section and hide the "No Products Added" message
@@ -595,7 +593,6 @@ $(document).ready(function() {
 });
 
 
-
 $(document).ready(function() {
     $(document).on('click', '.delete-btn', function(e) {
         e.preventDefault();
@@ -608,8 +605,8 @@ $(document).ready(function() {
                 icon: 'error',
                 title: 'Error',
                 text: 'Product ID is missing.',
-                 timer: 1200,
-                 showConfirmButton: false
+                timer: 1200,
+                showConfirmButton: false
             });
             return;
         }
@@ -642,6 +639,9 @@ $(document).ready(function() {
                                 }
                             });
 
+                            // Update basket count
+                            $('.count-basket').text(response.basketCount);
+
                             // Show or hide "No Products Added" message and cart totals section
                             if (response.isEmpty) {
                                 $('#wishlist-items').hide();
@@ -657,18 +657,16 @@ $(document).ready(function() {
                                 icon: 'success',
                                 title: 'Deleted!',
                                 text: 'The product has been removed from your cart.',
-                               
-                            timer: 1200,
-                            showConfirmButton: false
+                                timer: 1200,
+                                showConfirmButton: false
                             });
                         } else {
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Failed',
                                 text: response.message,
-                                
-                            timer: 1200,
-                            showConfirmButton: false
+                                timer: 1200,
+                                showConfirmButton: false
                             });
                         }
                     },
@@ -677,7 +675,6 @@ $(document).ready(function() {
                             icon: 'error',
                             title: 'Error',
                             text: `Server responded with status ${xhr.status}. ${xhr.responseText}`,
-                            
                             timer: 1200,
                             showConfirmButton: false
                         });
@@ -687,6 +684,5 @@ $(document).ready(function() {
         });
     });
 });
-
 
 </script>

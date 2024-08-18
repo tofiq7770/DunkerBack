@@ -3,7 +3,7 @@
 
 @{
     Layout = null;
-    string next = "";
+    int count = 0;
 }
 
 
@@ -358,8 +358,9 @@
                     <div class="basket basket-btn">
                         <span class="basket-icon d-flex justify-content-center align-items-center gap-1">
                             <i class="fa-solid fa-basket-shopping"></i>
-                            <span class="count-basket">0</span>
+                            <span class="count-basket">@Model.Baskets.Count()</span>
                         </span>
+
                         <div class="basket-container"></div>
                     </div>
                 </div>
@@ -387,7 +388,8 @@
                                 <a href="#"
                                    class="basket-btn basket-icon d-flex justify-content-center align-items-center gap-1">
                                     <i class="fa-solid fa-basket-shopping"></i>
-                                    <span class="count-basket">0</span>
+
+                                    <span class="count-basket">@count</span>
                                 </a>
                                 <div class="basket-container"></div>
                             </div>
@@ -1170,81 +1172,85 @@
     <!-- Footer End -->
 
     <script>
+                       document.querySelectorAll('.add-to-basket-button').forEach(button => {
+    button.addEventListener('click', async function () {
+        const productId = this.getAttribute('data-product-id');
 
-                document.querySelectorAll('.add-to-basket-button').forEach(button => {
-            button.addEventListener('click', async function () {
-                const productId = this.getAttribute('data-product-id');
-
-                try {
-                    const response = await fetch('/Basket/Add', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: JSON.stringify(productId)
-                    });
-
-                    const result = await response.json();
-
-                    if (response.ok) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: result.message,
-                            icon: 'success',
-                            timer: 1200,
-                            showConfirmButton: false
-                        });
-
-                        updateBasketUI();
-                    } else {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Failed to add product to basket. ' + result.message,
-                            icon: 'error',
-                            timer: 1200,
-                            showConfirmButton: false
-                        });
-                    }
-                } catch (error) {
-                    console.error('Network error:', error);
-                    Swal.fire({
-                        title: 'Network Error!',
-                        text: 'An error occurred. Please try again.',
-                        icon: 'error',
-                         timer: 1200,
-                            showConfirmButton: false
-                    });
-                }
+        try {
+            const response = await fetch('/Basket/Add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(productId)
             });
-        });
 
-        function updateBasketUI() {
-            // Implement this function to refresh the basket display, count items, etc.
+            const result = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: result.message,
+                    icon: 'success',
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+
+                // Update the basket count in the UI
+                document.querySelector('.count-basket').textContent = result.uniqueProductCount;
+
+                updateBasketUI();
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to add product to basket. ' + result.message,
+                    icon: 'error',
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            Swal.fire({
+                title: 'Network Error!',
+                text: 'An error occurred. Please try again.',
+                icon: 'error',
+                timer: 1200,
+                showConfirmButton: false
+            });
         }
+    });
+});
 
-                         // search
-                        function openSearch() {
-                          document.getElementById("searchOverlay").style.display = "block";
-                          document.body.classList.add("no-scroll"); // Prevent scrolling
+
+
+                        function updateBasketUI() {
+                            // Implement this function to refresh the basket display, count items, etc.
                         }
 
-                        function closeSearch() {
-                          document.getElementById("searchOverlay").style.display = "none";
-                          document.body.classList.remove("no-scroll"); // Allow scrolling again
-                        }
+                                         // search
+                                        function openSearch() {
+                                          document.getElementById("searchOverlay").style.display = "block";
+                                          document.body.classList.add("no-scroll"); // Prevent scrolling
+                                        }
 
-                        function checkEnter(event) {
-                          if (event.key === "Enter") {
-                            performSearch();
-                          }
-                        }
+                                        function closeSearch() {
+                                          document.getElementById("searchOverlay").style.display = "none";
+                                          document.body.classList.remove("no-scroll"); // Allow scrolling again
+                                        }
 
-                        function performSearch() {
-                          var searchQuery = document.getElementById("searchInput").value;
-                          alert("Search performed for: " + searchQuery);
-                          closeSearch(); // Optionally close the search after performing it
-                        }
+                                        function checkEnter(event) {
+                                          if (event.key === "Enter") {
+                                            performSearch();
+                                          }
+                                        }
+
+                                        function performSearch() {
+                                          var searchQuery = document.getElementById("searchInput").value;
+                                          alert("Search performed for: " + searchQuery);
+                                          closeSearch(); // Optionally close the search after performing it
+                                        }
 
 
     </script>

@@ -56,7 +56,6 @@ namespace DunkerFinal.Controllers
 
             return View(basketListVMs);
         }
-
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] int? productId)
         {
@@ -83,43 +82,47 @@ namespace DunkerFinal.Controllers
             {
                 basketProduct.Quantity++;
                 await _context.SaveChangesAsync();
-
-                return Json(new { success = true, message = "Product quantity updated in cart." });
             }
-
-            if (basket != null)
+            else
             {
-                basket.BasketProducts.Add(new BasketProduct()
+                if (basket != null)
                 {
-                    ProductId = (int)productId,
-                    Quantity = 1
-                });
+                    basket.BasketProducts.Add(new BasketProduct()
+                    {
+                        ProductId = (int)productId,
+                        Quantity = 1
+                    });
+                }
+                else
+                {
+                    Basket newBasket = new()
+                    {
+                        AppUserId = existUser.Id,
+                    };
+
+                    await _context.Baskets.AddAsync(newBasket);
+                    await _context.SaveChangesAsync();
+
+                    BasketProduct newBasketProduct = new()
+                    {
+                        BasketId = newBasket.Id,
+                        ProductId = (int)productId,
+                        Quantity = 1
+                    };
+
+                    await _context.BasketProducts.AddAsync(newBasketProduct);
+                }
 
                 await _context.SaveChangesAsync();
-                return Json(new { success = true, message = "Product added to cart." });
             }
 
-            Basket newBasket = new()
-            {
-                AppUserId = existUser.Id,
-            };
+            // Calculate the total count of unique products in the basket
+            int uniqueProductCount = await _context.BasketProducts
+                .Where(m => m.Basket.AppUserId == existUser.Id)
+                .CountAsync();
 
-            await _context.Baskets.AddAsync(newBasket);
-            await _context.SaveChangesAsync();
-
-            BasketProduct newBasketProduct = new()
-            {
-                BasketId = newBasket.Id,
-                ProductId = (int)productId,
-                Quantity = 1
-            };
-
-            await _context.BasketProducts.AddAsync(newBasketProduct);
-            await _context.SaveChangesAsync();
-
-            return Json(new { success = true, message = "Product added to cart." });
+            return Json(new { success = true, message = "Product added to cart.", uniqueProductCount });
         }
-
         [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -151,11 +154,16 @@ namespace DunkerFinal.Controllers
                 .Where(m => m.Basket.AppUserId == existUser.Id)
                 .SumAsync(m => m.Quantity);
 
+            int basketCount = await _context.BasketProducts
+                .Where(m => m.Basket.AppUserId == existUser.Id)
+                .CountAsync();
+
             return Json(new
             {
                 success = true,
                 totalPrice,
                 totalQuantity,
+                basketCount,
                 isEmpty = totalQuantity == 0
             });
         }
@@ -250,7 +258,11 @@ namespace DunkerFinal.Controllers
                 .Where(bp => bp.Basket.AppUserId == user.Id)
                 .SumAsync(bp => bp.Quantity);
 
-            return Ok(new { success = true, totalPrice, totalQuantity });
+            int basketCount = await _context.BasketProducts
+                .Where(bp => bp.Basket.AppUserId == user.Id)
+                .CountAsync();
+
+            return Ok(new { success = true, totalPrice, totalQuantity, basketCount });
         }
 
         public class ProductRequest
