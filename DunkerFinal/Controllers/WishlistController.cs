@@ -55,6 +55,118 @@ namespace DunkerFinal.Controllers
 
             return View(wishlistListVMs);
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Add([FromBody] int? productId)
+        //{
+        //    if (productId is null)
+        //        return BadRequest(new { success = false, message = "Product ID is required." });
+
+        //    if (!User.Identity.IsAuthenticated)
+        //        return Json(new { success = false, message = "User is not authenticated.", redirectUrl = Url.Action("Login", "Account") });
+
+        //    var existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+        //    if (existUser == null)
+        //        return Json(new { success = false, message = "User not found." });
+
+        //    var existProduct = await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
+
+        //    if (existProduct is null)
+        //        return Json(new { success = false, message = "Product not found." });
+
+        //    var wishlist = await _context.Wishlists
+        //        .Include(m => m.WishlistProducts)
+        //        .FirstOrDefaultAsync(m => m.AppUserId == existUser.Id);
+
+        //    var wishlistProduct = await _context.WishlistProducts
+        //        .FirstOrDefaultAsync(m => m.ProductId == productId && m.Wishlist.AppUserId == existUser.Id);
+
+        //    if (wishlistProduct != null)
+        //    {
+        //        wishlistProduct.Quantity++;
+        //    }
+        //    else
+        //    {
+        //        if (wishlist == null)
+        //        {
+        //            wishlist = new Wishlist { AppUserId = existUser.Id };
+        //            await _context.Wishlists.AddAsync(wishlist);
+        //            await _context.SaveChangesAsync();
+        //        }
+
+        //        var newWishlistProduct = new WishlistProduct
+        //        {
+        //            WishlistId = wishlist.Id,
+        //            ProductId = (int)productId,
+        //            Quantity = 1
+        //        };
+        //        await _context.WishlistProducts.AddAsync(newWishlistProduct);
+        //    }
+
+        //    await _context.SaveChangesAsync();
+
+        //    int uniqueProductCount = await _context.WishlistProducts
+        //        .Where(m => m.Wishlist.AppUserId == existUser.Id)
+        //        .CountAsync();
+
+        //    return Json(new { success = true, message = "Product added to wishlist.", uniqueProductCount });
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //        return Json(new { success = false, message = "Product ID is missing." });
+
+        //    if (!User.Identity.IsAuthenticated)
+        //        return Json(new { success = false, message = "User not authenticated." });
+
+        //    var existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+        //    if (existUser == null)
+        //        return Json(new { success = false, message = "User not found." });
+
+        //    var basketProduct = await _context.WishlistProducts
+        //        .Include(m => m.Product)
+        //        .FirstOrDefaultAsync(m => m.Id == id && m.Wishlist.AppUserId == existUser.Id);
+
+        //    if (basketProduct == null)
+        //        return Json(new { success = false, message = "Product not found in basket." });
+
+        //    _context.WishlistProducts.Remove(basketProduct);
+        //    await _context.SaveChangesAsync();
+
+        //    var totalPrice = await _context.WishlistProducts
+        //        .Where(m => m.Wishlist.AppUserId == existUser.Id)
+        //        .SumAsync(m => m.Product.Price * m.Quantity);
+
+        //    var totalQuantity = await _context.WishlistProducts
+        //        .Where(m => m.Wishlist.AppUserId == existUser.Id)
+        //        .SumAsync(m => m.Quantity);
+
+        //    int basketCount = await _context.WishlistProducts
+        //        .Where(m => m.Wishlist.AppUserId == existUser.Id)
+        //        .CountAsync();
+
+        //    return Json(new
+        //    {
+        //        success = true,
+        //        totalPrice,
+        //        totalQuantity,
+        //        basketCount,
+        //        isEmpty = totalQuantity == 0
+        //    });
+        //}
+
+        //public class IncreaseRequest
+        //{
+        //    public int Id { get; set; }
+        //}
+
+        //public class ProductRequest
+        //{
+        //    public int Id { get; set; }
+        //}
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] int? productId)
         {
@@ -81,9 +193,11 @@ namespace DunkerFinal.Controllers
             var wishlistProduct = await _context.WishlistProducts
                 .FirstOrDefaultAsync(m => m.ProductId == productId && m.Wishlist.AppUserId == existUser.Id);
 
+            string action;
             if (wishlistProduct != null)
             {
                 wishlistProduct.Quantity++;
+                action = "added";
             }
             else
             {
@@ -101,72 +215,68 @@ namespace DunkerFinal.Controllers
                     Quantity = 1
                 };
                 await _context.WishlistProducts.AddAsync(newWishlistProduct);
+                action = "added";
             }
 
             await _context.SaveChangesAsync();
 
-            int uniqueProductCount = await _context.WishlistProducts
-                .Where(m => m.Wishlist.AppUserId == existUser.Id)
-                .CountAsync();
-
-            return Json(new { success = true, message = "Product added to wishlist.", uniqueProductCount });
+            return Json(new { success = true, message = "Product added to wishlist.", action });
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> ToggleWishlist([FromBody] int? productId)
         {
-            if (id == null)
-                return Json(new { success = false, message = "Product ID is missing." });
+            if (productId is null)
+                return BadRequest(new { success = false, message = "Product ID is required." });
 
             if (!User.Identity.IsAuthenticated)
-                return Json(new { success = false, message = "User not authenticated." });
+                return Json(new { success = false, message = "User is not authenticated.", redirectUrl = Url.Action("Login", "Account") });
 
             var existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
             if (existUser == null)
                 return Json(new { success = false, message = "User not found." });
 
-            var basketProduct = await _context.WishlistProducts
-                .Include(m => m.Product)
-                .FirstOrDefaultAsync(m => m.Id == id && m.Wishlist.AppUserId == existUser.Id);
+            var existProduct = await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
 
-            if (basketProduct == null)
-                return Json(new { success = false, message = "Product not found in basket." });
+            if (existProduct is null)
+                return Json(new { success = false, message = "Product not found." });
 
-            _context.WishlistProducts.Remove(basketProduct);
-            await _context.SaveChangesAsync();
+            var wishlist = await _context.Wishlists
+                .Include(m => m.WishlistProducts)
+                .FirstOrDefaultAsync(m => m.AppUserId == existUser.Id);
 
-            var totalPrice = await _context.WishlistProducts
-                .Where(m => m.Wishlist.AppUserId == existUser.Id)
-                .SumAsync(m => m.Product.Price * m.Quantity);
+            var wishlistProduct = await _context.WishlistProducts
+                .FirstOrDefaultAsync(m => m.ProductId == productId && m.Wishlist.AppUserId == existUser.Id);
 
-            var totalQuantity = await _context.WishlistProducts
-                .Where(m => m.Wishlist.AppUserId == existUser.Id)
-                .SumAsync(m => m.Quantity);
-
-            int basketCount = await _context.WishlistProducts
-                .Where(m => m.Wishlist.AppUserId == existUser.Id)
-                .CountAsync();
-
-            return Json(new
+            if (wishlistProduct != null)
             {
-                success = true,
-                totalPrice,
-                totalQuantity,
-                basketCount,
-                isEmpty = totalQuantity == 0
-            });
-        }
+                _context.WishlistProducts.Remove(wishlistProduct);
+                await _context.SaveChangesAsync();
 
-        public class IncreaseRequest
-        {
-            public int Id { get; set; }
-        }
+                return Json(new { success = true, message = "Product removed from wishlist.", action = "removed" });
+            }
+            else
+            {
+                if (wishlist == null)
+                {
+                    wishlist = new Wishlist { AppUserId = existUser.Id };
+                    await _context.Wishlists.AddAsync(wishlist);
+                    await _context.SaveChangesAsync();
+                }
 
-        public class ProductRequest
-        {
-            public int Id { get; set; }
-        }
+                var newWishlistProduct = new WishlistProduct
+                {
+                    WishlistId = wishlist.Id,
+                    ProductId = (int)productId,
+                    Quantity = 1
+                };
+                await _context.WishlistProducts.AddAsync(newWishlistProduct);
+                await _context.SaveChangesAsync();
 
+                return Json(new { success = true, message = "Product added to wishlist.", action = "added" });
+            }
+        }
 
     }
 }

@@ -13,8 +13,7 @@
                     <tr>
                         <th> Image </th>
                         <th> Title </th>
-                        <th> Subtitle </th>
-                        <th> Description </th>
+                        <th> Subtitle </th> 
                         <th> Settings </th>
                     </tr>
                 </thead>
@@ -26,8 +25,7 @@
 
                             <td> <img src="~/assets/img/@item.Image"> </td>
                             <td> @item.Title </td>
-                            <td> @item.Subtitle </td>
-                            <td> @item.Description </td>
+                            <td> @item.Subtitle </td> 
                             <td>
                                 <a class="btn btn-info" asp-area="Admin" asp-controller="InfoBanner" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
                                 <a class="btn btn-primary" asp-area="Admin" asp-controller="InfoBanner" asp-route-id="@item.Id" asp-action="Update">Update</a>

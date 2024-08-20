@@ -205,7 +205,7 @@
             <div class="navbar-container">
                 <div class="leftside-nav">
                     <div class="logo">
-                        <img src=" https://dunker.qodeinteractive.com/wp-content/uploads/2023/02/Dunker-logo-dark.png"
+                        <img src="~/assets/img/Dunker-logo-dark.png"
                              alt="Dark Dunker" />
                     </div>
                 </div>
@@ -519,7 +519,7 @@
                             <p class="pb-4">
                                 @item.Description
                             </p>
-                            <a href="#" class="custom-button">SHOP NOW</a>
+                            <a asp-action="Index" asp-controller="Shop" class="custom-button">SHOP NOW</a>
                         </div>
                         <div class="overlay"></div>
                         <img src="~/assets/img/@item.Image" />
@@ -544,70 +544,44 @@
         <section id="featured">
             <div class="featured-container">
                 <div class="row">
-                    <div class="product-card col-lg-6 col-md-12" data="fashion">
-                        <button class="add-to-fav-button">
-                            <svg xmlns="http://www.w3.org/2000/svg"
+                    @if (Model.ProductTags.Where(m => m.Tag.Name == "Featured").Count() > 0)
+                    {
+                        @foreach (var item in Model.Products.Where(m => m.ProductTags.Any(m => m.Tag.Name == "Featured")).Take(2))
+                        {
+
+
+                            <div class="product-card col-lg-6 col-md-12" data="fashion">
+                                <button class="add-to-fav-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
                                  width="16.932"
                                  height="16"
                                  viewBox="0 0 16.932 16">
-                                <path d="M8.467 16a1.756 1.756 0 0 1-.94-.273c-.67-.422-6.576-4.254-7.425-8.776a6.154 6.154 0 0 1 1.27-4.977A5.177 5.177 0 0 1 5.356 0a4.369 4.369 0 0 1 3.111 1.086A4.185 4.185 0 0 1 11.577 0a5.18 5.18 0 0 1 3.983 1.973 6.157 6.157 0 0 1 1.269 4.977c-.849 4.522-6.755 8.354-7.426 8.777a1.753 1.753 0 0 1-.936.273ZM5.356 2A3.186 3.186 0 0 0 2.92 3.241a4.133 4.133 0 0 0-.853 3.341c.646 3.439 5.543 6.806 6.4 7.371.857-.565 5.754-3.932 6.4-7.371a4.136 4.136 0 0 0-.851-3.341A3.192 3.192 0 0 0 11.577 2a3.021 3.021 0 0 0-2.354 1.122 1 1 0 0 1-.756.346 1 1 0 0 1-.756-.345A3.024 3.024 0 0 0 5.356 2Z"></path>
-                            </svg>
-                        </button>
-                        <a href="./product-detail.html?id=15">
-                            <span id="">Featured</span>
-                            <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/main-home-product-1.jpg"
+                                        <path d="M8.467 16a1.756 1.756 0 0 1-.94-.273c-.67-.422-6.576-4.254-7.425-8.776a6.154 6.154 0 0 1 1.27-4.977A5.177 5.177 0 0 1 5.356 0a4.369 4.369 0 0 1 3.111 1.086A4.185 4.185 0 0 1 11.577 0a5.18 5.18 0 0 1 3.983 1.973 6.157 6.157 0 0 1 1.269 4.977c-.849 4.522-6.755 8.354-7.426 8.777a1.753 1.753 0 0 1-.936.273ZM5.356 2A3.186 3.186 0 0 0 2.92 3.241a4.133 4.133 0 0 0-.853 3.341c.646 3.439 5.543 6.806 6.4 7.371.857-.565 5.754-3.932 6.4-7.371a4.136 4.136 0 0 0-.851-3.341A3.192 3.192 0 0 0 11.577 2a3.021 3.021 0 0 0-2.354 1.122 1 1 0 0 1-.756.346 1 1 0 0 1-.756-.345A3.024 3.024 0 0 0 5.356 2Z"></path>
+                                    </svg>
+                                </button>
+                                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id>
+                                    <span id="">Featured</span>
+                                    <img src="~/assets/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain == false).Image"
                                  alt="product" />
-                        </a>
-                        <div class="product-card-details">
-                            <a href="./product-detail.html?id=15"> </a>
-                            <div class="product-detail-content">
-                                <a href="./product-detail.html?id=15"> </a><a href="#">salomon</a>
-                                <a class="product-detail-title">CASUAL T-SHIRT</a>
-                                <a href="#">fashion</a>
+                                </a>
+                                <div class="product-card-details">
+                                    <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id> </a>
+                                    <div class="product-detail-content">
+                                        <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id> </a><a href="#">@item.ProductColors.FirstOrDefault().Color.Name</a>
+                                        <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id class="product-detail-title">@item.Name</a>
+                                        <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id>fashion</a>
+                                    </div>
+                                    <p>$@item.Price</p>
+                                </div>
+
+                                <button class="add-to-basket-button" data-product-id="@item.Id">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
+                                        <path d="M14 3.5h-3a3.5 3.5 0 0 0-7 0H1a1 1 0 0 0-1 1V15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4.5a1 1 0 0 0-1-1ZM7.5 2A1.5 1.5 0 0 1 9 3.5H6A1.5 1.5 0 0 1 7.5 2ZM13 15H2V5.5h2v1a1 1 0 0 0 2 0v-1h3v1a1 1 0 0 0 2 0v-1h2Z"></path>
+                                    </svg>
+                                </button>
                             </div>
-                            <p>$180</p>
-                        </div>
-                        <button class="add-to-basket-button">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 width="15"
-                                 height="17"
-                                 viewBox="0 0 15 17">
-                                <path d="M14 3.5h-3a3.5 3.5 0 0 0-7 0H1a1 1 0 0 0-1 1V15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4.5a1 1 0 0 0-1-1ZM7.5 2A1.5 1.5 0 0 1 9 3.5H6A1.5 1.5 0 0 1 7.5 2ZM13 15H2V5.5h2v1a1 1 0 0 0 2 0v-1h3v1a1 1 0 0 0 2 0v-1h2Z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="product-card col-lg-6 col-md-12" data="fashion">
-                        <button class="add-to-fav-button">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 width="16.932"
-                                 height="16"
-                                 viewBox="0 0 16.932 16">
-                                <path d="M8.467 16a1.756 1.756 0 0 1-.94-.273c-.67-.422-6.576-4.254-7.425-8.776a6.154 6.154 0 0 1 1.27-4.977A5.177 5.177 0 0 1 5.356 0a4.369 4.369 0 0 1 3.111 1.086A4.185 4.185 0 0 1 11.577 0a5.18 5.18 0 0 1 3.983 1.973 6.157 6.157 0 0 1 1.269 4.977c-.849 4.522-6.755 8.354-7.426 8.777a1.753 1.753 0 0 1-.936.273ZM5.356 2A3.186 3.186 0 0 0 2.92 3.241a4.133 4.133 0 0 0-.853 3.341c.646 3.439 5.543 6.806 6.4 7.371.857-.565 5.754-3.932 6.4-7.371a4.136 4.136 0 0 0-.851-3.341A3.192 3.192 0 0 0 11.577 2a3.021 3.021 0 0 0-2.354 1.122 1 1 0 0 1-.756.346 1 1 0 0 1-.756-.345A3.024 3.024 0 0 0 5.356 2Z"></path>
-                            </svg>
-                        </button>
-                        <a href="./product-detail.html?id=16">
-                            <span id="featured-text">New Collection</span>
-                            <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/main-home-product-2.jpg"
-                                 alt="product" />
-                        </a>
-                        <div class="product-card-details">
-                            <a href="./product-detail.html?id=16"> </a>
-                            <div class="product-detail-content">
-                                <a href="./product-detail.html?id=16"> </a><a href="#">adidas</a>
-                                <a class="product-detail-title">ADIDAS SNEAKERS</a>
-                                <a href="#">fashion</a>
-                            </div>
-                            <p>$95</p>
-                        </div>
-                        <button class="add-to-basket-button">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 width="15"
-                                 height="17"
-                                 viewBox="0 0 15 17">
-                                <path d="M14 3.5h-3a3.5 3.5 0 0 0-7 0H1a1 1 0 0 0-1 1V15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4.5a1 1 0 0 0-1-1ZM7.5 2A1.5 1.5 0 0 1 9 3.5H6A1.5 1.5 0 0 1 7.5 2ZM13 15H2V5.5h2v1a1 1 0 0 0 2 0v-1h3v1a1 1 0 0 0 2 0v-1h2Z"></path>
-                            </svg>
-                        </button>
-                    </div>
+                        }
+                    }
                 </div>
             </div>
         </section>
@@ -619,26 +593,29 @@
                 <h2>Featured Products</h2>
             </div>
             <div class="featured-products-filter">
-                <button class="show-all-btn">show all</button>
-                <button class="filter-btn" data="fitness">fitness</button>
-                <button class="filter-btn" data="cycling">cycling</button>
-                <button class="filter-btn" data="winter">winter</button>
+                <button class="show-all-btn">Show all</button>
+                @foreach (var item in Model.Brands)
+                {
+                    if (Model.Products.Any(p => p.Brand.Name == item.Name))
+                    {
+                        <button class="filter-btn" data="@item.Name">@item.Name</button>
+                    }
+                }
+
             </div>
             <div class="featured-products-container">
                 <div class="row">
 
                     @foreach (var item in Model.Products)
                     {
-                        <div class="featured-products-card col-lg-3 col-md-6 col-12"
-                         data="winter">
-                            <button class="add-to-fav-button" data-product-id="@item.Id">
+                        <div class="featured-products-card col-lg-3 col-md-6 col-12" data="@item.Brand.Name">
+                            <button class="add-to-fav-button" data-wishlist-id="@item.Id" data-url="@Url.Action("Add", "Wishlist")">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16.932" height="16" viewBox="0 0 16.932 16">
                                     <path d="M8.467 16a1.756 1.756 0 0 1-.94-.273c-.67-.422-6.576-4.254-7.425-8.776a6.154 6.154 0 0 1 1.27-4.977A5.177 5.177 0 0 1 5.356 0a4.369 4.369 0 0 1 3.111 1.086A4.185 4.185 0 0 1 11.577 0a5.18 5.18 0 0 1 3.983 1.973 6.157 6.157 0 0 1 1.269 4.977c-.849 4.522-6.755 8.354-7.426 8.777a1.753 1.753 0 0 1-.936.273ZM5.356 2A3.186 3.186 0 0 0 2.92 3.241a4.133 4.133 0 0 0-.853 3.341c.646 3.439 5.543 6.806 6.4 7.371.857-.565 5.754-3.932 6.4-7.371a4.136 4.136 0 0 0-.851-3.341A3.192 3.192 0 0 0 11.577 2a3.021 3.021 0 0 0-2.354 1.122 1 1 0 0 1-.756.346 1 1 0 0 1-.756-.345A3.024 3.024 0 0 0 5.356 2Z"></path>
                                 </svg>
                             </button>
 
-
-                            <a asp-controller="Shop" asp-action="ProductDetail">
+                            <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id=@item.Id>
                                 <span class=""></span>
                                 <span class=""></span>
 
@@ -795,105 +772,20 @@
             </div>
             <div class="categories-container">
                 <div class="categories-content text-center">
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category9-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                FASHION
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category2-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                CLOTHES
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category1-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                HOODIES
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category8-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                JACKET
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category7-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                SPORT
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category3-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                BAGS
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category6-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                FOOTWEAR
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category4-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                T-SHIRT
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="category-items">
-                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-png-category5-300x390.png"
-                             alt="Image 3"
-                             class="product-image" />
-                        <a href="#" class="category-item">
-                            <span class="category-title">
-                                CAP
-                                <span class="category-count">(28)</span>
-                            </span>
-                        </a>
-                    </div>
+                    @if (Model.Tags.Count() >= 1)
+                    {
+                        @foreach (var item in Model.Tags)
+                        {
+                            <div class="category-items">
+                                <a asp-action="Index" asp-controller="Shop" class="category-item">
+                                    <span class="category-title">
+                                        @item.Name
+                                        @*<span class="category-count">@item.</span>*@
+                                    </span>
+                                </a>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </section>
@@ -901,22 +793,28 @@
         <!-- Banner Section Start -->
         <section id="banner">
             <div class="row g-0">
-                <div class="col-lg-6 col-12">
-                    <div class="banner-new">
-                        <div class="new-title">
-                            <p>New</p>
+
+
+                @if (@Model.Banners.Count() >= 2)
+                {
+                    <div class="col-lg-6 col-12">
+                        <div class="banner-new" style="background-image:url(../assets/img/@Model.Banners.FirstOrDefault().Image)">
+                            <div class="new-title">
+                                <p>@Model.Banners.FirstOrDefault(m=>m.Title!="New").Title</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="banner-sale">
-                        <div class="sale-title">
-                            <p class="sale-text">Sale</p>
-                            <p class="discount">20% Off all Hoodies</p>
-                            <a class="custom-button">SHOP NOW</a>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="banner-sale" style="background-image:url(../assets/img/@Model.Banners.FirstOrDefault(m=>m.Title!="New").Image)">
+                            <div class="sale-title">
+                                <p class="sale-text">@Model.Banners.FirstOrDefault(m=>m.Title!="New").Title</p>
+                                <p class="discount">@Model.Banners.FirstOrDefault(m=>m.Title!="New").Description</p>
+                                <a asp-action="Index" asp-controller="Shop" class="custom-button">SHOP NOW</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </section>
         <!-- Banner Section End -->
@@ -962,16 +860,14 @@
         </section>
         <!-- Trending Section End  -->
         <!-- Street Vibe Section Start -->
-        <section id="street-vibe">
+        <section id="street-vibe" style="background-image:url(../assets/img/@Model.InfoBanner.FirstOrDefault().Image)">
             <div class="street-title">
-                <span>GOING OUT ON THE STREET</span>
-                <h2>THE ULTIMATE STREET VIBE</h2>
+                <span>@Model.InfoBanner.FirstOrDefault().Subtitle</span>
+                <h2>@Model.InfoBanner.FirstOrDefault().Title</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ellent,
-                    esque eget massa ac urna finibus fringilla nonpon mauris sit amet
-                    nisl in nunc pharetra.
+                    @Model.InfoBanner.FirstOrDefault().Description
                 </p>
-                <a href="#" class="custom-button">SHOP NOW</a>
+                <a asp-action="Index" asp-controller="Shop" class="custom-button">SHOP NOW</a>
             </div>
         </section>
         <!-- Street Vibe Section End -->
@@ -979,78 +875,21 @@
         <section id="categories-slider">
             <div class="swiper categoriesSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>ADIDAS</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-7.jpg"
-                                     alt="Adidas" />
+                    @for (var i = 0; i < 2; i++)
+                    {
+                        @foreach (var item in Model.Brands)
+                        {
+                            <div class="swiper-slide">
+                                <div class="category-element">
+                                    <h5>@item.Name</h5>
+                                    <div class="category-image">
+                                        <img src="~/assets/img/@item.Image"
+                                     alt="@item.Name" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>Nike</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-2.jpg"
-                                     alt="Nike" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>North Face</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-5.jpg"
-                                     alt="North Face" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>New Balance</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-1.jpg"
-                                     alt="New Balance" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>PUMA</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-3.jpg"
-                                     alt="Puma" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>Kickz</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-7.jpg"
-                                     alt="Kickz" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>ADIDAS</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-3.jpg"
-                                     alt="Adidas" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="category-element">
-                            <h5>Puma</h5>
-                            <div class="category-image">
-                                <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2023/01/main-home-brand-3.jpg"
-                                     alt="Puma" />
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
             </div>
         </section>
@@ -1169,12 +1008,75 @@
     </footer>
     <!-- Footer End -->
 
+    <script>
+  $(document).on('click', '.add-to-fav-button', function () {
+    var button = $(this);
+    var wishlistId = button.data('wishlist-id');
+    var url = button.data('url');
 
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: JSON.stringify({ productId: wishlistId }),
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+            if (response.success) {
+                if (response.action === "added") {
+                    button.css('background-color', 'red');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Added!',
+                        text: response.message,
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                } else if (response.action === "removed") {
+                    button.css('background-color', '');
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Removed!',
+                        text: response.message,
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }
+            } else if (response.redirectUrl) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Not Authenticated',
+                    text: response.message,
+                    confirmButtonText: 'Login'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = response.redirectUrl;
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: response.message
+                });
+            }
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'An error occurred. Please try again.'
+            });
+        }
+    });
+});
+
+
+
+    </script>
     <script>
 
 
 
-                               document.querySelectorAll('.add-to-basket-button').forEach(button => {
+            document.querySelectorAll('.add-to-basket-button').forEach(button => {
             button.addEventListener('click', async function () {
                 const productId = this.getAttribute('data-product-id');
 
@@ -1199,7 +1101,6 @@
                             showConfirmButton: false
                         });
 
-                        // Update the basket count in the UI
                         document.querySelector('.count-basket').textContent = result.uniqueProductCount;
 
                         updateBasketUI();
@@ -1224,10 +1125,6 @@
                 }
             });
         });
-
-
-
-
 
                                 function updateBasketUI() {
                                     // Implement this function to refresh the basket display, count items, etc.
@@ -1257,13 +1154,44 @@
                                                 }
 
 
+
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Get all filter buttons
+          const filterButtons = document.querySelectorAll('.filter-btn');
+
+          const showAllButton = document.querySelector('.show-all-btn');
+
+          const productCards = document.querySelectorAll('.featured-products-card');
+
+          function filterProducts(brandName) {
+            productCards.forEach(card => {
+              if (card.getAttribute('data') === brandName || brandName === 'all') {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          }
+          filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const brandName = this.getAttribute('data');
+              filterProducts(brandName);
+            });
+          });
+          showAllButton.addEventListener('click', function() {
+            filterProducts('all');
+          });
+        });
+    </script>
+
 
 
     <!-- SwiperJS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="~/assets/js/productCardSlider.js"></script>
     <!-- Split Type  -->
     <script src="
     https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js
@@ -1284,8 +1212,6 @@
 
     <!-- generate card js  -->
     <script src="~/assets/js/basket.js"></script>
-    <script src="~/assets/js/generateCard.js"></script>
-    <script src="~/assets/js/wishlist.js"></script>
     <script src="~/assets/js/script.js"></script>
 </body>
 </html>

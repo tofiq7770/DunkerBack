@@ -38,6 +38,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         public async Task<IActionResult> Create(BrandCreateVM vm)
         {
 
+            if (!ModelState.IsValid) return View(vm);
             if (await _service.AnyAsync(vm.Name))
             {
                 ModelState.AddModelError("Name", $"{vm.Name} is already exist!");

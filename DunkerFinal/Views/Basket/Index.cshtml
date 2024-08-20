@@ -475,7 +475,133 @@
     }
 });
 
- 
+
+
+
+ $(document).ready(function() {
+    $(document).on('click', '.minus-btn', function() {
+        const button = $(this);
+        const productId = button.data('id');
+        console.log('Product ID:', productId);
+
+        if (!productId || productId <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Request',
+                text: 'The product ID is not valid.',
+                timer: 1200,
+                showConfirmButton: false
+            });
+            return;
+        }
+
+        $.ajax({
+            url: '/Basket/Decrease',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: productId }), // Ensure data is sent as an object
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    console.log('Response JSON:', response);
+
+                    const container = button.closest('.counter-container');
+                    const quantityElement = container.find('#value');
+                    const totalPriceElement = button.closest('.wishlist-item').find('.total-price span');
+
+                    // Update the quantity and total price for this item
+                    const oldQuantity = parseInt(quantityElement.text());
+                    const newQuantity = oldQuantity - 1;
+
+                    if (newQuantity > 0) {
+                        // Update the quantity and total price
+                        quantityElement.text(newQuantity);
+
+                        // Calculate new total price for this item
+                        const itemPrice = parseFloat(totalPriceElement.text().replace('$', '')) / oldQuantity;
+                        const newTotalPrice = itemPrice * newQuantity;
+
+                        totalPriceElement.text('$' + newTotalPrice.toFixed(2));
+                    } else {
+                        // Remove the product's container if the quantity is 0
+                        button.closest('.wishlist-item').remove();
+                    }
+
+                    // Update the cart totals
+                    updateCartTotals(response.totalQuantity);
+
+                    // Update the basket count
+                    $('.count-basket').text(response.basketCount);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Quantity Decreased',
+                        text: newQuantity > 0
+                            ? `The quantity has been decreased to ${newQuantity}.`
+                            : 'The item has been removed from your cart.',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Failed to Decrease Quantity',
+                        text: response.message,
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                }
+            },
+            error: function(xhr) {
+                console.log('Response Status:', xhr.status);
+                console.log('Response Headers:', xhr.getAllResponseHeaders());
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Decrease Quantity',
+                    text: `Server responded with status ${xhr.status}. ${xhr.responseText}`,
+                    timer: 1200,
+                    showConfirmButton: false
+                });
+            }
+        });
+    });
+
+    function updateCartTotals(totalQuantity) {
+        let subtotal = 0;
+        let hasItems = false;
+
+        // Calculate subtotal from visible items
+        $('.wishlist-item').each(function() {
+            hasItems = true; // There are items in the cart
+            const itemTotalPrice = parseFloat($(this).find('.total-price span').text().replace('$', '')) || 0;
+            subtotal += itemTotalPrice;
+        });
+
+        if (hasItems) {
+            // Update subtotal and total price in the cart totals section
+            $('.cart-totals .totals-item .value').eq(0).text('$' + subtotal.toFixed(2)); // Subtotal
+            $('.cart-totals .totals-item .value').eq(2).html('<strong>$' + subtotal.toFixed(2) + '</strong>'); // Total
+
+            // Update the total items count
+            const cartTotalElement = $('#cart-total');
+            if (cartTotalElement.length) {
+                cartTotalElement.text('Total Items: ' + totalQuantity);
+            }
+
+            // Show the cart totals section and hide the "No Products Added" message
+            $('.cart-totals').show();
+            $('#no-products-message').hide();
+        } else {
+            // Hide the cart totals section and show the "No Products Added" message
+            $('.cart-totals').hide();
+            $('#no-products-message').show();
+        }
+    }
+});
+
+
+
+ @*
 $(document).ready(function() {
     $(document).on('click', '.minus-btn', function() {
         const button = $(this);
@@ -590,7 +716,7 @@ $(document).ready(function() {
             $('#no-products-message').show();
         }
     }
-});
+});*@
 
 
 $(document).ready(function() {
