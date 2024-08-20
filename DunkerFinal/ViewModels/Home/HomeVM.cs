@@ -17,6 +17,8 @@ namespace DunkerFinal.ViewModels.Home
         public IEnumerable<ColorListVM> Colors { get; set; }
         public IEnumerable<ProductColor> ProductColors { get; set; }
         public IEnumerable<ProductTag> ProductTags { get; set; }
+        public IEnumerable<WishlistProduct> WishlistProducts { get; set; }
+        public IEnumerable<Wishlist> Wishlists { get; set; }
         public IEnumerable<TagListVM> Tags { get; set; }
         public IEnumerable<CategoryListVM> Categories { get; set; }
         public IEnumerable<InfoBannerListVM> InfoBanner { get; set; }

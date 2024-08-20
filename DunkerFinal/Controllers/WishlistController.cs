@@ -56,6 +56,71 @@ namespace DunkerFinal.Controllers
 
             return View(wishlistListVMs);
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Add([FromBody] ProductRequest request)
+        //{
+        //    int? productId = request.ProductId;
+
+        //    if (productId == null)
+        //    {
+        //        return BadRequest(new { success = false, message = "Product ID is required." });
+        //    }
+
+        //    if (!User.Identity.IsAuthenticated)
+        //    {
+        //        return Json(new { success = false, message = "User is not authenticated.", redirectUrl = Url.Action("Login", "Account") });
+        //    }
+
+        //    var existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+        //    if (existUser == null)
+        //    {
+        //        return Json(new { success = false, message = "User not found." });
+        //    }
+
+        //    var existProduct = await _context.Products.FindAsync(productId);
+        //    if (existProduct == null)
+        //    {
+        //        return Json(new { success = false, message = "Product not found." });
+        //    }
+
+        //    var wishlist = await _context.Wishlists
+        //        .Include(w => w.WishlistProducts)
+        //        .FirstOrDefaultAsync(w => w.AppUserId == existUser.Id);
+
+        //    if (wishlist == null)
+        //    {
+        //        wishlist = new Wishlist { AppUserId = existUser.Id };
+        //        await _context.Wishlists.AddAsync(wishlist);
+        //        await _context.SaveChangesAsync();
+        //    }
+
+        //    var wishlistProduct = await _context.WishlistProducts
+        //        .FirstOrDefaultAsync(wp => wp.ProductId == productId && wp.WishlistId == wishlist.Id);
+
+        //    if (wishlistProduct != null)
+        //    {
+        //        wishlistProduct.Quantity++;
+        //    }
+        //    else
+        //    {
+        //        var newWishlistProduct = new WishlistProduct
+        //        {
+        //            WishlistId = wishlist.Id,
+        //            ProductId = (int)productId,
+        //            Quantity = 1
+        //        };
+        //        await _context.WishlistProducts.AddAsync(newWishlistProduct);
+        //    }
+
+        //    await _context.SaveChangesAsync();
+
+        //    int uniqueProductCount = await _context.WishlistProducts
+        //        .Where(wp => wp.Wishlist.AppUserId == existUser.Id)
+        //        .CountAsync();
+
+        //    return Json(new { success = true, message = "Product added to wishlist.", uniqueProductCount });
+        //}
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] ProductRequest request)
         {
@@ -97,7 +162,9 @@ namespace DunkerFinal.Controllers
             var wishlistProduct = await _context.WishlistProducts
                 .FirstOrDefaultAsync(wp => wp.ProductId == productId && wp.WishlistId == wishlist.Id);
 
-            if (wishlistProduct != null)
+            bool alreadyInWishlist = wishlistProduct != null;
+
+            if (alreadyInWishlist)
             {
                 wishlistProduct.Quantity++;
             }
@@ -118,19 +185,19 @@ namespace DunkerFinal.Controllers
                 .Where(wp => wp.Wishlist.AppUserId == existUser.Id)
                 .CountAsync();
 
-            return Json(new { success = true, message = "Product added to wishlist.", uniqueProductCount });
+            return Json(new { success = true, message = alreadyInWishlist ? "Product already in wishlist." : "Product added to wishlist.", uniqueProductCount, alreadyInWishlist });
         }
+
 
         public class ProductRequest
         {
             public int ProductId { get; set; }
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete([FromBody] DeleteRequest request)
         {
-            if (id == null)
+            if (request.Id == null)
                 return Json(new { success = false, message = "Product ID is missing." });
 
             if (!User.Identity.IsAuthenticated)
@@ -142,10 +209,10 @@ namespace DunkerFinal.Controllers
 
             var basketProduct = await _context.WishlistProducts
                 .Include(m => m.Product)
-                .FirstOrDefaultAsync(m => m.Id == id && m.Wishlist.AppUserId == existUser.Id);
+                .FirstOrDefaultAsync(m => m.Id == request.Id && m.Wishlist.AppUserId == existUser.Id);
 
             if (basketProduct == null)
-                return Json(new { success = false, message = "Product not found in basket." });
+                return Json(new { success = false, message = "Product not found in wishlist." });
 
             _context.WishlistProducts.Remove(basketProduct);
             await _context.SaveChangesAsync();
@@ -172,7 +239,7 @@ namespace DunkerFinal.Controllers
             });
         }
 
-        public class IncreaseRequest
+        public class DeleteRequest
         {
             public int Id { get; set; }
         }

@@ -54,6 +54,8 @@ namespace DunkerFinal.Controllers
                 Categories = await _categoryService.GetAllAsync(),
                 Brands = await _brandService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
                 ProductColors = await _context.ProductColors.ToListAsync(),
                 InfoBanner = await _infoService.GetAllAsync(),
                 ProductTags = await _context.ProductTags.ToListAsync(),
