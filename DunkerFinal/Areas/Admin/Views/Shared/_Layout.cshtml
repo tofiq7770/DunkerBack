@@ -23,7 +23,14 @@
     <link rel="shortcut icon" href="~/admin/assets/images/favicon.ico" />
 </head>
 <body>
-
+    <style>
+        .btn-danger {
+            background-color:#f6214c !important;
+        }
+        .btn-danger:hover {
+            background-color:#ff003391 !important;
+        }
+    </style>
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -52,7 +59,21 @@
                             <span class="availability-status online"></span>
                         </div>
                         <div class="nav-profile-text">
-                            <p class="mb-1 text-black">@*@User.Identity.Name*@Admin</p>
+                            <p class="mb-1 text-black">
+
+                                @if (User.IsInRole("SuperAdmin"))
+                                {
+                                    <span class="text-secondary text-small">
+                                        SuperAdmin
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-secondary text-small">
+                                        Admin
+                                    </span>
+                                }
+                            </p>
                         </div>
                     </a>
                     <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -188,25 +209,21 @@
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
                             <span class="font-weight-bold mb-2">
-                                Tofiq Nasibli
-                            </span>
-                            <span class="text-secondary text-small">
-                                SuperAdmin
+                                @User.Identity.Name.ToUpper()
                             </span>
 
-                            @*
-                                @if (User.IsInRole("SuperAdmin"))
-                                {
+                            @if (User.IsInRole("SuperAdmin"))
+                            {
                                 <span class="text-secondary text-small">
-                                SuperAdmin
+                                    SuperAdmin
                                 </span>
-                                }
-                                else
-                                {
+                            }
+                            else
+                            {
                                 <span class="text-secondary text-small">
-                                Admin
+                                    Admin
                                 </span>
-                                }*@
+                            }
 
 
                         </div>
@@ -268,7 +285,7 @@
                         <i class="mdi mdi-codepen menu-icon"></i>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="InfoBanner" asp-action="Index">
                         <span class="menu-title">Info's</span>

@@ -59,17 +59,21 @@ namespace DunkerFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] int? productId)
         {
-            if (productId is null)
-                return BadRequest();
+            if (productId == null)
+                return BadRequest(new { success = false, message = "Product ID is required." });
 
             if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "Account");
+            {
+                // Return a JSON response indicating that the user is not authenticated
+                return Json(new { success = false, message = "User is not authenticated.", redirectUrl = Url.Action("Login", "Account") });
+            }
 
             AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (existUser == null)
+                return NotFound();
 
             Product existProduct = await _context.Products.FirstOrDefaultAsync(m => m.Id == productId);
-
-            if (existProduct is null)
+            if (existProduct == null)
                 return NotFound();
 
             BasketProduct basketProduct = await _context.BasketProducts
@@ -116,13 +120,13 @@ namespace DunkerFinal.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            // Calculate the total count of unique products in the basket
             int uniqueProductCount = await _context.BasketProducts
                 .Where(m => m.Basket.AppUserId == existUser.Id)
                 .CountAsync();
 
-            return Json(new { success = true, message = "Product added to cart.", uniqueProductCount });
+            return Json(new { success = true, message = "Product added to basket.", uniqueProductCount });
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {

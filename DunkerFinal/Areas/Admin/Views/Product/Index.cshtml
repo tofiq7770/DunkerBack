@@ -25,7 +25,9 @@
                     {
                         <tr>
 
-                            <td> <img src="~/assets/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image"> </td>
+                            <td> <img 
+                                style="width: 159px; height: 159px;  object-fit: cover;"
+                                src="~/assets/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image"> </td>
                             <td> @item.Name </td> 
                             <td> @item.SKU </td> 
                             <td> @item.Price </td>

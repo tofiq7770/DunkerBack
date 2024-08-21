@@ -1,6 +1,4 @@
-﻿ 
-
-@model List<Elementor>
+﻿@model List<Elementor>
 
 <div class="col-lg-9 grid-margin stretch-card">
     <div class="card">
@@ -11,7 +9,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th> Image </th> 
+                        <th> Image </th>
                         <th> Settings </th>
                     </tr>
                 </thead>
@@ -21,7 +19,9 @@
                     {
                         <tr>
 
-                            <td> <img src="~/assets/img/@item.Image"> </td> 
+                            <td>
+                                <img  style="width: 121px;height: 66px;" src="~/assets/img/@item.Image">
+                            </td>
                             <td>
                                 <a class="btn btn-info" asp-area="Admin" asp-controller="Elementor" asp-route-id="@item.Id" asp-action="Detail">Detail</a>
                                 <a class="btn btn-primary" asp-area="Admin" asp-controller="Elementor" asp-route-id="@item.Id" asp-action="Update">Update</a>

@@ -23,6 +23,7 @@
           integrity="sha512-nNatP1G6CEh43irXY/GN4cDcLRX/R0jAYAV/ulFZcotSXcuIQE5Do4TuDOYNAD2SCIpmIbaYSllyjTysSCkpEw=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
+
     <!-- Swiper -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -50,61 +51,7 @@
     @RenderBody()
 
     @await Component.InvokeAsync("Footer")
-
-    <script>
-            document.querySelectorAll('.add-to-basket-button').forEach(button => {
-                        button.addEventListener('click', async function () {
-                            const productId = this.getAttribute('data-product-id');
-
-                            try {
-                                const response = await fetch('/Basket/Add', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                        'X-Requested-With': 'XMLHttpRequest'
-                                    },
-                                    body: JSON.stringify(productId)
-                                });
-
-                                const result = await response.json();
-
-                                if (response.ok) {
-                                    Swal.fire({
-                                        title: 'Success!',
-                                        text: result.message,
-                                        icon: 'success',
-                                        timer: 1200,
-                                        showConfirmButton: false
-                                    });
-
-                                    document.querySelector('.count-basket').textContent = result.uniqueProductCount;
-
-                                    updateBasketUI();
-                                } else {
-                                    Swal.fire({
-                                        title: 'Error!',
-                                        text: 'Failed to add product to basket. ' + result.message,
-                                        icon: 'error',
-                                        timer: 1200,
-                                        showConfirmButton: false
-                                    });
-                                }
-                            } catch (error) {
-                                console.error('Network error:', error);
-                                Swal.fire({
-                                    title: 'Network Error!',
-                                    text: 'An error occurred. Please try again.',
-                                    icon: 'error',
-                                    timer: 1200,
-                                    showConfirmButton: false
-                                });
-                            }
-                        });
-                    });
-
-                    function updateBasketUI() {
-                    }
-    </script>
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- SwiperJS -->
