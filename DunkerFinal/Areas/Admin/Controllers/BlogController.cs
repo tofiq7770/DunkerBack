@@ -88,8 +88,6 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
 
-
-
         }
         public async Task<IActionResult> Update(int id)
         {

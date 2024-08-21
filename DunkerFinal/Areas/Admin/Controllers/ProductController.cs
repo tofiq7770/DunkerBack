@@ -1,6 +1,8 @@
 ﻿
 using AutoMapper;
 using Domain.Entities;
+using DunkerFinal.Areas.Admin.Class;
+using DunkerFinal.ViewModels.Products;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
@@ -55,11 +57,20 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 2)
         {
-            var products = await _service.GetAllAsync();
+            var products = _service.GetAllAsync();
 
-            return View(products);
+            var paginatedProducts = PagedList<Product>.Create(await products, pageNumber, pageSize);
+
+            var viewModel = new ProductsListVM
+            {
+                Products = paginatedProducts,
+                PageNumber = pageNumber,
+                TotalPages = paginatedProducts.TotalPages
+            };
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Create()
