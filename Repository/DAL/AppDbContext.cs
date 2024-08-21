@@ -22,6 +22,8 @@ namespace Repository.DAL
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketProduct> BasketProducts { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Elementor> Elementors { get; set; }
         public DbSet<WishlistProduct> WishlistProducts { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Slider> Sliders { get; set; }

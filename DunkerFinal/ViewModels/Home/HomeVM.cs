@@ -21,6 +21,7 @@ namespace DunkerFinal.ViewModels.Home
         public IEnumerable<Wishlist> Wishlists { get; set; }
         public IEnumerable<TagListVM> Tags { get; set; }
         public IEnumerable<CategoryListVM> Categories { get; set; }
+        public List<Elementor> Elementors { get; set; }
         public IEnumerable<InfoBannerListVM> InfoBanner { get; set; }
         public IEnumerable<BannerListVM> Banners { get; set; }
         public IEnumerable<Product> Products { get; set; }

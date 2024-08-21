@@ -259,7 +259,7 @@
                                     </li>
                                     <li class="multiple-subMenu-items">
                                         <span href="#" class="multiple-subMenu-heading">
-                                            Contact Us
+                                            Product Types
                                         </span>
                                         <ul class="multiple-subMenu-item text-uppercase">
                                             <li class="multiple-item">
@@ -274,7 +274,7 @@
                                                 </a>
                                             </li>
                                             <li class="multiple-item">
-                                                <a href="#" class="multiple-link">About Us</a>
+                                                <a asp-action="Index" asp-controller="Blog" class="multiple-link">About Us</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -294,12 +294,12 @@
                                     <a href="#" class="subMenu-link">Terms & Conditions</a>
                                 </li>
                                 <li class="subMenu-item">
-                                    <a href="#" class="subMenu-link">About Us</a>
+                                    <a asp-action="Index" asp-controller="Blog" class="subMenu-link">About Us</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="navbar-item">
-                            <a href="#" class="navbar-link">BLOG</a>
+                            <a asp-action="Index" asp-controller="Blog" class="navbar-link">BLOG</a>
                         </li>
                         <li class="navbar-item">
                             <a href="#" class="navbar-link">FAQ</a>
@@ -806,30 +806,17 @@
         <!-- Elementor Section Start -->
         <section id="elementor-section">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-6.png"
+
+                @if (@Model.Elementors.Count() > 0)
+                {
+                    @foreach (var item in Model.Elementors.Take(6))
+                    {
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                            <img src="~/assets/img/@item.Image"
                          alt="" />
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-2.png"
-                         alt="" />
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-1.png"
-                         alt="" />
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-3.png"
-                         alt="" />
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-4.png"
-                         alt="" />
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h4-clients-5.png"
-                         alt="" />
-                </div>
+                        </div>
+                    }
+                }
             </div>
         </section>
         <!-- Elementor Section End -->
@@ -992,9 +979,14 @@
         </div>
     </footer>
     <!-- Footer End -->
-    <!-- Include jQuery from a CDN -->
+
+
 
     <script>
+
+
+
+
             document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.add-to-fav-button').forEach(button => {
                 button.addEventListener('click', async function () {
