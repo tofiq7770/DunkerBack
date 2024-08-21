@@ -2,6 +2,7 @@
 using DunkerFinal.ViewModels.Shop;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
 using Service.Services.Interfaces;
 using Service.ViewModels.Category;
@@ -19,13 +20,23 @@ namespace DunkerFinal.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
+        private readonly IBrandService _brandService;
+        private readonly ISliderService _sliderService;
+        private readonly ITagService _tagService;
+        private readonly IColorService _colorService;
+        private readonly IProductTagService _tagProductService;
+
         public ShopController(IProductService productService,
                               ICategoryService categoryService,
                               AppDbContext context,
                               UserManager<AppUser> userManager,
                               SignInManager<AppUser> signInManager,
-                              IHttpContextAccessor httpContextAccessor
-
+                              IHttpContextAccessor httpContextAccessor,
+                              ISliderService sliderService,
+                              IBrandService brandService,
+                              IColorService colorService,
+                              ITagService tagService,
+                              IProductTagService tagProductTagService
                               )
         {
             _context = context;
@@ -33,13 +44,35 @@ namespace DunkerFinal.Controllers
             _categoryService = categoryService;
             _userManager = userManager;
             _signInManager = signInManager;
+            _sliderService = sliderService;
+            _tagService = tagService;
+            _colorService = colorService;
+            _tagProductService = tagProductTagService;
+            _brandService = brandService;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            ShopVM model = new()
+            {
+
+                Products = await _productService.GetAllAsync(),
+                Categories = await _categoryService.GetAllAsync(),
+                Brands = await _brandService.GetAllAsync(),
+                Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
+                ProductColors = await _context.ProductColors.ToListAsync(),
+                ProductTags = await _context.ProductTags.ToListAsync(),
+                Tags = await _tagService.GetAllAsync(),
+                Baskets = await _context.BasketProducts.ToListAsync(),
+            };
+
+            return View(model);
         }
+
+
         public async Task<IActionResult> ProductDetail(int? Id)
         {
             List<Product> products = await _productService.GetAllAsync();
@@ -57,10 +90,70 @@ namespace DunkerFinal.Controllers
             {
                 Products = products,
                 Product = product,
-                Categories = categories
+                Categories = categories,
+                Brands = await _brandService.GetAllAsync(),
+                Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
+                ProductColors = await _context.ProductColors.ToListAsync(),
+                ProductTags = await _context.ProductTags.ToListAsync(),
             };
 
             return View(datas);
         }
+
+        public async Task<IActionResult> Sorting(string sort)
+        {
+            if (_productService == null)
+            {
+                throw new InvalidOperationException("Product service is not initialized.");
+            }
+
+            IEnumerable<Product> products = await _productService.GetAllAsync();
+            if (products == null)
+            {
+                throw new InvalidOperationException("Products could not be retrieved.");
+            }
+
+            switch (sort)
+            {
+                case "SORT BY RATING":
+                    products = products.OrderByDescending(m => m.Rating);
+                    break;
+                case "SORT BY LATEST":
+                    products = products.OrderByDescending(m => m.CreatedTime);
+                    break;
+                case "SORT BY PRICE HIGH TO LOW":
+                    products = products.OrderByDescending(m => m.Price);
+                    break;
+                case "SORT BY PRICE LOW TO HIGH":
+                    products = products.OrderBy(m => m.Price);
+                    break;
+                default:
+                    products = products.OrderBy(m => m.Name);
+                    break;
+            }
+
+            ShopVM model = new()
+            {
+                Products = products,
+                Brands = await _brandService.GetAllAsync(),
+                Categories = await _categoryService.GetAllAsync(),
+                Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
+                ProductColors = await _context.ProductColors.ToListAsync(),
+                ProductTags = await _context.ProductTags.ToListAsync(),
+            };
+            if (model == null)
+            {
+                throw new InvalidOperationException("Model could not be created.");
+            }
+
+            return View("Index", model);
+        }
+
+
+
     }
 }

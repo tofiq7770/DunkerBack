@@ -11,13 +11,15 @@ namespace DunkerFinal.ViewComponents
     public class HeaderViewComponent : ViewComponent
     {
         private readonly ISettingService _settingService;
+        private readonly IProductService _productService;
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
 
-        public HeaderViewComponent(ISettingService settingService, UserManager<AppUser> userManager, AppDbContext context)
+        public HeaderViewComponent(ISettingService settingService, IProductService productService, UserManager<AppUser> userManager, AppDbContext context)
         {
             _settingService = settingService;
             _userManager = userManager;
+            _productService = productService;
             _context = context;
         }
 
@@ -34,7 +36,9 @@ namespace DunkerFinal.ViewComponents
             HeaderVM model = new()
             {
                 Settings = await _settingService.GetAll(),
-                BasketCount = quantity
+                BasketCount = quantity,
+                Products = await _productService.GetAllAsync(),
+                Baskets = await _context.BasketProducts.ToListAsync(),
             };
 
             return await Task.FromResult(View(model));

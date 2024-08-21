@@ -1,12 +1,12 @@
 ﻿  
 function openSearch() {
     document.getElementById("searchOverlay").style.display = "block";
-    document.body.classList.add("no-scroll"); // Prevent scrolling
+    document.body.classList.add("no-scroll"); 
 }
 
 function closeSearch() {
     document.getElementById("searchOverlay").style.display = "none";
-    document.body.classList.remove("no-scroll"); // Allow scrolling again
+    document.body.classList.remove("no-scroll");  
 }
 
 function checkEnter(event) {

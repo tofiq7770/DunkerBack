@@ -1,6 +1,9 @@
 ﻿using Domain.Entities;
+using Service.ViewModels.Brand;
 using Service.ViewModels.Category;
+using Service.ViewModels.Color;
 using Service.ViewModels.Product;
+using Service.ViewModels.Tag;
 
 namespace DunkerFinal.ViewModels.Shop
 {
@@ -10,5 +13,14 @@ namespace DunkerFinal.ViewModels.Shop
         public IEnumerable<Product> Products { get; set; }
         public ProductDetailVM Product { get; set; }
         public IEnumerable<CategoryListVM> Categories { get; set; }
+
+        public IEnumerable<BrandListVM> Brands { get; set; }
+        public IEnumerable<BasketProduct> Baskets { get; set; }
+        public IEnumerable<ColorListVM> Colors { get; set; }
+        public IEnumerable<ProductColor> ProductColors { get; set; }
+        public IEnumerable<ProductTag> ProductTags { get; set; }
+        public IEnumerable<WishlistProduct> WishlistProducts { get; set; }
+        public IEnumerable<Wishlist> Wishlists { get; set; }
+        public IEnumerable<TagListVM> Tags { get; set; }
     }
 }
