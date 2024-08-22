@@ -48,6 +48,7 @@ namespace DunkerFinal.Controllers
                         Image = item.Product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image,
                         Name = item.Product.Name,
                         Price = item.Product.Price,
+                        ProductId = item.ProductId,
                         Quantity = item.Quantity,
                     });
                 }

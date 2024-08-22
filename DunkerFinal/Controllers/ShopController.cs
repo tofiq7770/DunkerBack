@@ -153,6 +153,39 @@ namespace DunkerFinal.Controllers
             return View("Index", model);
         }
 
+        public IActionResult Search(string searchText)
+        {
+
+
+
+            List<Product> products = new();
+
+            if (searchText != null)
+            {
+                products = _context.Products
+    .Where(p => p.Name.Contains(searchText))
+    .Include(p => p.Brand)
+    .Include(p => p.Category)
+    .Include(p => p.ProductImages)
+    .ToList();
+            }
+            else
+            {
+                products = _context.Products
+    .Include(p => p.Brand)
+    .Include(p => p.Category)
+    .Include(p => p.ProductImages)
+    .ToList();
+            }
+
+            var model = new ShopVM
+            {
+                Products = products,
+                WishlistProducts = _context.WishlistProducts.ToList()
+            };
+
+            return PartialView("_ProductsFilterPartial", model);
+        }
 
 
     }

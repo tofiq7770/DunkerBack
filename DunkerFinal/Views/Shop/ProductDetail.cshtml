@@ -3,6 +3,44 @@
 
 @model ShopVM
 
+
+<style>
+
+    .add-to-basket-button {
+        font-size: 14px !important;
+        padding: 20px 70px !important;
+        background: transparent !important;
+        border: 2px solid #000 !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+        transition: background-color 0.4s ease-in !important, color 0.4s ease-in !important;
+        position: unset !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap !important; /* Ensure text does not wrap */
+    }
+
+    .add-to-basket-button {
+        width: 55px !important;
+        height: 55px !important;
+        background-color: white !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+        .add-to-basket-button span {
+            margin-right: 8px !important; /* Adjust spacing between text and icon */
+            display: inline-block !important; /* Ensure the span acts as an inline element */
+            white-space: nowrap !important; /* Prevent line breaks within the span */
+        }
+
+        .add-to-basket-button:hover {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+</style>
 <!-- Breadcrumb Navigation Start -->
 <nav id="breadcrumb">
     <span><a href="./index.html">HOME</a></span>
@@ -22,7 +60,7 @@
                             <!-- zoomist-wrapper is required -->
                             <div class="zoomist-wrapper">
                                 <!-- zoomist-image is required -->
-                                <div class="zoomist-image"  >
+                                <div class="zoomist-image">
                                     <img src="~/assets/img/@Model.Product.ProductImages.FirstOrDefault(m=>m.IsMain).Image"
                                          alt="Product"
                                          id="zoom-img" />
@@ -55,20 +93,10 @@
                         </p>
                     </div>
                     <div class="product-actions">
-                        <div class="counter">
-                            <button class="decrease-product">-</button>
-                            <span class="product-count">0</span>
-                            <button class="increase-product">+</button>
-                        </div>
-                        <a href="#" class="custom-button">
-                            ADD TO CART
-                            <span class="basket-product">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </span>
-                        </a>
-                        <a href="#" class="wishlist-btn">
-                            <i class="fa-regular fa-heart"></i>
-                        </a>
+                        <button class="add-to-basket-button" data-product-id="@Model.Product.Id">
+                            <span>ADD TO CART</span> <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                       
                     </div>
                     <div class="product-info">
                         <div class="share">
@@ -83,15 +111,15 @@
                             </div>
                             <div class="category">
                                 <span>CATEGORY:</span>
-                                <a href="#">@Model.Product.Category</a>
+                                <a href="#">@Model.Product.Category </a>
                             </div>
                             <div class="tag">
                                 <span>TAG:</span>
-                                <a href="#">@Model.Product.</a>
+                                <a href="#">@Model.Product</a>
                             </div>
                             <div class="tag">
                                 <span>Color:</span>
-                                <a href="#">@Model.Product.</a>
+                                <a href="#"> @Model.Product</a>
                             </div>
                         </div>
                     </div>
@@ -159,5 +187,77 @@
             <div class="row justify-content-center">
             </div>
         </div>
-    </section> 
+    </section>
 </main> 
+
+<script>
+
+     document.querySelectorAll('.add-to-basket-button').forEach(button => {
+            button.addEventListener('click', async function () {
+                const productId = this.getAttribute('data-product-id');
+
+                try {
+                    const response = await fetch('/Basket/Add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        body: JSON.stringify(productId)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        if (result.redirectUrl) {
+                            // Handle redirection if provided
+                            Swal.fire({
+                                title: 'Login Required',
+                                text: 'You need to be logged in to add items to your basket.',
+                                icon: 'warning',
+                                showConfirmButton: true,
+                                confirmButtonText: 'Login',
+                                onClose: () => {
+                                    window.location.href = result.redirectUrl; // Redirect to login
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: result.message,
+                                icon: 'success',
+                                timer: 1200,
+                                showConfirmButton: false
+                            });
+
+                            document.querySelector('.count-basket').textContent = result.uniqueProductCount;
+
+                            updateBasketUI();
+                        }
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to add product to basket. ' + result.message,
+                            icon: 'error',
+                            timer: 1200,
+                            showConfirmButton: false
+                        });
+                    }
+                } catch (error) {
+                    console.error('Network error:', error);
+                    Swal.fire({
+                        title: 'Network Error!',
+                        text: 'An error occurred. Please try again.',
+                        icon: 'error',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        });
+
+        function updateBasketUI() {
+            // Implement this function to refresh the basket display, count items, etc.
+        }
+
+</script>
