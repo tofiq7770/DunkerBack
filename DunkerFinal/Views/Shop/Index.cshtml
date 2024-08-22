@@ -33,117 +33,120 @@
                                 <div class="container mt-4  ">
                                     <div class="filter-sidebar">
                                         <p class="results">Showing 1–12 of 27 results</p>
-                                        <div class="accordion" id="filterAccordion">
+                                        <form id="filterForm" method="get" action="@Url.Action("Filter", "Shop")">
+                                            <div class="accordion" id="filterAccordion">
 
-                                            <!-- Category Filter -->
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingCategory">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
-                                                        Category
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseCategory" class="accordion-collapse collapse"
-                                                     aria-labelledby="headingCategory">
-                                                    <div class="accordion-body">
-                                                        <ul class="list-unstyled">
-                                                            @foreach (var item in Model.Categories)
-                                                            {
-                                                                <li class="form-check">
-                                                                    <label class="form-check-label w-100 d-flex align-items-center" for="@item.Name">
-                                                                        <input class="form-check-input me-2" type="checkbox" id="@item.Name">
-                                                                        @item.Name
-                                                                    </label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <!-- Brand Filter -->
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingBrand">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapseBrand" aria-expanded="false" aria-controls="collapseBrand">
-                                                        Brand
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseBrand" class="accordion-collapse collapse" aria-labelledby="headingBrand">
-                                                    <div class="accordion-body">
-                                                        <ul class="list-unstyled">
-
-                                                            @foreach (var item in Model.Brands)
-                                                            {
-                                                                <li class="form-check">
-                                                                    <label class="form-check-label w-100 d-flex align-items-center" for="@item.Name">
-                                                                        <input class="form-check-input me-2" type="checkbox" id="@item.Name">
-                                                                        @item.Name
-                                                                    </label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <!-- Color Filter -->
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingColor">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapseColor" aria-expanded="false" aria-controls="collapseColor">
-                                                        Color
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseColor" class="accordion-collapse collapse" aria-labelledby="headingColor">
-                                                    <div class="accordion-body">
-                                                        <ul class="list-unstyled">
-
-                                                            @foreach (var item in Model.Colors)
-                                                            {
-                                                                <li class="form-check">
-                                                                    <label class="form-check-label w-100 d-flex align-items-center" for="@item.Name">
-                                                                        <input class="form-check-input me-2" type="checkbox" id="@item.Name">
-                                                                        @item.Name
-                                                                    </label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Price Filter  -->
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button" type="button" disabled>
-                                                        Price
-                                                    </button>
-                                                </h2>
-                                                <div class="accordion-body">
-                                                    <div class="price-slider">
-                                                        <input type="range" min="0" max="250" value="0" class="mt-2 form-range" id="minPrice">
-                                                        <input type="range" min="0" max="250" value="250" class="mt-2 form-range" id="maxPrice">
-                                                        <div class="price-values d-flex justify-content-between">
-                                                            <span id="minPriceValue">$0</span>
-                                                            <span id="maxPriceValue">$250</span>
+                                                <!-- Category Filter -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingCategory">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
+                                                            Category
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseCategory" class="accordion-collapse collapse"
+                                                         aria-labelledby="headingCategory">
+                                                        <div class="accordion-body">
+                                                            <ul class="list-unstyled">
+                                                                @foreach (var item in Model.Categories)
+                                                                {
+                                                                    <li class="form-check">
+                                                                        <label class="form-check-label w-100 d-flex align-items-center" for="category_@item.Id">
+                                                                            <input class="form-check-input me-2" type="checkbox" id="category_@item.Id" name="categories" value="@item.Id">
+                                                                            @item.Name
+                                                                        </label>
+                                                                    </li>
+                                                                }
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Brand Filter -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingBrand">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseBrand" aria-expanded="false" aria-controls="collapseBrand">
+                                                            Brand
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseBrand" class="accordion-collapse collapse" aria-labelledby="headingBrand">
+                                                        <div class="accordion-body">
+                                                            <ul class="list-unstyled">
+                                                                @foreach (var item in Model.Brands)
+                                                                {
+                                                                    <li class="form-check">
+                                                                        <label class="form-check-label w-100 d-flex align-items-center" for="brand_@item.Id">
+                                                                            <input class="form-check-input me-2" type="checkbox" id="brand_@item.Id" name="brands" value="@item.Id">
+                                                                            @item.Name
+                                                                        </label>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Color Filter -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingColor">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseColor" aria-expanded="false" aria-controls="collapseColor">
+                                                            Color
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseColor" class="accordion-collapse collapse" aria-labelledby="headingColor">
+                                                        <div class="accordion-body">
+                                                            <ul class="list-unstyled">
+                                                                @foreach (var item in Model.Colors)
+                                                                {
+                                                                    <li class="form-check">
+                                                                        <label class="form-check-label w-100 d-flex align-items-center" for="color_@item.Id">
+                                                                            <input class="form-check-input me-2" type="checkbox" id="color_@item.Id" name="colors" value="@item.Id">
+                                                                            @item.Name
+                                                                        </label>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Price Filter -->
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" disabled>
+                                                            Price
+                                                        </button>
+                                                    </h2>
+                                                    <div class="accordion-body">
+                                                        <div class="price-slider">
+                                                            <input type="range" min="0" max="250" value="0" class="mt-2 form-range" id="minPrice" name="minPrice">
+                                                            <input type="range" min="0" max="250" value="250" class="mt-2 form-range" id="maxPrice" name="maxPrice">
+                                                            <div class="price-values d-flex justify-content-between">
+                                                                <span id="minPriceValue">$0</span>
+                                                                <span id="maxPriceValue">$250</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
-                                        </div>
+                                            <button type="submit" class="btn btn-outline-dark w-100 mt-3">Filter</button>
+                                        </form>
 
-                                        <button class="btn btn-outline-dark w-100 mt-3">Filter</button>
+                                        <form id="searchForm" method="get" action="@Url.Action("Search", "Shop")">
+                                            <div class="input-group mt-4">
+                                                <input type="text" class="form-control" name="searchText" id="search-input" placeholder="Search products..." aria-label="Search products">
+                                                <span class="input-group-text" id="search-icon">
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </form>
 
-                                        <div class="input-group mt-4">
-                                            <input type="text" class="form-control" id="search-input" placeholder="Search products..." aria-label="Search products">
-                                            <span class="input-group-text" id="search-icon">
-                                                <i class="fa-solid fa-magnifying-glass"></i>
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -238,300 +241,4 @@
     </div>
 </main>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search-input');
-    const featuredProductsContainer = document.getElementById('featured-products');
-
-    searchInput.addEventListener('input', debounce(async function () {
-        const searchText = this.value.trim();
-
-        try {
-            const response = await fetch(`/Shop/Search?searchText=${encodeURIComponent(searchText)}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                const data = await response.text(); // Expect HTML content
-                featuredProductsContainer.innerHTML = data; // Update container with the partial view
-            } else {
-                console.error('Failed to fetch products');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }, 300));  // 300ms debounce delay
-
-    function debounce(func, delay) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
-});
-
-
-</script>
-
-
-
-<script>
-
-
-
-
-
-     document.addEventListener('DOMContentLoaded', function() {
-        var form = document.querySelector('#sortForm');
-        var dropdownText = document.querySelector('#dropdownText');
-        var dropdownMenu = document.querySelector('.dropdown-menu');
-
-        if (!form || !dropdownMenu || !dropdownText) {
-            console.error("Form or dropdown elements not found.");
-            return;
-        }
-
-        // Get the sort value from the URL parameters
-        var urlParams = new URLSearchParams(window.location.search);
-        var sortValue = urlParams.get('sort');
-
-        if (sortValue) {
-            // Find the corresponding dropdown item and update its state
-            var items = dropdownMenu.querySelectorAll('.dropdown-item');
-            items.forEach(function(item) {
-                if (item.getAttribute('data-value') === sortValue) {
-                    item.classList.add('active'); // Add 'active' class to the selected item
-                    dropdownText.textContent = item.textContent; // Update the button text
-                } else {
-                    item.classList.remove('active'); // Remove 'active' class from non-selected items
-                }
-            });
-        }
-
-        dropdownMenu.addEventListener('click', function(e) {
-            if (e.target && e.target.matches('.dropdown-item')) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                var sortValue = e.target.getAttribute('data-value');
-                if (!sortValue) {
-                    console.error("Sort value not found.");
-                    return;
-                }
-
-                // Update hidden input with the selected sort value
-                var hiddenInput = form.querySelector('input[name="sort"]');
-                if (hiddenInput) {
-                    hiddenInput.value = sortValue;
-                } else {
-                    hiddenInput = document.createElement('input');
-                    hiddenInput.type = 'hidden';
-                    hiddenInput.name = 'sort';
-                    hiddenInput.value = sortValue;
-                    form.appendChild(hiddenInput);
-                }
-
-                // Mark the selected item as active
-                var items = dropdownMenu.querySelectorAll('.dropdown-item');
-                items.forEach(function(item) {
-                    item.classList.remove('active'); // Remove 'active' class from all items
-                });
-                e.target.classList.add('active'); // Add 'active' class to the clicked item
-
-                // Update button text
-                dropdownText.textContent = e.target.textContent;
-
-                // Submit the form
-                form.submit();
-            }
-        });
-    });
-
-</script>
-
-<!-- Shop section End -->
-<script>
-
-
-        //Basket and Wishlist
-
-            document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.add-to-fav-button').forEach(button => {
-            button.addEventListener('click', async function () {
-                const productId = this.getAttribute('data-product-id');
-                const buttonElement = this;
-                const svgElement = buttonElement.querySelector('svg');
-
-                try {
-                    const response = await fetch('/Wishlist/Add', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: JSON.stringify({ ProductId: parseInt(productId) })
-                    });
-
-                    const result = await response.json();
-
-                    if (response.ok) {
-                        if (result.success) {
-                            Swal.fire({
-                                title: 'Success!',
-                                text: result.message,
-                                icon: 'success',
-                                timer: 1200,
-                                showConfirmButton: false
-                            });
-
-                            if (result.alreadyInWishlist) {
-                                buttonElement.classList.add('already-in-wishlist');
-                                svgElement.style.fill = 'white';
-                                Swal.fire({
-                                    title: 'Already in Wishlist!',
-                                    text: 'This product is already in your wishlist.',
-                                    icon: 'info',
-                                    timer: 1200,
-                                    showConfirmButton: false
-                                });
-                            } else {
-                                buttonElement.classList.add('already-in-wishlist');
-                                svgElement.style.fill = 'white';
-                            }
-                        } else {
-                            // Check for a redirect URL
-                            if (result.redirectUrl) {
-                                window.location.href = result.redirectUrl; // Redirect to login page
-                            } else {
-                                Swal.fire({
-                                    title: 'Error!',
-                                    text: result.message,
-                                    icon: 'error',
-                                    timer: 1200,
-                                    showConfirmButton: false
-                                });
-                            }
-                        }
-                    } else {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Failed to add product to wishlist. Please try again later.',
-                            icon: 'error',
-                            timer: 1200,
-                            showConfirmButton: false
-                        });
-                    }
-                } catch (error) {
-                    console.error('Network error:', error);
-                    Swal.fire({
-                        title: 'Network Error!',
-                        text: 'An error occurred. Please try again.',
-                        icon: 'error',
-                        timer: 1200,
-                        showConfirmButton: false
-                    });
-                }
-            });
-        });
-    });
-
-
-
-
-
-
-    document.querySelectorAll('.add-to-basket-button').forEach(button => {
-        button.addEventListener('click', async function () {
-            const productId = this.getAttribute('data-product-id');
-
-            try {
-                const response = await fetch('/Basket/Add', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    body: JSON.stringify(productId)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    if (result.redirectUrl) { 
-                        Swal.fire({
-                            title: 'Login Required',
-                            text: 'You need to be logged in to add items to your basket.',
-                            icon: 'warning',
-                            showConfirmButton: true,
-                            confirmButtonText: 'Login',
-                            onClose: () => {
-                                window.location.href = result.redirectUrl; 
-                            }
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: result.message,
-                            icon: 'success',
-                            timer: 1200,
-                            showConfirmButton: false
-                        });
-
-                        document.querySelector('.count-basket').textContent = result.uniqueProductCount;
-
-                        updateBasketUI();
-                    }
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Failed to add product to basket. ' + result.message,
-                        icon: 'error',
-                        timer: 1200,
-                        showConfirmButton: false
-                    });
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-                Swal.fire({
-                    title: 'Network Error!',
-                    text: 'An error occurred. Please try again.',
-                    icon: 'error',
-                    timer: 1200,
-                    showConfirmButton: false
-                });
-            }
-        });
-    });
-
-    function updateBasketUI() {
-        // Implement this function to refresh the basket display, count items, etc.
-    }
-
-
-                        const debounce = (func, delay) => {
-                            let timeout;
-                            return function (...args) {
-                                clearTimeout(timeout);
-                                timeout = setTimeout(() => func.apply(this, args), delay);
-                            };
-                        };
-
-                        const handleButtonClick = debounce(async function () {
-                        }, 300);
-
-                        document.addEventListener('DOMContentLoaded', () => {
-                            document.querySelectorAll('.add-to-fav-button').forEach(button => {
-                                button.addEventListener('click', handleButtonClick);
-                            });
-                        });
-
-
-
-
-
-
-</script> 
+<script src="~/assets/js/shop.js"></script>

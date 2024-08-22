@@ -25,6 +25,7 @@ namespace DunkerFinal.Controllers
         private readonly ITagService _tagService;
         private readonly IColorService _colorService;
         private readonly IProductTagService _tagProductService;
+        private readonly IProductColorService _colorProductService;
 
         public ShopController(IProductService productService,
                               ICategoryService categoryService,
@@ -34,6 +35,7 @@ namespace DunkerFinal.Controllers
                               IHttpContextAccessor httpContextAccessor,
                               ISliderService sliderService,
                               IBrandService brandService,
+                              IProductColorService colorProductService,
                               IColorService colorService,
                               ITagService tagService,
                               IProductTagService tagProductTagService
@@ -42,6 +44,7 @@ namespace DunkerFinal.Controllers
             _context = context;
             _productService = productService;
             _categoryService = categoryService;
+            _colorProductService = colorProductService;
             _userManager = userManager;
             _signInManager = signInManager;
             _sliderService = sliderService;
@@ -56,7 +59,6 @@ namespace DunkerFinal.Controllers
         {
             ShopVM model = new()
             {
-
                 Products = await _productService.GetAllAsync(),
                 Categories = await _categoryService.GetAllAsync(),
                 Brands = await _brandService.GetAllAsync(),
@@ -153,38 +155,79 @@ namespace DunkerFinal.Controllers
             return View("Index", model);
         }
 
-        public IActionResult Search(string searchText)
+        public async Task<IActionResult> Search(string searchText)
         {
-
-
-
-            List<Product> products = new();
-
-            if (searchText != null)
+            if (_productService == null)
             {
-                products = _context.Products
-    .Where(p => p.Name.Contains(searchText))
-    .Include(p => p.Brand)
-    .Include(p => p.Category)
-    .Include(p => p.ProductImages)
-    .ToList();
+                throw new InvalidOperationException("Product service is not initialized.");
+            }
+
+            IEnumerable<Product> products;
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                products = await _productService.GetAllAsync();
+                products = products.Where(p => p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                               p.Description.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                               p.Brand.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                                               p.Category.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
             }
             else
             {
-                products = _context.Products
-    .Include(p => p.Brand)
-    .Include(p => p.Category)
-    .Include(p => p.ProductImages)
-    .ToList();
+                products = await _productService.GetAllAsync();
             }
 
-            var model = new ShopVM
+            ShopVM model = new()
             {
                 Products = products,
-                WishlistProducts = _context.WishlistProducts.ToList()
+                Brands = await _brandService.GetAllAsync(),
+                Categories = await _categoryService.GetAllAsync(),
+                Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
+                ProductColors = await _context.ProductColors.ToListAsync(),
+                ProductTags = await _context.ProductTags.ToListAsync(),
             };
 
-            return PartialView("_ProductsFilterPartial", model);
+            return View("Index", model);
+        }
+
+        public async Task<IActionResult> Filter(IEnumerable<int> categories, IEnumerable<int> brands, IEnumerable<int> colors, int minPrice, int maxPrice)
+        {
+            var products = await _productService.GetAllAsync();
+
+            if (categories != null && categories.Any())
+            {
+                products = products.Where(p => categories.Contains(p.CategoryId)).ToList();
+            }
+
+            if (brands != null && brands.Any())
+            {
+                products = products.Where(p => brands.Contains(p.BrandId)).ToList();
+            }
+
+            if (colors != null && colors.Any())
+            {
+                products = products.Where(p => p.ProductColors != null && p.ProductColors.Any(pc => colors.Contains(pc.ColorId))).ToList();
+            }
+
+            products = products.Where(p => p.Price >= minPrice && p.Price <= maxPrice).ToList();
+
+
+            ShopVM model = new()
+            {
+                Products = products, // No need to call ToList() here
+                Brands = await _brandService.GetAllAsync(),
+                Categories = await _categoryService.GetAllAsync(),
+                Colors = await _colorService.GetAllAsync(),
+                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                Wishlists = await _context.Wishlists.ToListAsync(),
+                ProductColors = await _context.ProductColors.ToListAsync(), // Ensure this is properly populated
+                ProductTags = await _context.ProductTags.ToListAsync(),
+            };
+
+            // Return the filtered products to the view
+            return View("Index", model);
         }
 
 

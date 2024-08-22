@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8n/f6NvKD4+xByTNq0NPaRdqYdmoJNo/cH1hX8OA0Y8=",
+  "Hash": "OyC3KMwEInKi8C8iaCa/Vi5LPBJ3PITJ25qBQPUZz7E=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -3978,6 +3978,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\slider3.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\basket.js",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/js/basket.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\basket.js"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\main.js",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -4010,6 +4027,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\shop.js",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/js/shop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\shop.js"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\js\\tab.js",

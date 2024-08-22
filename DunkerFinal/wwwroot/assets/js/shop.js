@@ -1,4 +1,97 @@
 ﻿
+//price
+
+document.addEventListener('DOMContentLoaded', () => {
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const minPriceValue = document.getElementById('minPriceValue');
+    const maxPriceValue = document.getElementById('maxPriceValue');
+
+    function updatePriceValues() {
+        minPriceValue.textContent = `$${minPriceInput.value}`;
+        maxPriceValue.textContent = `$${maxPriceInput.value}`;
+    }
+
+    // Event listeners to update the price values when the sliders change
+    minPriceInput.addEventListener('input', updatePriceValues);
+    maxPriceInput.addEventListener('input', updatePriceValues);
+
+    // Initial call to set the displayed price values
+    updatePriceValues();
+});
+
+
+
+//sort
+
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('#sortForm');
+    var dropdownText = document.querySelector('#dropdownText');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if (!form || !dropdownMenu || !dropdownText) {
+        console.error("Form or dropdown elements not found.");
+        return;
+    }
+
+    // Get the sort value from the URL parameters
+    var urlParams = new URLSearchParams(window.location.search);
+    var sortValue = urlParams.get('sort');
+
+    if (sortValue) {
+        // Find the corresponding dropdown item and update its state
+        var items = dropdownMenu.querySelectorAll('.dropdown-item');
+        items.forEach(function (item) {
+            if (item.getAttribute('data-value') === sortValue) {
+                item.classList.add('active'); // Add 'active' class to the selected item
+                dropdownText.textContent = item.textContent; // Update the button text
+            } else {
+                item.classList.remove('active'); // Remove 'active' class from non-selected items
+            }
+        });
+    }
+
+    dropdownMenu.addEventListener('click', function (e) {
+        if (e.target && e.target.matches('.dropdown-item')) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var sortValue = e.target.getAttribute('data-value');
+            if (!sortValue) {
+                console.error("Sort value not found.");
+                return;
+            }
+
+            // Update hidden input with the selected sort value
+            var hiddenInput = form.querySelector('input[name="sort"]');
+            if (hiddenInput) {
+                hiddenInput.value = sortValue;
+            } else {
+                hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'sort';
+                hiddenInput.value = sortValue;
+                form.appendChild(hiddenInput);
+            }
+
+            // Mark the selected item as active
+            var items = dropdownMenu.querySelectorAll('.dropdown-item');
+            items.forEach(function (item) {
+                item.classList.remove('active'); // Remove 'active' class from all items
+            });
+            e.target.classList.add('active'); // Add 'active' class to the clicked item
+
+            // Update button text
+            dropdownText.textContent = e.target.textContent;
+
+            // Submit the form
+            form.submit();
+        }
+    });
+});
+
+
+//Basket and Wishlist
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.add-to-fav-button').forEach(button => {
@@ -82,7 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    
+
+
 
 document.querySelectorAll('.add-to-basket-button').forEach(button => {
     button.addEventListener('click', async function () {
@@ -102,7 +196,6 @@ document.querySelectorAll('.add-to-basket-button').forEach(button => {
 
             if (response.ok) {
                 if (result.redirectUrl) {
-                    // Handle redirection if provided
                     Swal.fire({
                         title: 'Login Required',
                         text: 'You need to be logged in to add items to your basket.',
@@ -110,7 +203,7 @@ document.querySelectorAll('.add-to-basket-button').forEach(button => {
                         showConfirmButton: true,
                         confirmButtonText: 'Login',
                         onClose: () => {
-                            window.location.href = result.redirectUrl; // Redirect to login
+                            window.location.href = result.redirectUrl;
                         }
                     });
                 } else {
@@ -152,6 +245,7 @@ function updateBasketUI() {
     // Implement this function to refresh the basket display, count items, etc.
 }
 
+
 const debounce = (func, delay) => {
     let timeout;
     return function (...args) {
@@ -161,40 +255,10 @@ const debounce = (func, delay) => {
 };
 
 const handleButtonClick = debounce(async function () {
-    // Your fetch and update code here
 }, 300);
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.add-to-fav-button').forEach(button => {
         button.addEventListener('click', handleButtonClick);
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all filter buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const showAllButton = document.querySelector('.show-all-btn');
-    const productCards = document.querySelectorAll('.featured-products-card');
-
-    function filterProducts(brandName) {
-        productCards.forEach(card => {
-            if (card.getAttribute('data-brand') === brandName || brandName === 'all') {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const brandName = this.getAttribute('data-brand');
-            filterProducts(brandName);
-        });
-    });
-
-    showAllButton.addEventListener('click', function () {
-        filterProducts('all');
     });
 });

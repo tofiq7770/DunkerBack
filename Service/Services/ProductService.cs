@@ -42,7 +42,7 @@ namespace Service.Services
 
         public async Task<List<Product>> GetAllAsync(int? categoryId = null)
         {
-            var products = await _repository.GetAll("ProductImages", "Category").ToListAsync();
+            var products = await _repository.GetAll("ProductImages", "Category", "ProductColors").ToListAsync();
 
             if (categoryId is not null)
                 products = products.Where(x => x.CategoryId == categoryId).ToList();
