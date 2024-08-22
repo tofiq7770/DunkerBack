@@ -124,6 +124,107 @@ namespace DunkerFinal.Controllers
 
 
 
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordVM request)
+        {
+            if (!ModelState.IsValid) return View(request);
+
+            AppUser existUser = await _userManager.FindByEmailAsync(request.Email);
+
+            if (existUser is null)
+            {
+                ModelState.AddModelError("Email", "User not found!");
+                return View(request);
+            }
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(existUser);
+
+            string link = Url.Action(nameof(ResetPassword), "Account", new { userId = existUser.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("tofigtn@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(existUser.Email));
+            email.Subject = "Reset Password";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text = $@"
+            <!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Reset Password</title>
+            </head>
+            <body style='font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0;'>
+                <div style='max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);'>
+                    <div style='background-color: #000000; color: white; text-align: center; padding: 20px 0; border-top-left-radius: 8px; border-top-right-radius: 8px;'>
+                        <h2 style='margin-bottom: 10px;'>Reset Your Password</h2>
+                        <p style='font-size: 16px;'>Click the button below to reset your password:</p>
+                    </div>
+                    <div style='padding: 20px; text-align: center;'>
+                        <p style='font-size: 18px;'>Dear {existUser.FullName},</p>
+                        <p style='font-size: 16px;'>To reset your password, please click the button below:</p>
+                        <p>
+                            <a href='{link}' style='display: inline-block; padding: 12px 24px; background-color: #000000; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;'>Reset Password</a>
+                        </p>
+                        <p style='font-size: 16px;'>If you did not request a password reset, please ignore this email.</p>
+                    </div>
+                    <div style='margin-top: 20px; color: #666666; text-align: center;'>
+                        <p style='font-size: 14px;'>Best regards,<br/>The Dunker Team</p>
+                        <p style='font-size: 12px;'>© {DateTime.Now.Year} Dunker. All rights reserved.</p>
+                        <p style='font-size: 12px; margin-top: 10px;'>If you have any questions, please contact <a href='mailto:support@dunker.com' style='color: #000000; text-decoration: none;'>support@dunker.com</a>.</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+        "
+            };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("tofigtn@code.edu.az", "ooru axli vzlb fhrn");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            return RedirectToAction(nameof(CheckEmail));
+        }
+
+        public IActionResult CheckEmail()
+        {
+            return View();
+        }
+        public IActionResult ResetPassword(string userId, string token)
+        {
+            return View(new ResetPasswordVM { Token = token, UserId = userId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPassword)
+        {
+            if (!ModelState.IsValid) return View(resetPassword);
+
+            AppUser existUser = await _userManager.FindByIdAsync(resetPassword.UserId);
+
+            if (existUser == null) return NotFound();
+
+            if (await _userManager.CheckPasswordAsync(existUser, resetPassword.Password))
+            {
+                ModelState.AddModelError("", "This password already exists!");
+                return View(resetPassword);
+            }
+
+            await _userManager.ResetPasswordAsync(existUser, resetPassword.Token, resetPassword.Password);
+
+            return RedirectToAction("Login", "Account");
+        }
+
+
 
 
         [HttpGet]

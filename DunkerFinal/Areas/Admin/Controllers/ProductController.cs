@@ -57,7 +57,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 2)
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 3)
         {
             var products = _service.GetAllAsync();
 
@@ -318,7 +318,8 @@ namespace DunkerFinal.Areas.Admin.Controllers
                 Brand = product.Brand,
                 ProductColors = product.ProductColors,
                 ProductTags = product.ProductTags.ToList(),
-                Weight = product.Weight
+                Weight = product.Weight,
+                Quantity = product.Quantity
 
             };
             return View(model);

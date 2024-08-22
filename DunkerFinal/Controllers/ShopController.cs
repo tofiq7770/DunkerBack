@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
 using Service.Services.Interfaces;
 using Service.ViewModels.Category;
-using Service.ViewModels.Product;
 
 namespace DunkerFinal.Controllers
 {
@@ -77,8 +76,9 @@ namespace DunkerFinal.Controllers
 
         public async Task<IActionResult> ProductDetail(int? Id)
         {
+            //Products = 
             List<Product> products = await _productService.GetAllAsync();
-            ProductDetailVM product = await _productService.GetByIdAsync((int)Id);
+            Product product = await _context.Products.Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.Brand).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == Id);
             IEnumerable<CategoryListVM> categories = await _categoryService.GetAllAsync();
 
             AppUser existUser = new();
@@ -167,10 +167,7 @@ namespace DunkerFinal.Controllers
             if (!string.IsNullOrWhiteSpace(searchText))
             {
                 products = await _productService.GetAllAsync();
-                products = products.Where(p => p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                                               p.Description.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                                               p.Brand.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                                               p.Category.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+                products = products.Where(p => p.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase));
             }
             else
             {
@@ -216,17 +213,16 @@ namespace DunkerFinal.Controllers
 
             ShopVM model = new()
             {
-                Products = products, // No need to call ToList() here
+                Products = products,
                 Brands = await _brandService.GetAllAsync(),
                 Categories = await _categoryService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
                 WishlistProducts = await _context.WishlistProducts.ToListAsync(),
                 Wishlists = await _context.Wishlists.ToListAsync(),
-                ProductColors = await _context.ProductColors.ToListAsync(), // Ensure this is properly populated
+                ProductColors = await _context.ProductColors.ToListAsync(),
                 ProductTags = await _context.ProductTags.ToListAsync(),
             };
 
-            // Return the filtered products to the view
             return View("Index", model);
         }
 

@@ -308,6 +308,8 @@
                 </div>
                 <div class="rightside-nav">
                     <div class="action-icons">
+
+
                         <span style="cursor: pointer"
                               class="search"
                               onclick="openSearch()">
@@ -320,11 +322,16 @@
                             </span>
                             <div class="overlay-content">
                                 <h1>What are you looking for?</h1>
-                                <input id="searchInput" type="text" placeholder="Search..." onkeydown="checkEnter(event)" />
-                                <button type="button" onclick="performSearch()">Search</button>
+
+                                <!-- Form for search functionality -->
+                                <form action="@Url.Action("Search", "Shop")" method="get">
+                                    <input id="searchInput" type="text" name="searchText" placeholder="Search..." required />
+                                    <button style="padding: 15px;font-size: 17px;border: none;background: #000000;color: rgb(255, 255, 255);cursor: pointer;" type="submit">Search</button>
+                                </form>
                             </div>
                         </div>
-                         
+
+
 
 
 
@@ -361,8 +368,6 @@
                                 </div>
                             </div>
                         }
-
-
 
                         <a asp-action="Index" asp-controller="Wishlist">
                             <span class="wish"><i class="fa-regular fa-heart"></i></span>
@@ -1019,7 +1024,32 @@
     </footer>
     <!-- Footer End -->
 
-    
+    <script>
+
+        // search
+        function openSearch() {
+            document.getElementById("searchOverlay").style.display = "block";
+            document.body.classList.add("no-scroll"); // Prevent scrolling
+        }
+
+        function closeSearch() {
+            document.getElementById("searchOverlay").style.display = "none";
+            document.body.classList.remove("no-scroll"); // Allow scrolling again
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            var searchQuery = document.getElementById("searchInput").value;
+            alert("Search performed for: " + searchQuery);
+            closeSearch(); // Optionally close the search after performing it
+        }
+
+    </script>
 
     <!-- SwiperJS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

@@ -43,9 +43,9 @@
 </style>
 <!-- Breadcrumb Navigation Start -->
 <nav id="breadcrumb">
-    <span><a href="./index.html">HOME</a></span>
+    <span><a asp-action="index" asp-controller="Home">HOME</a></span>
     <span class="line">|</span>
-    <span><a href="#" class="text-dark">@Model.Product.Name</a></span>
+    <span><a asp-action="index" asp-controller="Home" class="text-dark">@Model.Product.Name</a></span>
 </nav>
 <!-- Breadcrumb Navigation End -->
 <!-- Main Start -->
@@ -111,15 +111,19 @@
                             </div>
                             <div class="category">
                                 <span>CATEGORY:</span>
-                                <a href="#">@Model.Product.Category </a>
+                                <a href="#">@Model.Product.Category.Name </a>
+                            </div>
+                            <div class="category">
+                                <span>BRAND:</span>
+                                <a href="#">@Model.Product.Brand.Name  </a>
                             </div>
                             <div class="tag">
                                 <span>TAG:</span>
-                                <a href="#">@Model.Product</a>
+                                <a href="#"> @string.Join(", ", Model.Product.ProductTags.Select(m => m.Tag.Name))</a>
                             </div>
                             <div class="tag">
                                 <span>Color:</span>
-                                <a href="#"> @Model.Product</a>
+                                <a href="#"> @string.Join(", ", Model.Product.ProductColors.Select(m => m.Color.Name))</a>
                             </div>
                         </div>
                     </div>

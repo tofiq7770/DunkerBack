@@ -2,7 +2,6 @@
 using Service.ViewModels.Brand;
 using Service.ViewModels.Category;
 using Service.ViewModels.Color;
-using Service.ViewModels.Product;
 using Service.ViewModels.Tag;
 
 namespace DunkerFinal.ViewModels.Shop
@@ -11,7 +10,7 @@ namespace DunkerFinal.ViewModels.Shop
     {
         public AppUser AppUser { get; set; }
         public IEnumerable<Product> Products { get; set; }
-        public ProductDetailVM Product { get; set; }
+        public Product Product { get; set; }
         public IEnumerable<CategoryListVM> Categories { get; set; }
 
         public IEnumerable<BrandListVM> Brands { get; set; }

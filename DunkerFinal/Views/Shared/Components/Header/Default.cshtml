@@ -106,27 +106,26 @@
             </div>
             <div class="rightside-nav">
                 <div class="action-icons">
-                    <span style="cursor: pointer"
-                          class="search"
-                          onclick="openSearch()">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </span>
-
-                    <div id="searchOverlay" class="overlay">
-                        <span class="closebtn" onclick="closeSearch()">
-                            <i class="fa-solid fa-xmark"></i>
+                   <span style="cursor: pointer"
+                              class="search"
+                              onclick="openSearch()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <div class="overlay-content">
-                            <h1>What are you looking for?</h1>
-                            <input id="searchInput"
-                                   type="text"
-                                   placeholder="Search..."
-                                   onkeydown="checkEnter(event)" />
-                            <button type="button" onclick="performSearch()">
-                                Search
-                            </button>
+
+                        <div id="searchOverlay" class="overlay">
+                            <span class="closebtn" onclick="closeSearch()">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                            <div class="overlay-content">
+                                <h1>What are you looking for?</h1>
+
+                                <!-- Form for search functionality -->
+                                <form action="@Url.Action("Search", "Shop")" method="get">
+                                    <input id="searchInput" type="text" name="searchText" placeholder="Search..." required />
+                                    <button style="padding: 15px;font-size: 17px;border: none;background: #000000;color: rgb(255, 255, 255);cursor: pointer;" type="submit">Search</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <div class="account-container">
