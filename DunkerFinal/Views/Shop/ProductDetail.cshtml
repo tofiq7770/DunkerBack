@@ -137,7 +137,13 @@
                                 <a href="#" class="tab-link" data-tab="description" style="text-decoration: none; font-size: 16px; color: #333; padding-bottom: 10px; display: inline-block; border-bottom: 3px solid transparent;">DESCRIPTION</a>
                             </li>
                             <li class="tab-item">
-                                <a href="#" class="tab-link" data-tab="additional-info" style="text-decoration: none; font-size: 16px; color: #333; padding-bottom: 10px; display: inline-block; border-bottom: 3px solid transparent;">REVIEWS (@Model.Product.Reviews.Count)</a>
+                                @{
+                                    var reviewCount = Model.Product.Reviews?.Count ?? 0;
+                                }
+
+                                <a href="#" class="tab-link tab-links" data-tab="additional-info" style="text-decoration: none; font-size: 16px; color: #333; padding-bottom: 10px; display: inline-block; border-bottom: 3px solid transparent;">
+                                    REVIEWS <span id="reviewCount">@reviewCount</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -150,34 +156,33 @@
                         <div class="tab d-none" data-tab="additional-info">
                             <div class="product-stats">
                                 <div class="container mt-5">
-                                    @if (Model.Product.Reviews != null && Model.Product.Reviews.Any())
-                                    {
-                                        @foreach (var item in Model.Product.Reviews)
+                                    <div id="reviewContainer">
+                                        @if (Model.Product.Reviews != null && Model.Product.Reviews.Any())
                                         {
-                                            <div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">
-                                                <div class="d-flex align-items-start">
-                                                    <img src="~/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">
-                                                    <div>
-                                                        <p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">@item.CreatedTime.ToString("MMMM dd, yyyy")</p>
-                                                        <h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">@item.AppUser.FullName</h5>
-                                                        <p style="font-size: 16px; color: #555; margin-bottom: 10px;">
-                                                            @item.Message
-                                                        </p>
-                                                        <div class="stars" style="font-size: 18px;">
-                                                           @* @for (int i = 0; i < 5; i++)
-                                                            {
-                                                                <span class="text-warning" style="color: @((i < item.Rating) ? "#ffc107" : "#e2e2e2");">&#9733;</span>
-                                                            }*@
+                                            @foreach (var item in Model.Product.Reviews)
+                                            {
+                                                <div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">
+                                                    <div class="d-flex align-items-start">
+                                                        <img src="~/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">
+                                                        <div>
+                                                            <p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">@item.CreatedTime.ToString("MMMM dd, yyyy")</p>
+                                                            <h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">@item.AppUser.FullName</h5>
+                                                            <p style="font-size: 16px; color: #555; margin-bottom: 10px;">
+                                                                @item.Message
+                                                            </p>
+                                                            <div class="stars" style="font-size: 18px;">
+                                                             @*      @for (int i = 1; i <= 5; i++)
+                                                                    {
+                                                                    <span class="text-warning" style="color: @(i <= item.Product.Rating ? "#ffc107" : "#e2e2e2");">&#9733;</span>
+                                                                    } *@
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
                                         }
-                                    }
-                                    else
-                                    {
-                                        <p>No reviews yet.</p>
-                                    }
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,103 +191,106 @@
             </div>
 
             <!-- Form for adding a review -->
-            <div class="container mt-5">
-                <h2 class="mb-4">Leave a Reply</h2>
-                <form id="reviewForm" method="post" action="@Url.Action("AddComment", "Shop")">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" id="productId" name="productId" value="@Model.Product.Id">
+            <form id="reviewForm" method="post" action="@Url.Action("AddComment", "Shop")">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="productId" name="productId" value="@Model.Product.Id">
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="name">Your Name *</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="email">Your Email *</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Your Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" value="@Model.UserName" placeholder="Your Name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="review">Your Review *</label>
-                        <textarea class="form-control" id="review" name="message" rows="4" placeholder="Your Review" required></textarea>
+                    <div class="form-group col-md-6">
+                        <label for="email">Your Email *</label>
+                        <input type="email" class="form-control" id="email" name="email" value="@Model.UserEmail" placeholder="Your Email" required>
                     </div>
-                    <div class="form-group">
-                        <label for="rating">Please rate:</label>
-                        <div id="rating">
-                            @for (int i = 1; i <= 5; i++)
-                            {
-                                <input type="radio" id="rating@i" name="rating" value="@i" />
-                                <label for="rating@i" class="text-secondary" style="font-size: 18px;">&#9733;</label>
-                            }
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="review">Your Review *</label>
+                    <textarea class="form-control" id="review" name="message" rows="4" placeholder="Your Review" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Please rate:</label>
+                    <div id="rating">
+                      @*  @for (int i = 1; i <= 5; i++)
+                        {
+                            <input type="radio" id="rating@i" name="rating" value="@i" required />
+                            <label for="rating@i" class="text-secondary" style="font-size: 18px;">&#9733;</label>
+                        }*@
                     </div>
-                    <button type="submit" class="btn btn-outline-success">Post Comment</button>
-                </form>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Post Comment</button>
+            </form>
+             
 
-                <!-- Placeholder for displaying the new review -->
-                <div id="reviewContainer" class="mt-4"></div>
-            </div>
+
+
+
         </div>
     </section>
     <!-- Detail Product Section End -->
     <!-- Related Products Section Start -->
-    <section id="related-products">
+    @*  <section id="related-products">
         <div class="title">
-            <h2>RELATED PRODUCTS</h2>
+        <h2>RELATED PRODUCTS</h2>
         </div>
         <div class="featured-products-container">
-            <div class="row justify-content-center">
-            </div>
+        <div class="row justify-content-center">
         </div>
-    </section>
+        </div>
+        </section>*@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('#reviewForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent the form from submitting the traditional way
 
-        // Collect form data
-        var formData = {
-            productId: $('#productId').val(),
-            message: $('#review').val(),
-            rating: $('input[name="rating"]:checked').val(),
-            name: $('#name').val(),
-            email: $('#email').val()
-        };
+             $('#reviewForm').on('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        let formData = $(this).serialize(); // Serialize form data
 
         $.ajax({
-            url: '@Url.Action("AddComment", "Shop")', // Adjust the action name and controller as needed
+            url: $(this).attr('action'),
             type: 'POST',
             data: formData,
             success: function(response) {
-                // On success, update the review list
-                $('#reviewContainer').prepend(
-                    '<div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">' +
-                    '<div class="d-flex align-items-start">' +
-                    '<img src="~/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">' +
-                    '<div>' +
-                    '<p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">' + new Date().toLocaleDateString() + '</p>' +
-                    '<h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">' + formData.name + '</h5>' +
-                    '<p style="font-size: 16px; color: #555; margin-bottom: 10px;">' + formData.message + '</p>' +
-                    '<div class="stars" style="font-size: 18px;">' +
-                    '<span class="text-warning" style="color: #ffc107;">&#9733;</span>'.repeat(formData.rating) +
-                    '<span class="text-secondary">&#9733;</span>'.repeat(5 - formData.rating) +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-                );
-                // Clear the form
-                $('#reviewForm')[0].reset();
+                if (response.success) {
+                    let reviewHtml = `
+                        <div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">
+                            <div class="d-flex align-items-start">
+                                <img src="/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">
+                                <div>
+                                    <p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">${new Date().toLocaleDateString()}</p>
+                                    <h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">${$('#name').val()}</h5>
+                                    <p style="font-size: 16px; color: #555; margin-bottom: 10px;">${$('#review').val()}</p>
+                                    <div class="stars" style="font-size: 18px;">
+                                        ${'<span class="text-warning" style="color: #ffc107;">&#9733;</span>'.repeat($('input[name="rating"]:checked').val())}
+                                        ${'<span class="text-secondary">&#9733;</span>'.repeat(5 - $('input[name="rating"]:checked').val())}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $('#reviewContainer').prepend(reviewHtml);
+                    $('#reviewForm')[0].reset();
+                    updateReviewCount();
+                } else {
+                    alert(response.message);
+                }
             },
             error: function(xhr, status, error) {
                 alert('An error occurred: ' + error);
             }
         });
     });
-});
+
+    function updateReviewCount() {
+        let reviewCount = $('#reviewContainer .review').length;
+        $('#reviewCount').text(reviewCount);
+    }
+
+
+
 </script>
 
 

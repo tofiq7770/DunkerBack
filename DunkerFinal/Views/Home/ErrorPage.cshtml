@@ -1,4 +1,5 @@
-﻿@{
+﻿@model string
+@{
     ViewData["Title"] = "Error";
     Layout = null;
 }
@@ -49,7 +50,7 @@
 <body>
     <div class="container">
         <h1>404</h1>
-        <p>@ViewBag.ErrorMessage</p>
+        <p>@Model</p>
         <p><a asp-action="Index" asp-controller="Home">Return to Homepage</a></p>
     </div>
 </body>

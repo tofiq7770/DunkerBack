@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
 using Service.Services.Interfaces;
-using Service.ViewModels.Category;
+using System.Security.Claims;
 
 namespace DunkerFinal.Controllers
 {
@@ -56,6 +56,8 @@ namespace DunkerFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+
             var userId = _userManager.GetUserId(User);
 
             ShopVM model = new()
@@ -80,41 +82,54 @@ namespace DunkerFinal.Controllers
         }
 
 
-        public async Task<IActionResult> ProductDetail(int? Id)
+        public async Task<IActionResult> ProductDetail(int? id)
         {
-            var userId = _userManager.GetUserId(User);
-            List<Product> products = await _productService.GetAllAsync();
-            Product? product = await _context.Products.Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.Brand).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == Id);
-            IEnumerable<CategoryListVM> categories = await _categoryService.GetAllAsync();
-
-            AppUser existUser = new();
-
-            if (User.Identity.IsAuthenticated)
-                existUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            ViewBag.AppUserId = existUser.Id;
-
-            ShopVM datas = new()
+            if (id == null)
             {
-                Products = products,
+
+                return BadRequest("Product ID is required.");
+            }
+
+            var userId = User.Identity.IsAuthenticated ? _userManager.GetUserId(User) : null;
+            var product = await _context.Products
+                .Include(p => p.ProductImages)
+                .Include(p => p.ProductTags).ThenInclude(pt => pt.Tag)
+                .Include(p => p.ProductColors).ThenInclude(pc => pc.Color)
+                .Include(p => p.Brand)
+                .Include(p => p.Category)
+                .Include(p => p.Reviews).ThenInclude(r => r.AppUser)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product == null)
+            {
+
+                throw new Exception("Product not found.");
+                return NotFound("Product not found.");
+            }
+
+            var viewModel = new ShopVM
+            {
                 Product = product,
-                Categories = categories,
-                Reviews = await _context.Reviews.Include(m => m.AppUser).ToListAsync(),
+                Reviews = await _context.Reviews.Include(r => r.AppUser).ToListAsync(),
+                UserName = User.Identity.IsAuthenticated ? User.Identity.Name : string.Empty,
+                UserEmail = User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Email)?.Value : string.Empty,
+                Categories = await _categoryService.GetAllAsync(),
                 Brands = await _brandService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
-                WishlistProducts = await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId)
-                                        .ToListAsync(),
-
-                Baskets = await _context.BasketProducts
-                                        .Where(bp => bp.Basket.AppUserId == userId)
-                                        .ToListAsync(),
+                WishlistProducts = User.Identity.IsAuthenticated
+                    ? await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId).ToListAsync()
+                    : new List<WishlistProduct>(),
+                Baskets = User.Identity.IsAuthenticated
+                    ? await _context.BasketProducts.Where(bp => bp.Basket.AppUserId == userId).ToListAsync()
+                    : new List<BasketProduct>(),
                 Wishlists = await _context.Wishlists.ToListAsync(),
                 ProductColors = await _context.ProductColors.ToListAsync(),
-                ProductTags = await _context.ProductTags.ToListAsync(),
+                ProductTags = await _context.ProductTags.ToListAsync()
             };
 
-            return View(datas);
+            return View(viewModel);
         }
+
 
         public async Task<IActionResult> Sorting(string sort)
         {
@@ -239,30 +254,54 @@ namespace DunkerFinal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddComment(int productId, string message, int rating, string name, string email)
+        public async Task<IActionResult> AddComment(int productId, string message, int rating)
         {
-            // Check if the product exists
+            // Check if the user is authenticated
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Json(new { success = false, message = "You need to be logged in to add a comment." });
+            }
+
+            // Retrieve the currently authenticated user's ID
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            // Ensure userId is available
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, message = "User ID could not be found." });
+            }
+
+            // Fetch the user from the database
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return Json(new { success = false, message = "User not found." });
+            }
+
+            // Find the product
             var product = await _context.Products.FindAsync(productId);
             if (product == null)
             {
-                return NotFound("Product not found.");
+                return Json(new { success = false, message = "Product not found." });
             }
 
-            // Create and add the new review
+            // Create the review
             var review = new Review
             {
                 ProductId = productId,
                 Message = message,
                 CreatedTime = DateTime.Now,
-                AppUser = new AppUser { FullName = name, Email = email } // Adjust according to your user model
+                AppUser = user
             };
 
+            // Add the review to the database
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
 
-            // Return a JSON result for AJAX success
+            // Return a success response
             return Json(new { success = true });
         }
+
 
 
     }

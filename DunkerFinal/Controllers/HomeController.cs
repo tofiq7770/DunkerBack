@@ -80,16 +80,22 @@ namespace DunkerFinal.Controllers
         }
 
 
-        [Route("/StatusCodeError/{statusCode}")]
-        public IActionResult Error(int statusCode)
+        //[Route("/StatusCodeError/{statusCode}")]
+        //public IActionResult Error(int statusCode)
+        //{
+        //    if (statusCode == 404)
+        //    {
+        //        ViewBag.ErrorMessage = "Page could not be found !";
+        //    }
+
+        //    return View("Error");
+
+        //}
+
+
+        public IActionResult ErrorPage(string error = "Internal Server Error")
         {
-            if (statusCode == 404)
-            {
-                ViewBag.ErrorMessage = "Page could not be found !";
-            }
-
-            return View("Error");
-
+            return View(model: error);
         }
 
 
