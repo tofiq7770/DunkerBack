@@ -15,6 +15,7 @@ namespace Domain.Entities
         public string SKU { get; set; }
         public int Quantity { get; set; }
         public int? Rating { get; set; } = 0;
+        public ICollection<Review>? Reviews { get; set; }
         public List<ProductColor>? ProductColors { get; set; }
         public ICollection<BasketProduct> BasketProducts { get; set; }
         public ICollection<WishlistProduct> WishlistProducts { get; set; }

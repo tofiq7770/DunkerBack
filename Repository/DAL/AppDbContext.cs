@@ -30,6 +30,7 @@ namespace Repository.DAL
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Explore> Explores { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<InfoBanner> InfoBanners { get; set; }
 
