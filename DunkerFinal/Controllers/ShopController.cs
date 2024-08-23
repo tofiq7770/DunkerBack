@@ -56,18 +56,24 @@ namespace DunkerFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var userId = _userManager.GetUserId(User);
+
             ShopVM model = new()
             {
                 Products = await _productService.GetAllAsync(),
                 Categories = await _categoryService.GetAllAsync(),
                 Brands = await _brandService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
-                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
                 Wishlists = await _context.Wishlists.ToListAsync(),
                 ProductColors = await _context.ProductColors.ToListAsync(),
                 ProductTags = await _context.ProductTags.ToListAsync(),
                 Tags = await _tagService.GetAllAsync(),
-                Baskets = await _context.BasketProducts.ToListAsync(),
+
+                WishlistProducts = await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId)
+                                        .ToListAsync(),
+                Baskets = await _context.BasketProducts
+                                        .Where(bp => bp.Basket.AppUserId == userId)
+                                        .ToListAsync()
             };
 
             return View(model);
@@ -76,7 +82,7 @@ namespace DunkerFinal.Controllers
 
         public async Task<IActionResult> ProductDetail(int? Id)
         {
-            //Products = 
+            var userId = _userManager.GetUserId(User);
             List<Product> products = await _productService.GetAllAsync();
             Product product = await _context.Products.Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.Brand).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == Id);
             IEnumerable<CategoryListVM> categories = await _categoryService.GetAllAsync();
@@ -95,7 +101,12 @@ namespace DunkerFinal.Controllers
                 Categories = categories,
                 Brands = await _brandService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
-                WishlistProducts = await _context.WishlistProducts.ToListAsync(),
+                WishlistProducts = await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId)
+                                        .ToListAsync(),
+
+                Baskets = await _context.BasketProducts
+                                        .Where(bp => bp.Basket.AppUserId == userId)
+                                        .ToListAsync(),
                 Wishlists = await _context.Wishlists.ToListAsync(),
                 ProductColors = await _context.ProductColors.ToListAsync(),
                 ProductTags = await _context.ProductTags.ToListAsync(),

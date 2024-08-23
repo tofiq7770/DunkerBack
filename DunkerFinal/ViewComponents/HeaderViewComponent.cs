@@ -25,6 +25,8 @@ namespace DunkerFinal.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+
+            var userId = _userManager.GetUserId((System.Security.Claims.ClaimsPrincipal)User);
             AppUser existUser = new();
 
             if (User.Identity.IsAuthenticated)
@@ -38,7 +40,9 @@ namespace DunkerFinal.ViewComponents
                 Settings = await _settingService.GetAll(),
                 BasketCount = quantity,
                 Products = await _productService.GetAllAsync(),
-                Baskets = await _context.BasketProducts.ToListAsync(),
+                Baskets = await _context.BasketProducts
+                                        .Where(bp => bp.Basket.AppUserId == userId)
+                                        .ToListAsync()
             };
 
             return await Task.FromResult(View(model));

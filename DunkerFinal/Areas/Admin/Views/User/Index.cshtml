@@ -1,0 +1,60 @@
+﻿@model List<UserVM>
+
+<div class="container">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("SuperAdmin"))
+        {
+            <div class="create-category">
+                <a asp-action="AddRole" class="btn btn-success text-white mb-3 mx-3">Add role</a>
+            </div>
+        }
+    }
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>Fullname</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Roles</td>
+                        <td>
+                            <form asp-action="RemoveRole" method="post">
+                                <input type="hidden" name="UserId" value="@item.UserId" />
+                                <select name="RoleName">
+                                    @if (ViewBag.AvailableRoles != null)
+                                    {
+                                        var roles = ViewBag.AvailableRoles as SelectList;
+                                        if (roles != null)
+                                        {
+                                            foreach (var role in roles)
+                                            {
+                                                <option value="@role.Value">@role.Text</option>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <option>No roles available</option>
+                                    }
+                                </select>
+                                <button type="submit" class="btn btn-danger">Remove Role</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
