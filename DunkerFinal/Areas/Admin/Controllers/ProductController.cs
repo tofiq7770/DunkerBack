@@ -167,7 +167,6 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
 
-
             if (request.Images != null)
             {
                 foreach (var item in request.Images)
@@ -194,6 +193,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
                     await _imageService.CreateAsync(new ProductImageCreateVM() { Image = fileName, ProductId = id, IsMain = false });
                 }
             }
+
             await _service.UpdateAsync(request);
 
             if (request.ColorIds != null)

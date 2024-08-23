@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g9ooEL3SlXS3KmY+kgHuUitx5SbHv++VBkO/JSLa1Hw=",
+  "Hash": "MLF4b0g1RBRp6L4e9bK3MzX5pLw3QMV1dalKJz/Exa0=",
   "Source": "DunkerFinal",
   "BasePath": "_content/DunkerFinal",
   "Mode": "Default",
@@ -2822,6 +2822,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\77d69aa0-bdaf-4398-b1c5-02e92012f43c-inner-team-2.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\7967a9f2-b761-40fd-85c3-1c73e50f0870-151576b3-81f1-4ad9-903b-d7613584f3a8-Dunker-logo-dark.png",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/7967a9f2-b761-40fd-85c3-1c73e50f0870-151576b3-81f1-4ad9-903b-d7613584f3a8-Dunker-logo-dark.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\7967a9f2-b761-40fd-85c3-1c73e50f0870-151576b3-81f1-4ad9-903b-d7613584f3a8-Dunker-logo-dark.png"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\79984426-1265-4c20-9131-78a78c04e759-product6.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -3026,6 +3043,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\94736fb9-c7e0-4da6-9e83-2062761f1634-Blog-Img-2.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\984b5950-9e8e-4a6a-8eaf-7b1a6174bc9d-020d5c8e-cf56-45e2-b6cb-3bc4cdf52c03-inner-team-6.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/984b5950-9e8e-4a6a-8eaf-7b1a6174bc9d-020d5c8e-cf56-45e2-b6cb-3bc4cdf52c03-inner-team-6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\984b5950-9e8e-4a6a-8eaf-7b1a6174bc9d-020d5c8e-cf56-45e2-b6cb-3bc4cdf52c03-inner-team-6.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\9a80235b-ed85-4de2-8835-8467f8950717-banner2.jpg",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -3092,6 +3126,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\a213abcb-21da-433a-a1dd-76d9056e48f3-5a2a7ae5-b1a6-47ec-9f85-6210026f0886-h1-ibanner-3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\a38eea48-4ea0-44e4-81d9-930115028f1a-94736fb9-c7e0-4da6-9e83-2062761f1634-Blog-Img-2.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/a38eea48-4ea0-44e4-81d9-930115028f1a-94736fb9-c7e0-4da6-9e83-2062761f1634-Blog-Img-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\a38eea48-4ea0-44e4-81d9-930115028f1a-94736fb9-c7e0-4da6-9e83-2062761f1634-Blog-Img-2.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\a3d52f2f-b4df-41f4-8977-cbfac1cf6285-h1-banner-1.jpg",
@@ -3177,6 +3228,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\ace93eb8-9cb8-4018-8d91-5a082f3206f5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\b6488a3a-6724-41f6-adc2-a52252b6691d-48292e89-ae52-4da2-8c86-0a49c2dbbde3-Blog-Img-1.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/b6488a3a-6724-41f6-adc2-a52252b6691d-48292e89-ae52-4da2-8c86-0a49c2dbbde3-Blog-Img-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\b6488a3a-6724-41f6-adc2-a52252b6691d-48292e89-ae52-4da2-8c86-0a49c2dbbde3-Blog-Img-1.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\b6dd0212-a068-4e2b-b7b1-0bbd26934585.jpg",
@@ -3451,6 +3519,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\df19d15c-2aa0-4817-9652-8d70d848fd00-inner-team-1.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\dfb9491e-b0ff-4980-baf6-972bd8a7791f-9c4c85de-d741-4973-82a5-684d119009c6-0a180ab6-b6d5-4ae5-8a11-e736e1049ba4-h1-banner-1.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/dfb9491e-b0ff-4980-baf6-972bd8a7791f-9c4c85de-d741-4973-82a5-684d119009c6-0a180ab6-b6d5-4ae5-8a11-e736e1049ba4-h1-banner-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\dfb9491e-b0ff-4980-baf6-972bd8a7791f-9c4c85de-d741-4973-82a5-684d119009c6-0a180ab6-b6d5-4ae5-8a11-e736e1049ba4-h1-banner-1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\Dunker-logo-dark (1).png",
       "SourceId": "DunkerFinal",
       "SourceType": "Discovered",
@@ -3483,6 +3568,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\Dunker-logo-dark.png"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\e53c8e3f-c6f3-4a8a-9f86-ca62351ab7aa-28e2b533-d89b-4518-bdcd-63086e96d93e-product3.jpg",
+      "SourceId": "DunkerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\",
+      "BasePath": "_content/DunkerFinal",
+      "RelativePath": "assets/img/e53c8e3f-c6f3-4a8a-9f86-ca62351ab7aa-28e2b533-d89b-4518-bdcd-63086e96d93e-product3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\e53c8e3f-c6f3-4a8a-9f86-ca62351ab7aa-28e2b533-d89b-4518-bdcd-63086e96d93e-product3.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\wwwroot\\assets\\img\\e9afc847-006a-46dc-94d4-5eb7cb1b20c5-Blog-Img-4.jpg",
