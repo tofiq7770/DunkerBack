@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.Slider;
 
@@ -17,24 +18,26 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _webHostEnvironment = webHostEnvironment;
             _imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img");
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
             var sliders = await _service.GetAllAsync();
 
             return View(sliders);
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int id)
         {
 
             return View(await _service.GetByIdAsync(id));
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Create(SliderCreateVM vm)
         {
 
@@ -52,7 +55,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
 
@@ -63,7 +66,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             var result = await _service.GetUpdatedSliderAsync(id);
@@ -75,6 +78,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(SliderUpdateVM vm)
         {
             var result = await _service.UpdateAsync(vm, ModelState, _imagePath);

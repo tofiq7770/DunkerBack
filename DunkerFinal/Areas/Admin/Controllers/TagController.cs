@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.Tag;
 
@@ -15,23 +16,26 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
 
             return View(await _TagService.GetAllAsync());
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int id)
         {
 
             return View(await _TagService.GetByIdAsync(id));
         }
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TagCreateVM request)
         {
@@ -46,6 +50,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int? id)
         {
             if (!ModelState.IsValid) return View();
@@ -60,6 +65,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, TagUpdateVM request)
         {
@@ -75,7 +81,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (!ModelState.IsValid) return View();

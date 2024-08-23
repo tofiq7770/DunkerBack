@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.Banner;
 
@@ -18,6 +19,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img");
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
             var Banners = await _service.GetAllAsync();
@@ -25,15 +27,19 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View(Banners);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int id)
         {
 
             return View(await _service.GetByIdAsync(id));
         }
+
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(BannerCreateVM vm)
         {
@@ -52,6 +58,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
 
@@ -63,6 +70,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             var result = await _service.GetUpdatedBannerAsync(id);
@@ -73,6 +81,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View(result);
 
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(BannerUpdateVM vm)
         {

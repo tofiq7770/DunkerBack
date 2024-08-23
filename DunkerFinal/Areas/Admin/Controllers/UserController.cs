@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,6 +21,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -44,6 +46,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> AddRole()
         {
 
@@ -55,6 +58,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> AddRole(AddRoleVM request)
         {
             var user = await _userManager.FindByIdAsync(request.UserId);
@@ -69,6 +73,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> RemoveRole(RemoveRoleVM request)
         {
             var user = await _userManager.FindByIdAsync(request.UserId);
@@ -97,6 +102,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> GetRoleCount(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -108,7 +114,5 @@ namespace DunkerFinal.Areas.Admin.Controllers
             var roles = await _userManager.GetRolesAsync(user);
             return Json(new { roleCount = roles.Count });
         }
-
-
     }
 }

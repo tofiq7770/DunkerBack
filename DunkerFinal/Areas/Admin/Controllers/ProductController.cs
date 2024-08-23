@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.Entities;
 using DunkerFinal.Areas.Admin.Class;
 using DunkerFinal.ViewModels.Products;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
@@ -56,7 +57,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _imageService = imageService;
             _mapper = mapper;
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 3)
         {
             var products = _service.GetAllAsync();
@@ -72,6 +73,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return View(viewModel);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
 
         public async Task<IActionResult> Create()
         {
@@ -84,6 +86,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Create(ProductCreateVM request)
         {
             ViewBag.Colors = await _colorService.GetAllSelectListAsync();
@@ -136,7 +139,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             ViewBag.Categories = await _categoryService.GetAllSelectListAsync();
@@ -154,6 +157,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, ProductUpdateVM request)
         {
@@ -211,13 +215,14 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> DeleteColor(int id)
         {
             var existColor = await _productColorService.GetByIdAsync(id);
             await _productColorService.Delete(existColor);
             return PartialView("_ColorOptionPartial", existColor);
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteImgByProductId(int imgId, int productId)
         {
@@ -234,6 +239,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> MakeMain(int imgId, int productId)
         {
             var product = await _service.GetByIdAsync(productId);
@@ -251,7 +257,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return Ok();
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             //if (id <= 0) return BadRequest();
@@ -285,7 +291,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int? id)
         {
             ViewBag.Colors = await _colorService.GetByIdAsync((int)id);

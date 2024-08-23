@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using DunkerFinal.ViewModels.Blog;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
@@ -18,15 +19,18 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
             List<Blog> Blogs = await _context.Blogs.ToListAsync();
             return View(Blogs);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(BlogCreateVM create)
@@ -57,6 +61,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id is null) return BadRequest();
@@ -72,6 +77,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             };
             return View(model);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
@@ -89,6 +95,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             if (id == null) return BadRequest();
@@ -105,6 +112,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id, BlogUpdateVM request)
         {
             Blog existBlog = await _context.Blogs.FirstOrDefaultAsync(m => m.Id == id);

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.Brand;
 
@@ -17,23 +18,25 @@ namespace DunkerFinal.Areas.Admin.Controllers
             _webHostEnvironment = webHostEnvironment;
             _imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "assets", "img");
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
             var Brands = await _service.GetAllAsync();
 
             return View(Brands);
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int id)
         {
 
             return View(await _service.GetByIdAsync(id));
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(BrandCreateVM vm)
         {
@@ -52,7 +55,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
 
@@ -63,7 +66,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             var result = await _service.GetUpdatedBrandAsync(id);
@@ -75,6 +78,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(BrandUpdateVM vm)
         {
             var result = await _service.UpdateAsync(vm, _imagePath);

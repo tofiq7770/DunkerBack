@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.Setting;
 
@@ -15,23 +16,26 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
 
             return View(await _settingService.GetAllAsync());
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int id)
         {
 
             return View(await _settingService.GetByIdAsync(id));
         }
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SettingCreateVM request)
         {
@@ -45,6 +49,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             await _settingService.CreateAsync(request);
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
@@ -60,6 +65,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, SettingUpdateVM request)
         {
@@ -75,7 +81,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (!ModelState.IsValid) return View();
