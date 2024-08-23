@@ -27,6 +27,11 @@ namespace Service.Services
             _mapper = mapper;
         }
 
+        public async Task<bool> AnyAsync(string name)
+        {
+            return await _repository.AnyAsync(name.ToLower().Trim());
+        }
+
         public async Task<int> CreateAsync(ProductCreateVM model)
         {
             var productId = await _repository.CreateAsync(_mapper.Map<Product>(model));

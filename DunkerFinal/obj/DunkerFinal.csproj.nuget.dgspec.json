@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj": {}
+    "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj": {
+    "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\tofiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj": {
+    "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
+        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
         "projectName": "DunkerFinal",
-        "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
+        "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
         "packagesPath": "C:\\Users\\tofiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\obj\\",
+        "outputPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,11 +96,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj"
+              "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj"
+              "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\Service.csproj"
               }
             }
           }
@@ -147,6 +147,10 @@
               "target": "Package",
               "version": "[4.7.1, )"
             },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[45.11.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -174,14 +178,14 @@
         }
       }
     },
-    "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\Repository.csproj": {
+    "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\tofiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -202,8 +206,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Domain\\Domain.csproj"
+              "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Domain\\Domain.csproj"
               }
             }
           }
@@ -241,6 +245,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.32, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[45.11.0, )"
             }
           },
           "imports": [
@@ -262,14 +270,14 @@
         }
       }
     },
-    "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj": {
+    "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\tofiq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Service\\obj\\",
+        "outputPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -290,8 +298,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\Repository\\Repository.csproj"
+              "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\Repository\\Repository.csproj"
               }
             }
           }
@@ -329,6 +337,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[6.0.1, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[45.11.0, )"
             }
           },
           "imports": [

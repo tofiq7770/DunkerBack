@@ -7,30 +7,31 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fruitables Admin</title>
+    <title>Dunker Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.4/sweetalert2.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/admin/assets/vendors/css/vendor.bundle.base.css">
-   
+
     <!-- Layout styles -->
     <link rel="stylesheet" href="~/admin/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="~/admin/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="~/assets/img/cropped-favicon-32x32.png" />
 </head>
 <body>
     <style>
         .btn-danger {
-            background-color:#f6214c !important;
+            background-color: #f6214c !important;
         }
-        .btn-danger:hover {
-            background-color:#ff003391 !important;
-        }
+
+            .btn-danger:hover {
+                background-color: #ff003391 !important;
+            }
     </style>
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo"  asp-action="Index" asp-controller="Home"><img src="~/assets/img/Dunker-logo-dark.png" alt="logo" /></a>
+            <a class="navbar-brand brand-logo" asp-action="Index" asp-controller="Home"><img src="~/assets/img/Dunker-logo-dark.png" alt="logo" /></a>
             <a class="navbar-brand brand-logo-mini" asp-action="Index" asp-controller="Home"><img src="~/assets/img/cropped-favicon-32x32.png" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -88,10 +89,10 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle"  asp-action="Index"  asp-controller="Contact" asp-area="Admin">
+                    <a class="nav-link count-indicator dropdown-toggle" asp-action="Index" asp-controller="Contact" asp-area="Admin">
                         <i class="mdi mdi-email-outline"></i>
                         <span class="count-symbol bg-warning"></span>
-                    </a> 
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
@@ -266,14 +267,14 @@
                         <i class="mdi mdi mdi mdi-star-circle menu-icon"></i>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Baner" asp-action="Index">
                         <span class="menu-title">Banner</span>
                         <i class="mdi mdi mdi-tablet menu-icon"></i>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Admin" asp-controller="Team" asp-action="Index">
                         <span class="menu-title">Team</span>
@@ -286,20 +287,23 @@
                         <i class="mdi  mdi mdi-apps-box menu-icon"></i>
                     </a>
                 </li>
-                
+                @if (User.IsInRole("SuperAdmin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                            <span class="menu-title">User's</span>
+                            <i class="mdi mdi mdi-account menu-icon"></i>
+                        </a>
+                    </li>
+                }
+
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
-                        <span class="menu-title">User's</span>
-                        <i class="mdi mdi mdi-account menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Index"  asp-controller="Contact" asp-area="Admin">
+                    <a class="nav-link" asp-action="Index" asp-controller="Contact" asp-area="Admin">
                         <span class="menu-title">Contact</span>
                         <i class="mdi mdi-email-outline menu-icon"></i>
                     </a>
                 </li>
-                
+
 
                 <li class="nav-item">
                     <a class="nav-link" asp-area="Home" asp-controller="Home" asp-action="Index">
@@ -328,6 +332,8 @@
     <script src="~/admin/assets/js/off-canvas.js"></script>
     <script src="~/admin/assets/js/hoverable-collapse.js"></script>
     <script src="~/admin/assets/js/misc.js"></script>
+     
+    <!-- Your custom JS --> 
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="~/admin/assets/js/dashboard.js"></script>

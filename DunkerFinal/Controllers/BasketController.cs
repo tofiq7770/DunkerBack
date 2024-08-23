@@ -1,6 +1,10 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repository.DAL;
 using Service.ViewModels.Basket;
@@ -56,8 +60,10 @@ namespace DunkerFinal.Controllers
 
             return View(basketListVMs);
         }
+
+
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] int? productId)
+        public async Task<IActionResult> Add(int? productId)
         {
             if (productId == null)
                 return BadRequest(new { success = false, message = "Product ID is required." });
@@ -86,6 +92,9 @@ namespace DunkerFinal.Controllers
             {
                 basketProduct.Quantity++;
                 await _context.SaveChangesAsync();
+
+                // Send a response that only updates the product count
+                return Json(new { success = true, message = "Product quantity updated.", uniqueProductCount = basket.BasketProducts.Count, isUpdate = true });
             }
             else
             {
@@ -118,14 +127,46 @@ namespace DunkerFinal.Controllers
                 }
 
                 await _context.SaveChangesAsync();
+
+                // This part renders the partial view for the updated basket
+                BasketProduct addedProduct = await _context.BasketProducts
+                    .Include(m => m.Product).ThenInclude(m => m.ProductImages)
+                    .Include(m => m.Product).ThenInclude(m => m.Category)
+                    .FirstOrDefaultAsync(m => m.ProductId == productId && m.Basket.AppUserId == existUser.Id);
+
+                string renderedView = await RenderViewAsync("_SidebarBasket", addedProduct);
+
+                return Json(new { success = true, message = "Product added to basket.", uniqueProductCount = basket.BasketProducts.Count, partialView = renderedView, isUpdate = false });
             }
-
-            int uniqueProductCount = await _context.BasketProducts
-                .Where(m => m.Basket.AppUserId == existUser.Id)
-                .CountAsync();
-
-            return Json(new { success = true, message = "Product added to basket.", uniqueProductCount });
         }
+
+
+        private async Task<string> RenderViewAsync(string viewName, object model, bool partial = false)
+        {
+            var viewEngine = HttpContext.RequestServices.GetService(typeof(ICompositeViewEngine)) as ICompositeViewEngine;
+            var tempDataProvider = HttpContext.RequestServices.GetService(typeof(ITempDataProvider)) as ITempDataProvider;
+            var actionContext = new ActionContext(HttpContext, HttpContext.GetRouteData(), ControllerContext.ActionDescriptor, ModelState);
+
+            using (var sw = new StringWriter())
+            {
+                var viewResult = viewEngine.FindView(actionContext, viewName, !partial);
+                if (viewResult.View == null)
+                {
+                    throw new ArgumentNullException($"{viewName} does not match any available view");
+                }
+
+                var viewDictionary = new ViewDataDictionary(new EmptyModelMetadataProvider(), ModelState)
+                {
+                    Model = model
+                };
+                var viewContext = new ViewContext(actionContext, viewResult.View, viewDictionary, new TempDataDictionary(HttpContext, tempDataProvider), sw, new HtmlHelperOptions());
+
+                await viewResult.View.RenderAsync(viewContext);
+                return sw.ToString();
+            }
+        }
+
+
 
         [HttpPost]
         public async Task<IActionResult> Delete(int? id)
@@ -171,6 +212,31 @@ namespace DunkerFinal.Controllers
                 isEmpty = totalQuantity == 0
             });
         }
+
+        public async Task<IActionResult> OrderConfirmation()
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
+
+            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (existUser == null)
+                return NotFound();
+
+            Basket basket = await _context.Baskets
+                .Include(b => b.BasketProducts)
+                .FirstOrDefaultAsync(b => b.AppUserId == existUser.Id);
+
+            if (basket != null && basket.BasketProducts.Any())
+            {
+                _context.BasketProducts.RemoveRange(basket.BasketProducts);
+                await _context.SaveChangesAsync();
+            }
+
+            // You can return the confirmation view or redirect as needed
+            return View();
+        }
+
 
         public class IncreaseRequest
         {

@@ -15,8 +15,11 @@ namespace Service.ViewModels.Product
 
         public int Quantity { get; set; }
         public decimal Weight { get; set; }
+        public int CategoryId { get; set; }
 
         public string Category { get; set; }
+
+        public int BrandId { get; set; }
         public string Brand { get; set; }
 
 

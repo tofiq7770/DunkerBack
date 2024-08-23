@@ -85,6 +85,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View();
         }
 
+
         [HttpPost]
         [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Create(ProductCreateVM request)
@@ -95,6 +96,12 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
 
             if (!ModelState.IsValid) return View(request);
+
+            if (await _service.AnyAsync(request.Name.Trim().ToLower()))
+            {
+                ModelState.AddModelError("Name", $"{request.Name} already exist!");
+                return View(request);
+            }
 
             foreach (var item in request.Images)
             {
@@ -165,6 +172,17 @@ namespace DunkerFinal.Areas.Admin.Controllers
             ViewBag.Brands = await _brandService.GetAllSelectListAsync();
             ViewBag.Colors = await _colorService.GetAllSelectListAsync(await _productColorService.GetAllColorIdsByProductId(id));
             ViewBag.Tags = await _tagService.GetAllSelectListAsync();
+
+            if (!ModelState.IsValid) return View(request);
+
+
+            var productCount = await _context.Products.Where(p => p.Name.ToLower() == request.Name.Trim().ToLower() && p.Id != id).CountAsync();
+
+            if (productCount > 0)
+            {
+                ModelState.AddModelError("Name", $"{request.Name} already exists!");
+                return View(request);
+            }
 
 
             if (request.Images != null)
@@ -331,5 +349,7 @@ namespace DunkerFinal.Areas.Admin.Controllers
             return View(model);
 
         }
+
+
     }
 }

@@ -7,9 +7,9 @@ namespace Service.Services.Interfaces
     public interface IProductService
     {
         public Task<List<Product>> GetAllAsync(int? categoryId = null);
+        Task<bool> AnyAsync(string name);
         public Task SendViewBagElements(dynamic ViewBag);
         public Task<int> CreateAsync(ProductCreateVM model);
-
         public Task<bool> DeleteAsync(int id, string ImagePath);
         public Task<ProductUpdateVM?> GetUpdatedProductAsync(int id, dynamic ViewBag);
         public Task UpdateAsync(ProductUpdateVM model);

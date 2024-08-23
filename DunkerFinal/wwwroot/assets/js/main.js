@@ -80,38 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-
-    
-
 document.querySelectorAll('.add-to-basket-button').forEach(button => {
     button.addEventListener('click', async function () {
         const productId = this.getAttribute('data-product-id');
 
         try {
-            const response = await fetch('/Basket/Add', {
+            const response = await fetch(`/Basket/Add?productId=${productId}`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify(productId)
+                }
             });
 
             const result = await response.json();
 
             if (response.ok) {
                 if (result.redirectUrl) {
-                    // Handle redirection if provided
                     Swal.fire({
                         title: 'Login Required',
                         text: 'You need to be logged in to add items to your basket.',
                         icon: 'warning',
                         showConfirmButton: true,
-                        confirmButtonText: 'Login',
-                        onClose: () => {
-                            window.location.href = result.redirectUrl; // Redirect to login
-                        }
+                        confirmButtonText: 'Login'
+                    }).then(() => {
+                        window.location.href = result.redirectUrl;
                     });
                 } else {
                     Swal.fire({
@@ -122,9 +114,14 @@ document.querySelectorAll('.add-to-basket-button').forEach(button => {
                         showConfirmButton: false
                     });
 
+                    // Update basket count
                     document.querySelector('.count-basket').textContent = result.uniqueProductCount;
+                    document.querySelector('.amount').textContent = result.uniqueProductCount;
 
-                    updateBasketUI();
+                    if (!result.isUpdate) {
+                        // Only add new HTML for new products
+                        document.querySelector(".basket-products").innerHTML += result.partialView;
+                    }
                 }
             } else {
                 Swal.fire({
@@ -148,9 +145,75 @@ document.querySelectorAll('.add-to-basket-button').forEach(button => {
     });
 });
 
-function updateBasketUI() {
-    // Implement this function to refresh the basket display, count items, etc.
-}
+
+//document.querySelectorAll('.add-to-basket-button').forEach(button => {
+//    button.addEventListener('click', async function () {
+//        const productId = this.getAttribute('data-product-id');
+
+//        try {
+//            const response = await fetch('/Basket/Add', {
+//                method: 'POST',
+//                headers: {
+//                    'Content-Type': 'application/json',
+//                    'X-Requested-With': 'XMLHttpRequest'
+//                },
+//                body: JSON.stringify(productId)
+//            });
+
+//            const result = await response.json();
+
+//            if (response.ok) {
+//                if (result.redirectUrl) {
+//                    // Handle redirection if provided
+//                    Swal.fire({
+//                        title: 'Login Required',
+//                        text: 'You need to be logged in to add items to your basket.',
+//                        icon: 'warning',
+//                        showConfirmButton: true,
+//                        confirmButtonText: 'Login',
+//                        onClose: () => {
+//                            window.location.href = result.redirectUrl; // Redirect to login
+//                        }
+//                    });
+//                } else {
+//                    Swal.fire({
+//                        title: 'Success!',
+//                        text: result.message,
+//                        icon: 'success',
+//                        timer: 1200,
+//                        showConfirmButton: false
+//                    });
+
+//                    document.querySelector('.count-basket').textContent = result.uniqueProductCount;
+
+//                    updateBasketUI();
+//                }
+//            } else {
+//                Swal.fire({
+//                    title: 'Error!',
+//                    text: 'Failed to add product to basket. ' + result.message,
+//                    icon: 'error',
+//                    timer: 1200,
+//                    showConfirmButton: false
+//                });
+//            }
+//        } catch (error) {
+//            console.error('Network error:', error);
+//            Swal.fire({
+//                title: 'Network Error!',
+//                text: 'An error occurred. Please try again.',
+//                icon: 'error',
+//                timer: 1200,
+//                showConfirmButton: false
+//            });
+//        }
+//    });
+//});
+
+//function updateBasketUI() {
+//    // Implement this function to refresh the basket display, count items, etc.
+//}
+
 
 const debounce = (func, delay) => {
     let timeout;
