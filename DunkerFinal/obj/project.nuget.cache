@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+cfdeGGfBDab5IJWchnnVnrnHVzn8ME4LwuB9mUe5TSnR+3pMYg0YT6mgzpqSCEneW1690938kgxRnzjQZrqyg==",
+  "dgSpecHash": "wWg+9/xX/6e5watStfrn8n12+dx/o/VAX5xe6i957VdiKKzDdSaXosp5d6fhZf5VGoiQ2qDFx1pweIRhXKnDrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\New folder (2)\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
+  "projectFilePath": "C:\\Users\\tofiq\\Desktop\\DunkerBack\\DunkerFinal\\DunkerFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tofiq\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\tofiq\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
