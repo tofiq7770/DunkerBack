@@ -79,5 +79,19 @@ namespace DunkerFinal.Controllers
             return View(model);
         }
 
+
+        [Route("/StatusCodeError/{statusCode}")]
+        public IActionResult Error(int statusCode)
+        {
+            if (statusCode == 404)
+            {
+                ViewBag.ErrorMessage = "Page could not be found !";
+            }
+
+            return View("Error");
+
+        }
+
+
     }
 }

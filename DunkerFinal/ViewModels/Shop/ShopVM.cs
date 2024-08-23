@@ -12,6 +12,7 @@ namespace DunkerFinal.ViewModels.Shop
         public IEnumerable<Product> Products { get; set; }
         public Product Product { get; set; }
         public IEnumerable<CategoryListVM> Categories { get; set; }
+        public IEnumerable<Review> Reviews { get; set; }
 
         public IEnumerable<BrandListVM> Brands { get; set; }
         public IEnumerable<BasketProduct> Baskets { get; set; }

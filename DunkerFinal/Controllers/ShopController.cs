@@ -84,7 +84,7 @@ namespace DunkerFinal.Controllers
         {
             var userId = _userManager.GetUserId(User);
             List<Product> products = await _productService.GetAllAsync();
-            Product product = await _context.Products.Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.Brand).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == Id);
+            Product? product = await _context.Products.Include(m => m.ProductTags).ThenInclude(m => m.Tag).Include(m => m.ProductColors).ThenInclude(m => m.Color).Include(m => m.Brand).Include(m => m.Category).FirstOrDefaultAsync(m => m.Id == Id);
             IEnumerable<CategoryListVM> categories = await _categoryService.GetAllAsync();
 
             AppUser existUser = new();
@@ -99,6 +99,7 @@ namespace DunkerFinal.Controllers
                 Products = products,
                 Product = product,
                 Categories = categories,
+                Reviews = await _context.Reviews.Include(m => m.AppUser).ToListAsync(),
                 Brands = await _brandService.GetAllAsync(),
                 Colors = await _colorService.GetAllAsync(),
                 WishlistProducts = await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId)
@@ -235,6 +236,32 @@ namespace DunkerFinal.Controllers
             };
 
             return View("Index", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(int productId, string message, int rating, string name, string email)
+        {
+            // Check if the product exists
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+            {
+                return NotFound("Product not found.");
+            }
+
+            // Create and add the new review
+            var review = new Review
+            {
+                ProductId = productId,
+                Message = message,
+                CreatedTime = DateTime.Now,
+                AppUser = new AppUser { FullName = name, Email = email } // Adjust according to your user model
+            };
+
+            _context.Reviews.Add(review);
+            await _context.SaveChangesAsync();
+
+            // Return a JSON result for AJAX success
+            return Json(new { success = true });
         }
 
 

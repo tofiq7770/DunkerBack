@@ -96,7 +96,7 @@
                         <button class="add-to-basket-button" data-product-id="@Model.Product.Id">
                             <span>ADD TO CART</span> <i class="fa-solid fa-basket-shopping"></i>
                         </button>
-                       
+
                     </div>
                     <div class="product-info">
                         <div class="share">
@@ -132,52 +132,95 @@
             <div class="col-12 pt-5">
                 <div class="product-description">
                     <div class="product-description-header">
-                        <ul class="tab-items" id="tabItems">
-                            <li class="tab-item">
-                                <a href="#" class="tab-link" data-tab="description">
-                                    DESCRIPTION
-                                </a>
+                        <ul class="tab-items" id="tabItems" style="list-style: none; display: flex; padding: 0; margin: 0; border-bottom: 2px solid #e2e2e2;">
+                            <li class="tab-item" style="margin-right: 30px;">
+                                <a href="#" class="tab-link" data-tab="description" style="text-decoration: none; font-size: 16px; color: #333; padding-bottom: 10px; display: inline-block; border-bottom: 3px solid transparent;">DESCRIPTION</a>
                             </li>
                             <li class="tab-item">
-                                <a href="#" class="tab-link" data-tab="additional-info">
-                                    ADDITIONAL INFORMATION
-                                </a>
+                                <a href="#" class="tab-link" data-tab="additional-info" style="text-decoration: none; font-size: 16px; color: #333; padding-bottom: 10px; display: inline-block; border-bottom: 3px solid transparent;">REVIEWS (@Model.Product.Reviews.Count)</a>
                             </li>
-
                         </ul>
                     </div>
                     <div class="tabs-content pt-4" id="tabContent">
                         <div class="tab" data-tab="description">
-                            <p class="fs-5">
+                            <p class="fs-5" style="font-size: 18px; line-height: 1.6; color: #555;">
                                 @Model.Product.Description
                             </p>
                         </div>
                         <div class="tab d-none" data-tab="additional-info">
                             <div class="product-stats">
-                                <div class="sku">
-                                    <span>WEIGHT:</span>
-                                    <a href="#">@Model.Product.Weight</a>
-                                </div>
-                                <div class="category">
-                                    <span>DIMENSIONS:</span>
-                                    <a href="#">60 × 40 × 120 cm</a>
+                                <div class="container mt-5">
+                                    @if (Model.Product.Reviews != null && Model.Product.Reviews.Any())
+                                    {
+                                        @foreach (var item in Model.Product.Reviews)
+                                        {
+                                            <div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">
+                                                <div class="d-flex align-items-start">
+                                                    <img src="~/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">
+                                                    <div>
+                                                        <p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">@item.CreatedTime.ToString("MMMM dd, yyyy")</p>
+                                                        <h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">@item.AppUser.FullName</h5>
+                                                        <p style="font-size: 16px; color: #555; margin-bottom: 10px;">
+                                                            @item.Message
+                                                        </p>
+                                                        <div class="stars" style="font-size: 18px;">
+                                                           @* @for (int i = 0; i < 5; i++)
+                                                            {
+                                                                <span class="text-warning" style="color: @((i < item.Rating) ? "#ffc107" : "#e2e2e2");">&#9733;</span>
+                                                            }*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>No reviews yet.</p>
+                                    }
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="tab d-none" data-tab="reviews">
-                          <div class="product-stats">
-                            <div class="sku">
-                              <span>dcsddw:</span>
-                              <a href="#">0.4 kg</a>
-                            </div>
-                            <div class="category">
-                              <span>DIMENSIONS:</span>
-                              <a href="#">60 × 40 × 120 cm</a>
-                            </div>
-                          </div>
-                        </div> -->
                     </div>
                 </div>
+            </div>
+
+            <!-- Form for adding a review -->
+            <div class="container mt-5">
+                <h2 class="mb-4">Leave a Reply</h2>
+                <form id="reviewForm" method="post" action="@Url.Action("AddComment", "Shop")">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="productId" name="productId" value="@Model.Product.Id">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Your Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Your Review *</label>
+                        <textarea class="form-control" id="review" name="message" rows="4" placeholder="Your Review" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Please rate:</label>
+                        <div id="rating">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <input type="radio" id="rating@i" name="rating" value="@i" />
+                                <label for="rating@i" class="text-secondary" style="font-size: 18px;">&#9733;</label>
+                            }
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success">Post Comment</button>
+                </form>
+
+                <!-- Placeholder for displaying the new review -->
+                <div id="reviewContainer" class="mt-4"></div>
             </div>
         </div>
     </section>
@@ -192,76 +235,125 @@
             </div>
         </div>
     </section>
-</main> 
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#reviewForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent the form from submitting the traditional way
+
+        // Collect form data
+        var formData = {
+            productId: $('#productId').val(),
+            message: $('#review').val(),
+            rating: $('input[name="rating"]:checked').val(),
+            name: $('#name').val(),
+            email: $('#email').val()
+        };
+
+        $.ajax({
+            url: '@Url.Action("AddComment", "Shop")', // Adjust the action name and controller as needed
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                // On success, update the review list
+                $('#reviewContainer').prepend(
+                    '<div class="review" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e2e2e2; border-radius: 8px; background-color: #f9f9f9;">' +
+                    '<div class="d-flex align-items-start">' +
+                    '<img src="~/assets/img/User.png" alt="User Avatar" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; margin-right: 20px;">' +
+                    '<div>' +
+                    '<p class="mb-1 text-muted" style="margin: 0; color: #777; font-size: 14px;">' + new Date().toLocaleDateString() + '</p>' +
+                    '<h5 class="font-weight-bold mb-1" style="margin: 5px 0; font-size: 18px; color: #333;">' + formData.name + '</h5>' +
+                    '<p style="font-size: 16px; color: #555; margin-bottom: 10px;">' + formData.message + '</p>' +
+                    '<div class="stars" style="font-size: 18px;">' +
+                    '<span class="text-warning" style="color: #ffc107;">&#9733;</span>'.repeat(formData.rating) +
+                    '<span class="text-secondary">&#9733;</span>'.repeat(5 - formData.rating) +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
+                );
+                // Clear the form
+                $('#reviewForm')[0].reset();
+            },
+            error: function(xhr, status, error) {
+                alert('An error occurred: ' + error);
+            }
+        });
+    });
+});
+</script>
+
 
 <script>
 
-     document.querySelectorAll('.add-to-basket-button').forEach(button => {
-            button.addEventListener('click', async function () {
-                const productId = this.getAttribute('data-product-id');
+    document.querySelectorAll('.add-to-basket-button').forEach(button => {
+           button.addEventListener('click', async function () {
+               const productId = this.getAttribute('data-product-id');
 
-                try {
-                    const response = await fetch('/Basket/Add', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: JSON.stringify(productId)
-                    });
+               try {
+                   const response = await fetch('/Basket/Add', {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json',
+                           'X-Requested-With': 'XMLHttpRequest'
+                       },
+                       body: JSON.stringify(productId)
+                   });
 
-                    const result = await response.json();
+                   const result = await response.json();
 
-                    if (response.ok) {
-                        if (result.redirectUrl) {
-                            // Handle redirection if provided
-                            Swal.fire({
-                                title: 'Login Required',
-                                text: 'You need to be logged in to add items to your basket.',
-                                icon: 'warning',
-                                showConfirmButton: true,
-                                confirmButtonText: 'Login',
-                                onClose: () => {
-                                    window.location.href = result.redirectUrl; // Redirect to login
-                                }
-                            });
-                        } else {
-                            Swal.fire({
-                                title: 'Success!',
-                                text: result.message,
-                                icon: 'success',
-                                timer: 1200,
-                                showConfirmButton: false
-                            });
+                   if (response.ok) {
+                       if (result.redirectUrl) {
+                           // Handle redirection if provided
+                           Swal.fire({
+                               title: 'Login Required',
+                               text: 'You need to be logged in to add items to your basket.',
+                               icon: 'warning',
+                               showConfirmButton: true,
+                               confirmButtonText: 'Login',
+                               onClose: () => {
+                                   window.location.href = result.redirectUrl; // Redirect to login
+                               }
+                           });
+                       } else {
+                           Swal.fire({
+                               title: 'Success!',
+                               text: result.message,
+                               icon: 'success',
+                               timer: 1200,
+                               showConfirmButton: false
+                           });
 
-                            document.querySelector('.count-basket').textContent = result.uniqueProductCount;
+                           document.querySelector('.count-basket').textContent = result.uniqueProductCount;
 
-                            updateBasketUI();
-                        }
-                    } else {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Failed to add product to basket. ' + result.message,
-                            icon: 'error',
-                            timer: 1200,
-                            showConfirmButton: false
-                        });
-                    }
-                } catch (error) {
-                    console.error('Network error:', error);
-                    Swal.fire({
-                        title: 'Network Error!',
-                        text: 'An error occurred. Please try again.',
-                        icon: 'error',
-                        timer: 1200,
-                        showConfirmButton: false
-                    });
-                }
-            });
-        });
+                           updateBasketUI();
+                       }
+                   } else {
+                       Swal.fire({
+                           title: 'Error!',
+                           text: 'Failed to add product to basket. ' + result.message,
+                           icon: 'error',
+                           timer: 1200,
+                           showConfirmButton: false
+                       });
+                   }
+               } catch (error) {
+                   console.error('Network error:', error);
+                   Swal.fire({
+                       title: 'Network Error!',
+                       text: 'An error occurred. Please try again.',
+                       icon: 'error',
+                       timer: 1200,
+                       showConfirmButton: false
+                   });
+               }
+           });
+       });
 
-        function updateBasketUI() {
-            // Implement this function to refresh the basket display, count items, etc.
-        }
+       function updateBasketUI() {
+           // Implement this function to refresh the basket display, count items, etc.
+       }
 
 </script>
