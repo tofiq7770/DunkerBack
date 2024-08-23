@@ -59,6 +59,7 @@ namespace DunkerFinal.Controllers
                 Products = await _productService.GetAllAsync(),
                 Categories = await _categoryService.GetAllAsync(),
                 Brands = await _brandService.GetAllAsync(),
+                Explores = await _context.Explores.ToListAsync(),
                 Colors = await _colorService.GetAllAsync(),
                 WishlistProducts = await _context.WishlistProducts.Where(bp => bp.Wishlist.AppUserId == userId)
                                         .ToListAsync(),

@@ -233,76 +233,18 @@
                         </li>
                         <li class="navbar-item">
                             <a asp-action="Index" asp-controller="Shop" class="navbar-link">SHOP</a>
-                            <div class="multiple">
-                                <ul class="multiple-subMenu text-uppercase">
-                                    <li class="multiple-subMenu-items">
-                                        <span href="#" class="multiple-subMenu-heading">
-                                            Product Types
-                                        </span>
-                                        <ul class="multiple-subMenu-item text-uppercase">
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">STANDARD</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">Men</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">Women</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">SALE PRODUCT</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">FIXED INFO</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="multiple-subMenu-items">
-                                        <span href="#" class="multiple-subMenu-heading">
-                                            Product Types
-                                        </span>
-                                        <ul class="multiple-subMenu-item text-uppercase">
-                                            <li class="multiple-item">
-                                                <a asp-action="index" asp-controller="Contact" class="multiple-link">Contact Us</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">Our Brands</a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a href="#" class="multiple-link">
-                                                    Terms & Conditions
-                                                </a>
-                                            </li>
-                                            <li class="multiple-item">
-                                                <a asp-action="Index" asp-controller="Blog" class="multiple-link">About Us</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </li>
                         <li class="navbar-item">
-                            <a href="#" class="navbar-link">OUR TEAM</a>
-                            <ul class="subMenu text-uppercase">
-                                <li class="subMenu-item">
-                                    <a asp-action="index" asp-controller="Contact" class="subMenu-link">Contact Us</a>
-                                </li>
-                                <li class="subMenu-item">
-                                    <a href="#" class="subMenu-link">Our Brands</a>
-                                </li>
-                                <li class="subMenu-item">
-                                    <a href="#" class="subMenu-link">Terms & Conditions</a>
-                                </li>
-                                <li class="subMenu-item">
-                                    <a asp-action="Index" asp-controller="Blog" class="subMenu-link">About Us</a>
-                                </li>
-                            </ul>
+                            <a asp-action="index" asp-controller="Contact" class="navbar-link">CONTACT US</a>
+
                         </li>
                         <li class="navbar-item">
                             <a asp-action="Index" asp-controller="Blog" class="navbar-link">BLOG</a>
                         </li>
+
                         <li class="navbar-item">
-                            <a href="#" class="navbar-link">FAQ</a>
+                            <a asp-action="Index" asp-controller="Team" class="navbar-link">TEAM</a>
                         </li>
                     </ul>
                 </div>
@@ -729,66 +671,32 @@
             <div class="section-container">
                 <div class="new-collection">
                     <div class="row g-0">
-                        <div class="col-md-4 col-12">
-                            <div class="banner">
-                                <div class="banner-container">
-                                    <div class="banner-img">
-                                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h1-ibanner-3.jpg"
+                        @if (Model.Explores.Count() > 0)
+                        {
+                            @foreach (var item in Model.Explores)
+                            {
+                                <div class="col-md-4 col-12">
+                                    <div class="banner">
+                                        <div class="banner-container">
+                                            <div class="banner-img">
+                                                <img src="~/assets/img/@item.Image"
                                              alt="Banner" />
-                                        <div class="img-title">
-                                            <a href="#">NORTH FACE</a>
-                                            <h3>GYM BACKPACK</h3>
+                                                <div class="img-title">
+                                                    <a asp-action="Index" asp-controller="Shop">@item.Brand</a>
+                                                    <h3>@item.Name</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="banner-title">
+                                            <h6>EXPLORE COLLECTION</h6>
+                                            <a href="#" class="banner-icon">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="banner-title">
-                                    <h6>EXPLORE COLLECTION</h6>
-                                    <a href="#" class="banner-icon">
-                                        <i class="fa fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <div class="banner">
-                                <div class="banner-container">
-                                    <div class="banner-img">
-                                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h1-banner-1.jpg"
-                                             alt="Banner" />
-                                        <div class="img-title">
-                                            <a href="#" class="text-white">NORTH FACE</a>
-                                            <h3 class="text-white">GYM BACKPACK</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-title">
-                                    <h6>EXPLORE COLLECTION</h6>
-                                    <a href="#" class="banner-icon">
-                                        <i class="fa fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                            <div class="banner">
-                                <div class="banner-container">
-                                    <div class="banner-img">
-                                        <img src="https://dunker.qodeinteractive.com/wp-content/uploads/2022/12/h1-ibanner-3.jpg"
-                                             alt="Banner" />
-                                        <div class="img-title">
-                                            <a href="#">NORTH FACE</a>
-                                            <h3>GYM BACKPACK</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-title">
-                                    <h6>EXPLORE COLLECTION</h6>
-                                    <a href="#" class="banner-icon">
-                                        <i class="fa fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                        }
                     </div>
                 </div>
             </div>
